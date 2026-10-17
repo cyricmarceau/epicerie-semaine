@@ -66,6 +66,37 @@
     });
     return n;
   }
+  function qtyTxt(q, f) {
+    if (!q) return "";
+    var v = q * f;
+    return num(v >= 20 ? Math.round(v / 5) * 5 : snap(v, 0.5)) + " ";
+  }
+  // Sépare le garde-manger : base (tu l'as déjà) / pas en spécial (à acheter à prix régulier)
+  function splitPantry(r, f) {
+    var base = [], extra = [];
+    r.gardeManger.forEach(function (x) {
+      var parts = x[1].split(/,| et /).map(function (p) { return p.trim(); }).filter(Boolean);
+      var bad = parts.filter(function (p) { return !BASE_RE.test(p); });
+      if (!bad.length) base.push(qtyTxt(x[0], f) + x[1]);
+      else if (bad.length === parts.length) extra.push(qtyTxt(x[0], f) + x[1]);
+      else {
+        extra = extra.concat(bad);
+        base.push(parts.filter(function (p) { return BASE_RE.test(p); }).join(" et "));
+      }
+    });
+    return { base: base, extra: extra };
+  }
+  // Noms courts des produits pas en spécial (pour les tuiles)
+  function notSpecialNames(r) {
+    var names = r.ingredients.filter(function (i) { return i.horsSpecial; }).map(function (i) { return i.nom.split(",")[0]; });
+    r.gardeManger.forEach(function (x) {
+      x[1].split(/,| et /).forEach(function (p) {
+        p = p.trim();
+        if (p && !BASE_RE.test(p)) names.push(p.replace(/^(c\. à (soupe|thé) d[e’']\s?|tasses? d[e’']\s?|g d[e’']\s?|boîte d[e’']\s?)/, ""));
+      });
+    });
+    return names;
+  }
   function badges(r) {
     var horsN = r.ingredients.filter(function (i) { return i.horsSpecial; }).length;
     var spec = r.ingredients.length - horsN;
@@ -108,6 +139,7 @@
           '<span class="ico">' + svg(iconFor(r)) + '<span class="ico-pct' + (b.pct === 100 ? " full" : "") + '" aria-label="' + b.pct + ' % des produits en spécial">' + b.pct + " %</span></span>" +
           '<span class="tags">' + badgeHtml(b, false) + "</span>" +
           '<span class="nm">' + esc(r.nom) + "</span>" +
+          (function () { var n = notSpecialNames(r); return n.length ? '<span class="ns">Pas en spécial : ' + esc(n.join(", ")) + "</span>" : ""; })() +
           (function () { var c = cost(r, 2); return '<span class="pr"><span><b>' + (c.estime ? "≈ " : "") + money(c.caisse + c.tps + c.tvq) + '</b><span class="cx">à la caisse</span></span><span>' + esc(r.temps) + "</span></span>"; })() +
           "</button>";
       });
@@ -153,11 +185,9 @@
         '<span class="mono">' + est + money(l.caisse) + "</span></li>";
     }).join("");
 
-    var pantry = r.gardeManger.map(function (x) {
-      if (!x[0]) return x[1];
-      var v = x[0] * f;
-      return num(v >= 20 ? Math.round(v / 5) * 5 : snap(v, 0.5)) + " " + x[1];
-    }).join(" · ");
+    var sp = splitPantry(r, f);
+    var hors = r.ingredients.filter(function (i) { return i.horsSpecial; }).map(function (i) { return i.nom; });
+    var notSpec = sp.extra.concat(hors);
 
     var key = e.id + "-" + idx;
     var steps = r.etapes.map(function (s, k) {
@@ -178,7 +208,11 @@
       '<div class="serv">2 portions</div></div>' +
       '<div class="block"><h3>À acheter</h3><ul class="list">' + ings + "</ul>" +
         (tot.estime ? '<p class="pantry">≈ : poids de barquette estimé; le prix exact dépend de l’étiquette en magasin. Les restes se congèlent.</p>' : "") +
-        '<p class="pantry">Garde-manger : ' + esc(pantry || "rien — tout vient des spéciaux") + "</p></div>" +
+        "</div>" +
+      (notSpec.length ? '<div class="warn" role="note"><h3>Pas en spécial — à acheter à prix régulier</h3><ul>' +
+        notSpec.map(function (t) { return "<li>" + esc(t) + "</li>"; }).join("") +
+        "</ul>" + (sp.extra.length ? '<p class="pantry">Prix non inclus dans le total ci-dessus.</p>' : "") + "</div>" : "") +
+      '<p class="pantry">Garde-manger de base (tu l’as déjà) : ' + esc(sp.base.length ? sp.base.join(" · ") : "rien — tout vient des spéciaux") + "</p>" +
       '<div class="block"><h3>Étapes — touche pour cocher</h3>' + steps + "</div>" +
       '<button type="button" class="next" id="next">Autre recette chez ' + esc(e.nom) + "</button>";
   }
