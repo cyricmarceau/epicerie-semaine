@@ -296,14 +296,14 @@ h3{margin:0;font-size:13px;font-weight:600;text-transform:uppercase;letter-spaci
 .splash-v{font:600 12px "IBM Plex Mono",monospace;letter-spacing:.08em;text-transform:uppercase;color:var(--lime);padding:3px 10px;border:1px solid var(--lime-line);border-radius:4px;animation:splash-in .4s ease both}
 
 /* Hellhound qui court sur l'écran d'entrée */
-@keyframes hh-run{from{transform:translateX(-70vw)}to{transform:translateX(70vw)}}
+@keyframes hh-run{from{transform:translateX(-40vw)}to{transform:translateX(40vw)}}
 @keyframes hh-leg{0%,100%{transform:rotate(-22deg)}50%{transform:rotate(22deg)}}
 @keyframes hh-flick{0%,100%{transform:scale(1)}50%{transform:scale(1.15,.9)}}
 @keyframes hh-bob{0%,100%{transform:translateY(0)}50%{transform:translateY(-3px)}}
 .hh-run{display:flex;align-items:flex-end;gap:6px;animation:hh-run 2.5s linear both}
-.hh{animation:hh-bob .2s ease-in-out infinite;overflow:visible;filter:drop-shadow(0 0 6px rgba(255,106,26,.45))}
-.hh-l{transform-box:fill-box;transform-origin:top center;animation:hh-leg .2s linear infinite}
-.hh-l.b{animation-delay:-.1s}
+.hh{animation:hh-bob .32s ease-in-out infinite;overflow:visible;filter:drop-shadow(0 0 6px rgba(255,106,26,.45))}
+.hh-l{transform-box:fill-box;transform-origin:top center;animation:hh-leg .32s linear infinite}
+.hh-l.b{animation-delay:-.16s}
 .hh-fire{transform-box:fill-box;transform-origin:right center;animation:hh-flick .15s ease-in-out infinite}
 .hh-eye{filter:drop-shadow(0 0 3px #FF2E2E)}
 .hh-name{margin-bottom:10px;padding:2px 8px;border-radius:4px;background:#FF6A1A;color:#1A1416;font:700 13px 'IBM Plex Mono',monospace;letter-spacing:.06em;text-transform:uppercase;white-space:nowrap}
