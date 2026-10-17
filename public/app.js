@@ -146,9 +146,6 @@
       return '<button type="button" class="step" data-step="' + k + '" aria-pressed="' + on + '"><span class="num" aria-hidden="true">' + (on ? "✓" : k + 1) + '</span><span class="txt">' + esc(s) + "</span></button>";
     }).join("");
 
-    var seg = [1, 2].map(function (n) {
-      return '<button type="button" data-p="' + n + '" aria-pressed="' + (n === state.portions) + '">' + n + " pers.</button>";
-    }).join("");
 
     var el = $("recipe");
     el.setAttribute("aria-labelledby", "tab-" + e.id);
@@ -159,7 +156,7 @@
       '<div class="price"><div><div class="big">' + (tot.estime ? "≈ " : "") + money(tot.caisse + tot.tps + tot.tvq) + '</div><div class="sub">à la caisse, taxes incluses · ' + money(tot.mange / state.portions) + " par portion mangée</div>" +
         '<div class="tax">TPS 5 % : ' + money(tot.tps) + " · TVQ 9,975 % : " + money(tot.tvq) +
         (tot.tps + tot.tvq === 0 ? "<br>Aliments de base détaxés au Québec" : "") + "</div></div>" +
-      '<div class="seg" role="group" aria-label="Nombre de personnes">' + seg + "</div></div>" +
+      '<div class="serv">2 portions</div></div>' +
       '<div class="block"><h3>À acheter</h3><ul class="list">' + ings + "</ul>" +
         (tot.estime ? '<p class="pantry">≈ : poids de barquette estimé; le prix exact dépend de l’étiquette en magasin. Les restes se congèlent.</p>' : "") +
         '<p class="pantry">Garde-manger : ' + esc(pantry || "rien — tout vient des spéciaux") + "</p></div>" +
@@ -227,8 +224,6 @@
   });
   $("recipe").addEventListener("click", function (ev) {
     var e = current();
-    var p = ev.target.closest("button[data-p]");
-    if (p) { state.portions = Number(p.dataset.p); renderRecipe(); return; }
     var s = ev.target.closest("button[data-step]");
     if (s) {
       var k = e.id + "-" + state.pick[e.id] + "-" + s.dataset.step;

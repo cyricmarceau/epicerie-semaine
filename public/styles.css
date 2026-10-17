@@ -50,6 +50,7 @@ h3{margin:0;font-size:14px;font-weight:600;text-transform:uppercase;letter-spaci
 .price{display:flex;flex-wrap:wrap;justify-content:space-between;align-items:center;gap:16px;padding:16px;background:var(--green-bg);border-radius:14px}
 .big{font:600 36px/1 'IBM Plex Mono',monospace;color:var(--green-dk)}
 .sub{font-size:14px;color:#2F4A39}
+.serv{padding:10px 16px;border-radius:12px;background:#fff;border:1px solid var(--green-line);font-weight:600;color:var(--green-dk)}
 .tax{margin-top:6px;font-size:13px;color:#2F4A39;font-family:'IBM Plex Mono',monospace}
 .seg{display:flex;gap:4px;background:#fff;border:1px solid var(--green-line);border-radius:12px;padding:4px}
 .seg button{min-width:96px;min-height:44px;border:0;border-radius:8px;background:transparent;font-weight:600;color:var(--green-dk);cursor:pointer}
