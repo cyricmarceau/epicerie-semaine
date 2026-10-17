@@ -78,11 +78,12 @@
       pct: cent ? 100 : Math.round(100 * spec / total)
     };
   }
-  function badgeHtml(b) {
+  // withPct : ajoute le badge « X % spéciaux » (page recette); sur les tuiles, le % est sur l'icône
+  function badgeHtml(b, withPct) {
     return (b.chef ? '<span class="bdg chef">Chef</span>' : "") +
       (b.strict ? '<span class="bdg strict">Spéciaux</span>'
         : b.cent ? '<span class="bdg cent">100 % spéciaux</span>'
-        : '<span class="bdg pct">' + b.pct + " % spéciaux</span>");
+        : withPct ? '<span class="bdg pct">' + b.pct + " % spéciaux</span>" : "");
   }
 
   // Étapes cochées : gardées sur l'appareil, par semaine (facultatif)
@@ -104,8 +105,8 @@
         if (f === "cent" && !b.cent) return;
         if (f === "strict" && !b.strict) return;
         tiles += '<button type="button" class="tile" data-store="' + e.id + '" data-idx="' + idx + '">' +
-          '<span class="ico">' + svg(iconFor(r)) + "</span>" +
-          '<span class="tags">' + badgeHtml(b) + "</span>" +
+          '<span class="ico">' + svg(iconFor(r)) + '<span class="ico-pct' + (b.pct === 100 ? " full" : "") + '" aria-label="' + b.pct + ' % des produits en spécial">' + b.pct + " %</span></span>" +
+          '<span class="tags">' + badgeHtml(b, false) + "</span>" +
           '<span class="nm">' + esc(r.nom) + "</span>" +
           (function () { var c = cost(r, 2); return '<span class="pr"><span><b>' + (c.estime ? "≈ " : "") + money(c.caisse + c.tps + c.tvq) + '</b><span class="cx">à la caisse</span></span><span>' + esc(r.temps) + "</span></span>"; })() +
           "</button>";
@@ -169,7 +170,7 @@
     el.setAttribute("aria-labelledby", "tab-" + e.id);
     el.innerHTML =
       '<div class="meta"><span>Recette ' + (idx + 1) + " sur " + e.recettes.length + "</span><span>" + esc(r.temps) + "</span></div>" +
-      (function () { var h = badgeHtml(badges(r)); return h ? '<div class="tags">' + h + "</div>" : ""; })() +
+      (function () { var h = badgeHtml(badges(r), true); return h ? '<div class="tags">' + h + "</div>" : ""; })() +
       "<h2>" + esc(r.nom) + "</h2>" +
       '<div class="price"><div><div class="big">' + (tot.estime ? "≈ " : "") + money(tot.caisse + tot.tps + tot.tvq) + '</div>' +
         '<div class="tax">TPS 5 % : ' + money(tot.tps) + " · TVQ 9,975 % : " + money(tot.tvq) +
