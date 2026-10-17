@@ -24,6 +24,19 @@ h1{margin:0;font:800 clamp(32px,7vw,40px)/1.05 'Bricolage Grotesque',sans-serif;
 .tile .pr{margin-top:auto;display:flex;justify-content:space-between;width:100%;gap:8px;font-size:13px;color:var(--muted)}
 .tile .pr .cx{display:block;font-size:12px}
 .tile .pr b{font:600 16px 'IBM Plex Mono',monospace;color:var(--green-dk)}
+.filters{display:flex;flex-wrap:wrap;gap:8px}
+.filters button{min-height:44px;padding:0 16px;border-radius:999px;border:1px solid var(--line);background:var(--card);font-weight:600;cursor:pointer}
+.filters button[aria-pressed="true"]{background:var(--ink);border-color:var(--ink);color:#fff}
+.tags{display:flex;flex-wrap:wrap;gap:6px}
+.bdg{font:600 12px 'IBM Plex Sans',sans-serif;padding:3px 8px;border-radius:6px;border:1px solid}
+.bdg.chef{background:#FFF3E0;color:#8A4B00;border-color:#E8C48F}
+.bdg.cent{background:var(--green-bg);color:var(--green-dk);border-color:var(--green-line)}
+.bdg.strict{background:var(--green);color:#fff;border-color:var(--green)}
+.list li.hors .n > span.d:nth-child(2){color:#8A4B00;font-weight:500}
+.empty{grid-column:1/-1;margin:0;padding:24px;text-align:center;color:var(--muted);background:var(--card);border:1px dashed var(--line);border-radius:18px}
+.base{gap:0;padding:0}
+.base summary{cursor:pointer;padding:16px 20px;font-weight:600}
+.base p{margin:0;padding:0 20px 16px}
 .back{align-self:flex-start;min-height:44px;padding:0 14px;border-radius:10px;border:1px solid var(--line);background:var(--card);font-weight:600;cursor:pointer}
 .stores{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:8px}
 .stores button{min-height:56px;border-radius:14px;border:2px solid var(--line);background:var(--card);font:800 22px 'Bricolage Grotesque',sans-serif;cursor:pointer}

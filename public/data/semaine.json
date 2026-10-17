@@ -7,7 +7,7 @@
       "nom": "Maxi",
       "recettes": [
         {
-          "nom": "Pilons de poulet érable-ail, poivrons et brocoli rôtis",
+          "nom": "Pilons de poulet ail-paprika, poivrons et brocoli rôtis",
           "temps": "50 min",
           "ingredients": [
             {
@@ -56,8 +56,8 @@
           ],
           "gardeManger": [
             [
-              3,
-              "c. à soupe de sirop d’érable"
+              2,
+              "c. à soupe de cassonade"
             ],
             [
               2,
@@ -68,7 +68,7 @@
               "gousses d’ail"
             ],
             [
-              1,
+              2,
               "c. à thé de paprika"
             ],
             [
@@ -77,11 +77,12 @@
             ]
           ],
           "etapes": [
-            "Préchauffer le four à 425 °F (220 °C). Mélanger l’huile, le sirop d’érable, l’ail haché, le paprika, sel et poivre.",
+            "Préchauffer le four à 425 °F (220 °C). Mélanger l’huile, la cassonade, l’ail haché, le paprika, sel et poivre.",
             "Enrober les pilons de la moitié du mélange et cuire 20 min sur une plaque tapissée.",
             "Ajouter les poivrons en lanières et le brocoli en bouquets, napper du reste du mélange.",
-            "Poursuivre 20 à 25 min, jusqu’à 74 °C (165 °F) au cœur des pilons."
-          ]
+            "Poursuivre 20 à 25 min, jusqu’à 74 °C (165 °F) au cœur des pilons. Les pilons qui restent se congèlent crus jusqu’à 3 mois."
+          ],
+          "icone": "poulet"
         },
         {
           "nom": "Pâtes sauce à la viande et poivrons",
@@ -154,22 +155,104 @@
             "Faire revenir l’oignon et l’ail dans l’huile 3 min, ajouter le porc haché et cuire jusqu’à ce qu’il ne soit plus rosé (71 °C).",
             "Ajouter les poivrons en dés, cuire 3 min, puis la sauce Catelli; mijoter 10 min.",
             "Servir sur les pâtes avec du parmesan."
+          ],
+          "icone": "pates"
+        },
+        {
+          "nom": "Poulet haché à l’italienne, poivrons et brocoli",
+          "temps": "30 min",
+          "icone": "poulet",
+          "ingredients": [
+            {
+              "nom": "Poulet haché, 454 g",
+              "aubaine": "3,44 $ le paquet",
+              "qte": 2,
+              "unite": "paquet",
+              "pas": 1,
+              "prixUnite": 3.44,
+              "achat": {
+                "qte": 1,
+                "label": "paquet",
+                "estime": false
+              }
+            },
+            {
+              "nom": "Poivrons assortis",
+              "aubaine": "3,77 $ le sac de 2,5 lb",
+              "qte": 1.25,
+              "unite": "lb",
+              "pas": 0.25,
+              "prixUnite": 1.508,
+              "achat": {
+                "qte": 2.5,
+                "label": "sac",
+                "estime": false
+              }
+            },
+            {
+              "nom": "Couronne de brocoli",
+              "aubaine": "1,25 $ ch.",
+              "qte": 1,
+              "unite": "couronne",
+              "pas": 0.5,
+              "prixUnite": 1.25,
+              "achat": {
+                "qte": 1,
+                "label": "couronne",
+                "estime": false
+              }
+            },
+            {
+              "nom": "Sauce pour pâtes Catelli, 600 ml",
+              "aubaine": "2,00 $ le pot",
+              "qte": 1,
+              "unite": "pot",
+              "pas": 0.5,
+              "prixUnite": 2.0,
+              "achat": {
+                "qte": 1,
+                "label": "pot",
+                "estime": false
+              }
+            },
+            {
+              "nom": "Huile de canola, 3 L",
+              "aubaine": "7,00 $ le bidon",
+              "qte": 0.03,
+              "unite": "L",
+              "pas": 0.015,
+              "prixUnite": 2.3333333333333335,
+              "achat": {
+                "qte": 3,
+                "label": "bidon",
+                "estime": false
+              }
+            }
+          ],
+          "gardeManger": [],
+          "etapes": [
+            "Chauffer l’huile dans une grande poêle à feu moyen-vif.",
+            "Cuire le poulet haché en l’émiettant jusqu’à ce qu’il ne soit plus rosé (74 °C).",
+            "Ajouter les poivrons en lanières et le brocoli en petits bouquets; cuire 5 min.",
+            "Verser la sauce Catelli, mijoter 10 min et servir. Le reste de l’huile se garde des mois au garde-manger."
           ]
         },
         {
-          "nom": "Côtes levées BBQ au four, frites et brocoli",
-          "temps": "2 h 15",
+          "nom": "Bifteck d’aloyau poêlé, beurre à l’échalote, frites et poivrons confits",
+          "temps": "40 min",
+          "icone": "boeuf",
+          "chef": true,
           "ingredients": [
             {
-              "nom": "Côtes de flanc de porc fraîches",
-              "aubaine": "2,99 $/lb",
-              "qte": 3,
+              "nom": "Bifteck ou côte d’aloyau",
+              "aubaine": "8,88 $/lb",
+              "qte": 2,
               "unite": "lb",
-              "pas": 0.5,
-              "prixUnite": 2.99,
+              "pas": 0.25,
+              "prixUnite": 8.88,
               "achat": {
-                "qte": 3,
-                "label": "barquette",
+                "qte": 1,
+                "label": "bifteck",
                 "estime": true
               }
             },
@@ -187,31 +270,59 @@
               }
             },
             {
-              "nom": "Couronne de brocoli",
-              "aubaine": "1,25 $ ch.",
+              "nom": "Poivrons assortis",
+              "aubaine": "3,77 $ le sac de 2,5 lb",
               "qte": 1,
-              "unite": "couronne",
-              "pas": 0.5,
-              "prixUnite": 1.25,
+              "unite": "lb",
+              "pas": 0.25,
+              "prixUnite": 1.508,
               "achat": {
-                "qte": 1,
-                "label": "couronne",
+                "qte": 2.5,
+                "label": "sac",
                 "estime": false
               }
+            },
+            {
+              "nom": "Échalote française",
+              "aubaine": "Hors spécial · prix régulier ≈ 0,60 $ ch.",
+              "qte": 2,
+              "unite": "unité",
+              "pas": 1,
+              "prixUnite": 0.6,
+              "achat": {
+                "qte": 1,
+                "label": "",
+                "estime": true
+              },
+              "horsSpecial": true
+            },
+            {
+              "nom": "Persil plat frais",
+              "aubaine": "Hors spécial · prix régulier ≈ 1,99 $ le bouquet",
+              "qte": 1,
+              "unite": "bouquet",
+              "pas": 0.5,
+              "prixUnite": 1.99,
+              "achat": {
+                "qte": 1,
+                "label": "",
+                "estime": true
+              },
+              "horsSpecial": true
             }
           ],
           "gardeManger": [
             [
-              0.5,
-              "tasse de sauce BBQ"
+              4,
+              "c. à soupe de beurre"
             ],
             [
-              1,
-              "c. à soupe de cassonade"
+              2,
+              "c. à soupe d’huile"
             ],
             [
-              1,
-              "c. à thé de paprika"
+              2,
+              "gousses d’ail"
             ],
             [
               0,
@@ -219,10 +330,10 @@
             ]
           ],
           "etapes": [
-            "Préchauffer le four à 300 °F. Frotter les côtes de cassonade, paprika, sel et poivre; envelopper dans du papier d’aluminium.",
-            "Cuire 1 h 45.",
-            "Déballer, badigeonner de sauce BBQ, monter le four à 425 °F et cuire 15 min avec les frites sur une autre plaque.",
-            "Cuire le brocoli à la vapeur 5 min. Servir."
+            "Sortir le bifteck du frigo 20 min avant. Cuire les frites au four selon le sac.",
+            "Confire les poivrons en fines lanières dans l’huile à feu doux 15 min, avec une pincée de sel.",
+            "Éponger et saler le bifteck; le saisir à feu vif 3 à 4 min par côté (57 °C mi-saignant, 71 °C bien cuit). Laisser reposer 5 min.",
+            "Dans la même poêle, fondre le beurre avec l’échalote et l’ail hachés 1 min, ajouter le persil; napper le bifteck tranché."
           ]
         }
       ],
@@ -363,7 +474,7 @@
       "nom": "IGA",
       "recettes": [
         {
-          "nom": "Côtelettes de porc moutarde-miel, courge rôtie et salade Boston",
+          "nom": "Côtelettes de porc au beurre à l’ail, courge rôtie et salade Boston",
           "temps": "45 min",
           "ingredients": [
             {
@@ -412,12 +523,12 @@
           ],
           "gardeManger": [
             [
-              2,
-              "c. à soupe de moutarde de Dijon"
+              3,
+              "c. à soupe de beurre"
             ],
             [
-              1,
-              "c. à soupe de miel"
+              4,
+              "gousses d’ail"
             ],
             [
               3,
@@ -425,7 +536,7 @@
             ],
             [
               1,
-              "c. à soupe de vinaigre"
+              "c. à thé de thym séché"
             ],
             [
               0,
@@ -433,11 +544,12 @@
             ]
           ],
           "etapes": [
-            "Préchauffer le four à 425 °F. Peler la courge, la couper en cubes, l’enrober de 2 c. à soupe d’huile, sel et poivre; rôtir 30 min.",
-            "Mélanger la moutarde et le miel; badigeonner les côtelettes.",
-            "Saisir les côtelettes à la poêle 4 à 5 min par côté, jusqu’à 71 °C (160 °F) au centre. Laisser reposer 3 min.",
-            "Assaisonner la laitue avec le reste de l’huile, le vinaigre et une pincée de sel. Servir."
-          ]
+            "Préchauffer le four à 425 °F. Peler la courge, la couper en cubes, l’enrober de 2 c. à soupe d’huile, du thym, sel et poivre; rôtir 30 min.",
+            "Saler et poivrer les côtelettes; les saisir à la poêle 4 à 5 min par côté, jusqu’à 71 °C (160 °F) au centre.",
+            "Retirer du feu, ajouter le beurre et l’ail haché dans la poêle et arroser les côtelettes 1 min. Laisser reposer 3 min.",
+            "Assaisonner la laitue avec le reste de l’huile, sel et poivre. Les côtelettes qui restent se congèlent crues."
+          ],
+          "icone": "porc"
         },
         {
           "nom": "Crevettes à l’ail, légumes et riz",
@@ -497,29 +609,110 @@
             "Sauter les légumes surgelés dans 1 c. à soupe de beurre 5 à 6 min; réserver.",
             "Fondre le reste du beurre, ajouter l’ail 30 s, puis les crevettes 2 à 3 min jusqu’à ce qu’elles soient roses.",
             "Remettre les légumes, arroser de jus de citron, servir sur le riz."
+          ],
+          "icone": "crevette"
+        },
+        {
+          "nom": "Courge farcie au fromage et aux légumes",
+          "temps": "55 min",
+          "icone": "vege",
+          "ingredients": [
+            {
+              "nom": "Courge musquée (≈ 2,5 lb)",
+              "aubaine": "1,47 $/lb",
+              "qte": 2,
+              "unite": "courge",
+              "pas": 0.5,
+              "prixUnite": 3.675,
+              "achat": {
+                "qte": 1,
+                "label": "courge entière",
+                "estime": true
+              }
+            },
+            {
+              "nom": "Fromage P’tit Québec râpé, 300–320 g",
+              "aubaine": "4,97 $",
+              "qte": 1,
+              "unite": "paquet",
+              "pas": 0.5,
+              "prixUnite": 4.97,
+              "achat": {
+                "qte": 1,
+                "label": "paquet",
+                "estime": false
+              }
+            },
+            {
+              "nom": "Légumes surgelés Compliments, 500–750 g",
+              "aubaine": "2,99 $ le sac",
+              "qte": 1,
+              "unite": "sac",
+              "pas": 0.5,
+              "prixUnite": 2.99,
+              "achat": {
+                "qte": 1,
+                "label": "sac",
+                "estime": false
+              }
+            }
+          ],
+          "gardeManger": [
+            [
+              2,
+              "c. à soupe de beurre"
+            ],
+            [
+              1,
+              "c. à soupe d’huile"
+            ],
+            [
+              2,
+              "gousses d’ail"
+            ],
+            [
+              1,
+              "oignon"
+            ],
+            [
+              0,
+              "sel et poivre"
+            ]
+          ],
+          "etapes": [
+            "Préchauffer le four à 400 °F. Couper la courge en deux sur la longueur, épépiner, huiler, saler et rôtir 35 min face contre la plaque.",
+            "Faire revenir l’oignon et l’ail dans le beurre 3 min, ajouter les légumes surgelés et cuire 5 min.",
+            "Creuser un peu la chair de la courge, la mélanger aux légumes avec la moitié du fromage, et remplir la courge.",
+            "Couvrir du reste du fromage et gratiner 10 min. Le fromage qui reste se congèle."
           ]
         },
         {
-          "nom": "Rôti de palette braisé à la courge",
-          "temps": "3 h 30",
+          "nom": "Côtelettes de porc sauce crème-moutarde, purée de courge au beurre",
+          "temps": "45 min",
+          "icone": "porc",
+          "chef": true,
           "ingredients": [
             {
-              "nom": "Rôti de bas de palette désossé",
-              "aubaine": "6,77 $/lb",
-              "qte": 3,
+              "nom": "Côtelettes de longe de porc avec os",
+              "aubaine": "2,49 $/lb",
+              "qte": 2,
               "unite": "lb",
-              "pas": 0.5,
-              "prixUnite": 6.77,
+              "pas": 0.25,
+              "prixUnite": 2.49,
               "achat": {
-                "qte": 3,
-                "label": "rôti",
+                "qte": 2,
+                "label": "barquette",
                 "estime": true
+              },
+              "compte": {
+                "parUnite": 2,
+                "label": "côtelettes"
               }
             },
             {
               "nom": "Courge musquée",
               "aubaine": "1,47 $/lb",
-              "qte": 1.5,
+              "qte": 2,
               "unite": "lb",
               "pas": 0.25,
               "prixUnite": 1.47,
@@ -530,46 +723,57 @@
               }
             },
             {
-              "nom": "Bouillon Campbell’s, 250 ml",
-              "aubaine": "1,47 $",
-              "qte": 2,
-              "unite": "boîte(s)",
-              "pas": 1,
-              "prixUnite": 1.47,
+              "nom": "Crème 35 % à cuisson, 473 ml",
+              "aubaine": "Hors spécial · prix régulier ≈ 3,49 $",
+              "qte": 1,
+              "unite": "contenant",
+              "pas": 0.5,
+              "prixUnite": 3.49,
               "achat": {
                 "qte": 1,
-                "label": "boîte",
-                "estime": false
-              }
+                "label": "",
+                "estime": true
+              },
+              "horsSpecial": true
+            },
+            {
+              "nom": "Moutarde de Dijon, 250 ml",
+              "aubaine": "Hors spécial · prix régulier ≈ 2,99 $ le pot",
+              "qte": 2,
+              "unite": "c. à soupe",
+              "pas": 1,
+              "prixUnite": 0.186875,
+              "achat": {
+                "qte": 16,
+                "label": "pot de 250 ml (≈ 16 c. à soupe)",
+                "estime": true
+              },
+              "horsSpecial": true
             }
           ],
           "gardeManger": [
             [
-              2,
-              "oignons"
-            ],
-            [
               3,
-              "carottes"
+              "c. à soupe de beurre"
             ],
             [
-              2,
-              "c. à soupe de pâte de tomate"
-            ],
-            [
-              2,
+              1,
               "c. à soupe d’huile"
             ],
             [
+              2,
+              "gousses d’ail"
+            ],
+            [
               0,
-              "thym, sel et poivre"
+              "sel et poivre"
             ]
           ],
           "etapes": [
-            "Préchauffer le four à 300 °F. Saisir le rôti assaisonné dans l’huile, dans une cocotte, 3 min par côté.",
-            "Ajouter oignons et carottes, la pâte de tomate, puis le bouillon et le thym.",
-            "Couvrir et braiser 2 h 30 au four.",
-            "Ajouter la courge en cubes, cuire encore 45 min. Effilocher et servir avec le jus."
+            "Cuire la courge en cubes à l’eau salée 15 min; égoutter et écraser avec 2 c. à soupe de beurre, sel et poivre.",
+            "Saisir les côtelettes dans l’huile 4 à 5 min par côté, jusqu’à 71 °C au centre; réserver au chaud.",
+            "Dans la même poêle, fondre le reste du beurre avec l’ail 30 s, ajouter la crème et la moutarde, réduire 3 min jusqu’à ce que la sauce nappe la cuillère.",
+            "Napper les côtelettes et servir sur la purée. Les côtelettes qui restent se congèlent crues."
           ]
         }
       ],
@@ -761,11 +965,13 @@
             "Trancher le poulet en lanières, les carottes en biseaux minces et l’oignon en quartiers.",
             "Saisir le poulet dans l’huile à feu vif 5 à 6 min; réserver.",
             "Sauter les carottes, l’oignon et l’ail 4 min, remettre le poulet, ajouter la sauce VH et mijoter 3 min. Servir sur le riz."
-          ]
+          ],
+          "icone": "poulet"
         },
         {
-          "nom": "Boulettes de veau sauce tomate et tomates raisins",
+          "nom": "Boulettes de veau, tomates raisins rôties et carottes glacées",
           "temps": "40 min",
+          "icone": "boeuf",
           "ingredients": [
             {
               "nom": "Veau de grain haché maigre",
@@ -794,6 +1000,19 @@
               }
             },
             {
+              "nom": "Carottes",
+              "aubaine": "0,99 $ le sac de 2 lb",
+              "qte": 1,
+              "unite": "lb",
+              "pas": 0.25,
+              "prixUnite": 0.495,
+              "achat": {
+                "qte": 2,
+                "label": "sac",
+                "estime": false
+              }
+            },
+            {
               "nom": "Oignons jaunes",
               "aubaine": "0,99 $ le sac de 2 lb",
               "qte": 0.5,
@@ -809,52 +1028,128 @@
           ],
           "gardeManger": [
             [
+              3,
+              "c. à soupe de farine"
+            ],
+            [
+              2,
+              "gousses d’ail"
+            ],
+            [
+              2,
+              "c. à soupe de beurre"
+            ],
+            [
               1,
-              "œuf"
-            ],
-            [
-              0.5,
-              "tasse de chapelure"
+              "c. à soupe de sucre"
             ],
             [
               1,
-              "boîte de tomates broyées (796 ml)"
+              "c. à soupe d’huile"
             ],
             [
-              350,
-              "g de pâtes"
+              1,
+              "c. à thé d’origan séché"
             ],
             [
               0,
-              "basilic, sel et poivre"
+              "sel et poivre"
             ]
           ],
           "etapes": [
-            "Mélanger le veau, l’œuf, la chapelure, la moitié de l’oignon haché, sel et poivre; façonner 16 boulettes.",
-            "Dorer les boulettes à la poêle 6 min.",
-            "Ajouter le reste de l’oignon, les tomates broyées et les tomates raisins coupées en deux; mijoter 15 min (71 °C au centre).",
-            "Servir sur les pâtes avec du basilic."
+            "Préchauffer le four à 425 °F. Mélanger le veau, l’oignon râpé, l’ail, la farine, l’origan, sel et poivre; façonner des boulettes de la taille d’une balle de golf.",
+            "Les déposer sur une plaque huilée avec les tomates raisins; cuire 15 à 18 min, jusqu’à 71 °C au centre.",
+            "Pendant ce temps, cuire les carottes en rondelles à l’eau salée 8 min; égoutter.",
+            "Remettre les carottes dans la casserole avec le beurre et le sucre, glacer 3 min et servir avec les boulettes."
           ]
         },
         {
-          "nom": "Tacos de crevettes, salade de carottes",
-          "temps": "25 min",
+          "nom": "Pizza bonifiée aux tomates raisins et cheddar",
+          "temps": "20 min",
+          "icone": "vege",
           "ingredients": [
             {
-              "nom": "Crevettes sauvages Irrésistible, 300 g (15–17 oct.)",
-              "aubaine": "5,99 $ le sac",
+              "nom": "Pizza surgelée Dr. Oetker, 320–410 g",
+              "aubaine": "3,47 $",
               "qte": 2,
-              "unite": "sacs",
+              "unite": "pizza",
               "pas": 1,
-              "prixUnite": 5.99,
+              "prixUnite": 3.47,
               "achat": {
                 "qte": 1,
+                "label": "pizza",
+                "estime": false
+              }
+            },
+            {
+              "nom": "Tomates raisins bio, 284 g",
+              "aubaine": "1,99 $ le casseau",
+              "qte": 1,
+              "unite": "casseau",
+              "pas": 0.5,
+              "prixUnite": 1.99,
+              "achat": {
+                "qte": 1,
+                "label": "casseau",
+                "estime": false
+              }
+            },
+            {
+              "nom": "Fromage Cracker Barrel râpé, 250–320 g",
+              "aubaine": "5,97 $",
+              "qte": 1,
+              "unite": "paquet",
+              "pas": 0.5,
+              "prixUnite": 5.97,
+              "achat": {
+                "qte": 1,
+                "label": "paquet",
+                "estime": false
+              }
+            }
+          ],
+          "gardeManger": [],
+          "etapes": [
+            "Préchauffer le four selon la boîte de la pizza.",
+            "Couper les tomates raisins en deux et les répartir sur la pizza.",
+            "Ajouter une bonne poignée de fromage râpé.",
+            "Cuire selon la boîte, plus 2 min pour bien gratiner. Le fromage qui reste se congèle."
+          ]
+        },
+        {
+          "nom": "Picanha saisie, beurre au thym et carottes rôties",
+          "temps": "40 min",
+          "icone": "boeuf",
+          "chef": true,
+          "ingredients": [
+            {
+              "nom": "Picanha",
+              "aubaine": "9,88 $/lb",
+              "qte": 1.5,
+              "unite": "lb",
+              "pas": 0.25,
+              "prixUnite": 9.88,
+              "achat": {
+                "qte": 1.5,
+                "label": "pièce",
+                "estime": true
+              }
+            },
+            {
+              "nom": "Carottes",
+              "aubaine": "0,99 $ le sac de 2 lb",
+              "qte": 1,
+              "unite": "lb",
+              "pas": 0.25,
+              "prixUnite": 0.495,
+              "achat": {
+                "qte": 2,
                 "label": "sac",
                 "estime": false
               }
             },
             {
-              "nom": "Carottes",
+              "nom": "Oignons jaunes",
               "aubaine": "0,99 $ le sac de 2 lb",
               "qte": 0.5,
               "unite": "lb",
@@ -865,35 +1160,49 @@
                 "label": "sac",
                 "estime": false
               }
+            },
+            {
+              "nom": "Thym frais",
+              "aubaine": "Hors spécial · prix régulier ≈ 2,49 $ la barquette",
+              "qte": 1,
+              "unite": "barquette",
+              "pas": 0.5,
+              "prixUnite": 2.49,
+              "achat": {
+                "qte": 1,
+                "label": "",
+                "estime": true
+              },
+              "horsSpecial": true
             }
           ],
           "gardeManger": [
             [
-              8,
-              "tortillas"
+              4,
+              "c. à soupe de beurre"
+            ],
+            [
+              2,
+              "c. à soupe d’huile"
             ],
             [
               3,
-              "c. à soupe de mayonnaise"
+              "gousses d’ail"
             ],
             [
               1,
-              "lime"
-            ],
-            [
-              1,
-              "c. à thé de chili en poudre"
+              "c. à soupe de sucre"
             ],
             [
               0,
-              "coriandre, sel"
+              "sel et poivre"
             ]
           ],
           "etapes": [
-            "Râper les carottes; mélanger avec la mayonnaise, le jus de la moitié de la lime et une pincée de sel.",
-            "Décongeler les crevettes, les assaisonner de chili et sel.",
-            "Saisir les crevettes 2 à 3 min à feu vif.",
-            "Garnir les tortillas chaudes de salade de carottes, crevettes, coriandre et lime."
+            "Préchauffer le four à 425 °F. Rôtir les carottes en bâtonnets et l’oignon en quartiers avec l’huile, le sucre, sel et poivre, 30 min.",
+            "Quadriller le gras de la picanha, saler généreusement; la saisir côté gras 6 à 7 min, puis 3 à 4 min de chaque côté.",
+            "Finir au four 8 à 12 min, jusqu’à 54–57 °C pour mi-saignant (71 °C bien cuit). Laisser reposer 8 min.",
+            "Fondre le beurre avec l’ail écrasé et le thym, arroser la viande, trancher contre le grain. Le reste de picanha se tranche froid en sandwich."
           ]
         }
       ],

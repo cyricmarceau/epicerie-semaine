@@ -1,6 +1,6 @@
 (function () {
   var data = null;
-  var state = { store: null, portions: 2, pick: {}, done: {} };
+  var state = { store: null, portions: 2, pick: {}, done: {}, filter: "tout" };
 
   function money(n) { return n.toFixed(2).replace(".", ",") + " $"; }
   function num(n) { return String(Math.round(n * 100) / 100).replace(".", ","); }
@@ -50,6 +50,27 @@
     }, { mange: 0, caisse: 0, estime: false, tps: 0, tvq: 0 });
   }
 
+  // Garde-manger de base : ce qu'on suppose toujours avoir à la maison
+  var BASE_TXT = "sel, poivre, huile, beurre, farine, sucre (blanc ou cassonade), ail, oignon, épices séchées courantes (paprika, thym, origan, chili, cumin, cannelle)";
+  var BASE_RE = /(sel|poivre|huile|beurre|farine|sucre|cassonade|ail|oignon|épice|paprika|thym séché|origan|chili|cumin|cannelle)/i;
+  function pantryIsBase(r) {
+    return r.gardeManger.every(function (x) {
+      return x[1].split(/,| et /).every(function (p) { return !p.trim() || BASE_RE.test(p); });
+    });
+  }
+  function badges(r) {
+    var hors = r.ingredients.some(function (i) { return i.horsSpecial; });
+    return {
+      chef: !!r.chef,
+      cent: !hors && pantryIsBase(r),
+      strict: !hors && r.gardeManger.length === 0
+    };
+  }
+  function badgeHtml(b) {
+    return (b.chef ? '<span class="bdg chef">Chef</span>' : "") +
+      (b.strict ? '<span class="bdg strict">Spéciaux seulement</span>' : b.cent ? '<span class="bdg cent">100 % spéciaux</span>' : "");
+  }
+
   // Étapes cochées : gardées sur l'appareil, par semaine (facultatif)
   function storeKey() { return "etapes:" + (data ? data.semaine : ""); }
   function loadDone() { try { state.done = JSON.parse(localStorage.getItem(storeKey())) || {}; } catch (e) { state.done = {}; } }
@@ -60,17 +81,26 @@
   /* ---------- Accueil : tuiles des recettes ---------- */
   function renderHome() {
     var html = "";
+    var f = state.filter;
     data.epiceries.forEach(function (e) {
       e.recettes.forEach(function (r, idx) {
+        var b = badges(r);
+        if (f === "chef" && !b.chef) return;
+        if (f === "cent" && !b.cent) return;
+        if (f === "strict" && !b.strict) return;
         html += '<button type="button" class="tile" data-store="' + e.id + '" data-idx="' + idx + '">' +
           '<span class="ico">' + svg(iconFor(r)) + "</span>" +
-          '<span class="tag">' + esc(e.nom) + "</span>" +
+          '<span class="tags"><span class="tag">' + esc(e.nom) + "</span>" + badgeHtml(b) + "</span>" +
           '<span class="nm">' + esc(r.nom) + "</span>" +
           (function () { var c = cost(r, 2); return '<span class="pr"><span><b>' + (c.estime ? "≈ " : "") + money(c.caisse + c.tps + c.tvq) + '</b><span class="cx">à la caisse</span></span><span>' + esc(r.temps) + "</span></span>"; })() +
           "</button>";
       });
     });
-    $("tiles").innerHTML = html;
+    $("tiles").innerHTML = html || '<p class="empty">Aucune recette de ce type cette semaine.</p>';
+    var opts = [["tout", "Toutes"], ["chef", "Chef"], ["cent", "100 % spéciaux"], ["strict", "Spéciaux seulement"]];
+    $("filters").innerHTML = opts.map(function (o) {
+      return '<button type="button" data-f="' + o[0] + '" aria-pressed="' + (f === o[0]) + '">' + o[1] + "</button>";
+    }).join("");
   }
 
   /* ---------- Détail : volet des épiceries ---------- */
@@ -94,9 +124,11 @@
       var est = l.a.estime ? "≈ " : "";
       var fmt = i.unite === "lb"
         ? (l.n > 1 ? l.n + " × " : "") + (l.a.label ? l.a.label + " " : "") + est + num(l.a.qte) + " lb"
-        : num(l.buy) + " " + i.unite + (l.buy > 1 && !/[sx)]$/.test(i.unite) ? "s" : "") + (l.a.label && l.a.label.charAt(0) === "(" ? " " + l.a.label : "");
+        : (l.a.label && l.a.label.charAt(0) !== "("
+          ? l.n + " " + l.a.label
+          : num(l.buy) + " " + i.unite + (l.buy > 1 && !/[sx)]$/.test(i.unite) ? "s" : "") + (l.a.label ? " " + l.a.label : ""));
       var reste = l.reste > 0.001 ? " · reste " + est + num(l.reste) + " " + i.unite : "";
-      return '<li><span class="n"><span>' + esc(i.nom) + '</span>' +
+      return '<li' + (i.horsSpecial ? ' class="hors"' : '') + '><span class="n"><span>' + esc(i.nom) + '</span>' +
         '<span class="d">Acheter : ' + esc(fmt) + " · " + esc(i.aubaine) + "</span>" +
         '<span class="d">Utilisé : ' + num(l.q) + " " + esc(i.unite) + esc(count) + esc(reste) + "</span></span>" +
         '<span class="mono">' + est + money(l.caisse) + "</span></li>";
@@ -122,14 +154,15 @@
     el.setAttribute("aria-labelledby", "tab-" + e.id);
     el.innerHTML =
       '<div class="meta"><span>Recette ' + (idx + 1) + " sur " + e.recettes.length + "</span><span>" + esc(r.temps) + "</span></div>" +
+      (function () { var h = badgeHtml(badges(r)); return h ? '<div class="tags">' + h + "</div>" : ""; })() +
       "<h2>" + esc(r.nom) + "</h2>" +
       '<div class="price"><div><div class="big">' + (tot.estime ? "≈ " : "") + money(tot.caisse + tot.tps + tot.tvq) + '</div><div class="sub">à la caisse, taxes incluses · ' + money(tot.mange / state.portions) + " par portion mangée</div>" +
         '<div class="tax">TPS 5 % : ' + money(tot.tps) + " · TVQ 9,975 % : " + money(tot.tvq) +
         (tot.tps + tot.tvq === 0 ? "<br>Aliments de base détaxés au Québec" : "") + "</div></div>" +
       '<div class="seg" role="group" aria-label="Nombre de personnes">' + seg + "</div></div>" +
-      '<div class="block"><h3>À acheter en spécial</h3><ul class="list">' + ings + "</ul>" +
+      '<div class="block"><h3>À acheter</h3><ul class="list">' + ings + "</ul>" +
         (tot.estime ? '<p class="pantry">≈ : poids de barquette estimé; le prix exact dépend de l’étiquette en magasin. Les restes se congèlent.</p>' : "") +
-        '<p class="pantry">Garde-manger : ' + esc(pantry) + "</p></div>" +
+        '<p class="pantry">Garde-manger : ' + esc(pantry || "rien — tout vient des spéciaux") + "</p></div>" +
       '<div class="block"><h3>Étapes — touche pour cocher</h3>' + steps + "</div>" +
       '<button type="button" class="next" id="next">Autre recette chez ' + esc(e.nom) + "</button>";
   }
@@ -164,6 +197,10 @@
 
   function go(store, idx) { location.hash = store + "/" + idx; }
 
+  $("filters").addEventListener("click", function (ev) {
+    var b = ev.target.closest("button[data-f]");
+    if (b) { state.filter = b.dataset.f; renderHome(); }
+  });
   $("tiles").addEventListener("click", function (ev) {
     var t = ev.target.closest(".tile");
     if (!t) return;
@@ -216,6 +253,7 @@
       $("semaine").textContent = d.semaine;
       loadDone();
       d.epiceries.forEach(function (e) { state.pick[e.id] = 0; });
+      $("base-txt").textContent = BASE_TXT.charAt(0).toUpperCase() + BASE_TXT.slice(1) + ".";
       renderHome();
       route();
     })
