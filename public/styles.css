@@ -323,3 +323,6 @@ h3{margin:0;font-size:13px;font-weight:600;text-transform:uppercase;letter-spaci
 .titles{flex:1}
 @keyframes pop{0%{transform:scale(1)}40%{transform:scale(1.25)}100%{transform:scale(1)}}
 #cart-btn.pop .ti{animation:pop .35s ease}
+
+/* Dessin à la main de Cyric (« Reset au semaine » + bonhomme sourire) */
+.dessin{display:block;margin-top:8px;width:216px;max-width:100%;height:auto;color:#D8D2C8;overflow:visible}
