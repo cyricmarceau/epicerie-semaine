@@ -97,18 +97,22 @@
     var html = "";
     var f = state.filter;
     data.epiceries.forEach(function (e) {
+      var tiles = "";
       e.recettes.forEach(function (r, idx) {
         var b = badges(r);
         if (f === "chef" && !b.chef) return;
         if (f === "cent" && !b.cent) return;
         if (f === "strict" && !b.strict) return;
-        html += '<button type="button" class="tile" data-store="' + e.id + '" data-idx="' + idx + '">' +
+        tiles += '<button type="button" class="tile" data-store="' + e.id + '" data-idx="' + idx + '">' +
           '<span class="ico">' + svg(iconFor(r)) + "</span>" +
-          '<span class="tags"><span class="tag">' + esc(e.nom) + "</span>" + badgeHtml(b) + "</span>" +
+          '<span class="tags">' + badgeHtml(b) + "</span>" +
           '<span class="nm">' + esc(r.nom) + "</span>" +
           (function () { var c = cost(r, 2); return '<span class="pr"><span><b>' + (c.estime ? "≈ " : "") + money(c.caisse + c.tps + c.tvq) + '</b><span class="cx">à la caisse</span></span><span>' + esc(r.temps) + "</span></span>"; })() +
           "</button>";
       });
+      if (tiles) {
+        html += '<section class="store-sec" aria-labelledby="sec-' + e.id + '"><h2 class="sec-title" id="sec-' + e.id + '">' + esc(e.nom) + '</h2><div class="tiles">' + tiles + "</div></section>";
+      }
     });
     $("tiles").innerHTML = html || '<p class="empty">Aucune recette de ce type cette semaine.</p>';
     var opts = [["tout", "Toutes"], ["chef", "Chef"], ["cent", "100 % spéciaux"], ["strict", "Spéciaux"]];
