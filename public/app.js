@@ -97,6 +97,12 @@
     });
     return names;
   }
+  // Part du prix à la caisse qui vient des produits en spécial (formats entiers, 2 portions)
+  function specShare(r) {
+    var sp = 0, all = 0;
+    r.ingredients.forEach(function (i) { var c = line(i, 2).caisse; all += c; if (!i.horsSpecial) sp += c; });
+    return all ? Math.floor(100 * sp / all) : 100;
+  }
   function badges(r) {
     var horsN = r.ingredients.filter(function (i) { return i.horsSpecial; }).length;
     var spec = r.ingredients.length - horsN;
@@ -106,7 +112,7 @@
       chef: !!r.chef,
       cent: cent,
       strict: horsN === 0 && r.gardeManger.length === 0,
-      pct: cent ? 100 : Math.round(100 * spec / total),
+      pct: cent ? 100 : specShare(r),
       prot: (r.proteines || 0) >= 30,
       protG: r.proteines || 0
     };
@@ -287,7 +293,7 @@
           '<span class="ico ic-' + iconFor(r) + '">' + svg(iconFor(r)) + '<span class="ico-pct' + (b.pct === 100 ? " full" : "") + '" aria-label="' + b.pct + ' % des produits en spécial">' + b.pct + " %</span></span>" +
           '<span class="tags">' + badgeHtml(b, false) + "</span>" +
           '<span class="nm">' + esc(r.nom) + "</span>" +
-          (function () { var n = notSpecialNames(r); return n.length ? '<span class="ns">Pas en spécial : ' + esc(n.join(", ")) + "</span>" : ""; })() +
+          (function () { var n = notSpecialNames(r); return n.length ? '<span class="ns">Manque (pas en spécial) : ' + esc(n.join(", ")) + ' — <b>' + b.pct + " % du prix en spéciaux</b></span>" : ""; })() +
           (function () { var c = cost(r, 2); return '<span class="pr"><span><b>' + (c.estime ? "≈ " : "") + money(c.caisse + c.tps + c.tvq) + '</b><span class="cx">à la caisse</span></span><span>' + esc(r.temps) + "</span></span>"; })() +
           "</button></div>";
       });
@@ -358,7 +364,7 @@
       '<div class="block"><h3>À acheter</h3><ul class="list">' + ings + "</ul>" +
         (tot.estime ? '<p class="pantry">≈ : poids de barquette estimé; le prix exact dépend de l’étiquette en magasin. Les restes se congèlent.</p>' : "") +
         "</div>" +
-      (notSpec.length ? '<div class="warn" role="note"><h3>Pas en spécial — à acheter à prix régulier</h3><ul>' +
+      (notSpec.length ? '<div class="warn" role="note"><h3>Manque — à acheter à prix régulier</h3><p class="pantry">' + badges(r).pct + " % du prix de la recette vient des spéciaux.</p><ul>" +
         notSpec.map(function (t) { return "<li>" + esc(t) + "</li>"; }).join("") +
         "</ul>" + (sp.extra.length ? '<p class="pantry">Prix non inclus dans le total ci-dessus.</p>' : "") + "</div>" : "") +
       '<p class="pantry">Garde-manger de base (tu l’as déjà) : ' + esc(sp.base.length ? sp.base.join(" · ") : "rien — tout vient des spéciaux") + "</p>" +
