@@ -309,3 +309,17 @@ h3{margin:0;font-size:13px;font-weight:600;text-transform:uppercase;letter-spaci
 .hh-name{margin-bottom:10px;padding:2px 8px;border-radius:4px;background:#FF6A1A;color:#1A1416;font:700 13px 'IBM Plex Mono',monospace;letter-spacing:.06em;text-transform:uppercase;white-space:nowrap}
 .splash-by{font:500 13px 'IBM Plex Sans',sans-serif;color:var(--muted);animation:splash-in .4s ease both}
 @media (prefers-reduced-motion:reduce){.hh-run,.hh,.hh-l,.hh-fire{animation:none}}
+@keyframes av-bob{0%,100%{transform:translateY(0) rotate(0)}30%{transform:translateY(-2px) rotate(-3deg)}60%{transform:translateY(0) rotate(2deg)}}
+.avatar{animation:av-bob 2.4s ease-in-out infinite;box-shadow:0 0 0 0 rgba(180,240,90,.0);transition:box-shadow .2s}
+.avatar:hover{box-shadow:0 0 12px rgba(180,240,90,.5)}
+@media (prefers-reduced-motion:reduce){.avatar{animation:none}}
+
+/* Son */
+.top-row .son-btn{margin-left:auto}
+.son-btn{flex:0 0 40px;width:40px;height:40px;display:flex;align-items:center;justify-content:center;border-radius:8px;border:1px solid var(--line);background:var(--card);color:var(--lime);cursor:pointer}
+.son-btn .x{display:none}
+.son-btn.off{color:var(--muted)}
+.son-btn.off .x{display:inline}.son-btn.off .w{display:none}
+.titles{flex:1}
+@keyframes pop{0%{transform:scale(1)}40%{transform:scale(1.25)}100%{transform:scale(1)}}
+#cart-btn.pop .ti{animation:pop .35s ease}

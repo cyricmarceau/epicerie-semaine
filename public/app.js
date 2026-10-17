@@ -178,10 +178,13 @@
     });
   }
   function inCart(k) { return state.cart.indexOf(k) !== -1; }
+  function sfx(n) { if (window.son) window.son(n); }
   function toggleCart(k) {
     var i = state.cart.indexOf(k);
     if (i === -1) state.cart.push(k); else state.cart.splice(i, 1);
+    sfx(i === -1 ? "ajout" : "retrait");
     saveCart(); updateCartCount();
+    var cb = $("cart-btn"); if (i === -1 && cb) { cb.classList.remove("pop"); void cb.offsetWidth; cb.classList.add("pop"); }
   }
   function updateCartCount() {
     var n = state.cart.length;
@@ -359,7 +362,22 @@
       "HHSSSLLTTLLSSSHH", "HHHSSSSMMSSSSHHH", "HH.DSSSSSSSSD.HH", "CCCCDSSSSSSDCCCC"];
     var c = $("avatar"); if (!c || !c.getContext) return;
     var g = c.getContext("2d");
-    MAP.forEach(function (row, y) { row.split("").forEach(function (ch, x) { g.fillStyle = PAL[ch]; g.fillRect(x, y, 1, 1); }); });
+    // Image animée : yeux qui clignent, regard à gauche/droite, sourire
+    BLINK = "HHSDDDSSSSDDDSHH";
+    var LEFT = "HHSEWWSSSSEWWSHH", RIGHT = "HHSWWESSSSWWESHH";
+    var SMILE = "HHSSSLTTTTLSSSHH";
+    function draw(eyes, mouth) {
+      MAP.forEach(function (row, y) {
+        if (y === 7) row = eyes || row;
+        if (y === 12) row = mouth || row;
+        row.split("").forEach(function (ch, x) { g.fillStyle = PAL[ch]; g.fillRect(x, y, 1, 1); });
+      });
+    }
+    draw();
+    if (window.matchMedia && matchMedia("(prefers-reduced-motion: reduce)").matches) return;
+    var seq = [[null, null, 2200], [BLINK, null, 140], [null, null, 900], [LEFT, null, 700], [RIGHT, null, 700], [null, null, 600], [BLINK, null, 120], [null, null, 160], [BLINK, null, 120], [null, SMILE, 1400]];
+    var k = 0;
+    (function step() { var f = seq[k]; draw(f[0], f[1]); k = (k + 1) % seq.length; setTimeout(step, f[2]); })();
   }
 
   /* ---------- Navigation : #  |  #maxi  |  #maxi/2  |  #panier ---------- */
@@ -395,7 +413,7 @@
   $("store-tabs").addEventListener("click", function (ev) {
     var b = ev.target.closest("button[data-filter]");
     if (!b) return;
-    state.filter = b.dataset.filter;
+    state.filter = b.dataset.filter; sfx("onglet");
     renderStoreTabs();
     if (location.hash === "#speciaux") renderSpecials();
     else if (location.hash === "" || location.hash === "#") renderHome();
@@ -415,6 +433,8 @@
     if (s) {
       var k = e.id + "-" + state.pick[e.id] + "-" + s.dataset.step;
       state.done[k] = !state.done[k];
+      var r0 = e.recettes[state.pick[e.id]], all = r0.etapes.every(function (_, j) { return state.done[e.id + "-" + state.pick[e.id] + "-" + j]; });
+      sfx(!state.done[k] ? "decoche" : all ? "bravo" : "coche");
       saveDone(); renderRecipe();
       var again = $("recipe").querySelector('[data-step="' + s.dataset.step + '"]'); if (again) again.focus();
       return;
@@ -424,7 +444,7 @@
   });
   $("cart-body").addEventListener("click", function (ev) {
     var g = ev.target.closest("button[data-got]");
-    if (g) { state.got[g.dataset.got] = !state.got[g.dataset.got]; saveCart(); renderCart();
+    if (g) { state.got[g.dataset.got] = !state.got[g.dataset.got]; sfx(state.got[g.dataset.got] ? "coche" : "decoche"); saveCart(); renderCart();
       var again = $("cart-body").querySelector('[data-got="' + g.dataset.got + '"]'); if (again) again.focus(); return; }
     var ms = ev.target.closest("button[data-miss]");
     if (ms) { state.missing[ms.dataset.miss] = !state.missing[ms.dataset.miss]; saveCart(); updateCartCount(); renderCart();
@@ -434,6 +454,10 @@
     if (ev.target.closest("#cart-clear")) { state.cart = []; state.got = {}; state.missing = {}; saveCart(); updateCartCount(); renderCart(); }
   });
   window.addEventListener("hashchange", route);
+  document.querySelector(".tabbar").addEventListener("click", function () { sfx("onglet"); });
+  var sb = $("son-btn");
+  function paintSon() { if (!sb || !window.sonActif) return; var on = window.sonActif(); sb.setAttribute("aria-pressed", on); sb.setAttribute("aria-label", on ? "Couper le son" : "Activer le son"); sb.classList.toggle("off", !on); }
+  if (sb) { sb.addEventListener("click", function () { window.basculerSon(); paintSon(); }); paintSon(); }
 
   fetch("data/semaine.json", { cache: "no-cache" })
     .then(function (r) { return r.json(); })
