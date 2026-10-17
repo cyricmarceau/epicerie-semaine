@@ -1,6 +1,6 @@
 (function () {
   var data = null;
-  var state = { store: null, portions: 2, pick: {}, done: {}, filter: "tout", cart: [], got: {} };
+  var state = { store: null, portions: 2, pick: {}, done: {}, filter: "tout", cart: [], got: {}, missing: {} };
 
   function money(n) { return n.toFixed(2).replace(".", ",") + " $"; }
   function num(n) { return String(Math.round(n * 100) / 100).replace(".", ","); }
@@ -128,10 +128,48 @@
   // Panier : recettes ajoutées + articles cochés, gardés sur l'appareil pour la semaine
   function cartKey() { return "panier:" + (data ? data.semaine : ""); }
   function loadCart() {
-    try { var c = JSON.parse(localStorage.getItem(cartKey())) || {}; state.cart = c.cart || []; state.got = c.got || {}; }
-    catch (e) { state.cart = []; state.got = {}; }
+    try { var c = JSON.parse(localStorage.getItem(cartKey())) || {}; state.cart = c.cart || []; state.got = c.got || {}; state.missing = c.missing || {}; }
+    catch (e) { state.cart = []; state.got = {}; state.missing = {}; }
   }
-  function saveCart() { try { localStorage.setItem(cartKey(), JSON.stringify({ cart: state.cart, got: state.got })); } catch (e) {} }
+  function saveCart() { try { localStorage.setItem(cartKey(), JSON.stringify({ cart: state.cart, got: state.got, missing: state.missing })); } catch (e) {} }
+
+  // Garde-manger de base : format courant et prix régulier ESTIMÉ (Québec) si jamais il en manque
+  var BASE_ITEMS = [
+    { k: "huile", nom: "Huile végétale", fmt: "bouteille de 1 L", prix: 4.99, re: /huile/i, sp: /huile/i },
+    { k: "beurre", nom: "Beurre", fmt: "454 g", prix: 5.99, re: /beurre/i, sp: /beurre/i },
+    { k: "ail", nom: "Ail", fmt: "filet de 3 têtes", prix: 1.99, re: /\bail\b|d’ail|d'ail/i, sp: /\bail\b/i },
+    { k: "oignon", nom: "Oignons jaunes", fmt: "sac de 2 lb", prix: 2.49, re: /oignon/i, sp: /oignon/i },
+    { k: "farine", nom: "Farine tout usage", fmt: "sac de 2,5 kg", prix: 4.99, re: /farine/i, sp: /farine/i },
+    { k: "sucre", nom: "Sucre ou cassonade", fmt: "sac de 1 à 2 kg", prix: 3.49, re: /sucre|cassonade/i, sp: /sucre|cassonade/i },
+    { k: "sel", nom: "Sel", fmt: "1 kg", prix: 1.99, re: /\bsel\b/i, sp: /\bsel\b/i },
+    { k: "poivre", nom: "Poivre noir moulu", fmt: "pot de 100 g", prix: 4.49, re: /poivre/i, sp: /poivre/i },
+    { k: "epices", nom: "Épices séchées (paprika, thym, origan…)", fmt: "pot", prix: 3.49, re: /paprika|thym séché|origan|chili|cumin|cannelle|épice/i, sp: /épice/i }
+  ];
+  function parsePrice(t) { var m = /(\d+),(\d{2})\s*\$/.exec(t); return m ? Number(m[1] + "." + m[2]) : null; }
+  // Ingrédients de base utilisés par les recettes du panier + spécial trouvé cette semaine, s'il y en a un
+  function baseNeeded(valid) {
+    var used = {};
+    valid.forEach(function (k) {
+      recipeOf(k).r.gardeManger.forEach(function (x) {
+        x[1].split(/,| et /).forEach(function (part) {
+          BASE_ITEMS.forEach(function (b) { if (b.re.test(part)) used[b.k] = true; });
+        });
+      });
+    });
+    return BASE_ITEMS.filter(function (b) { return used[b.k]; }).map(function (b) {
+      var deal = null;
+      data.epiceries.forEach(function (e) {
+        e.speciaux.forEach(function (g) {
+          g.items.forEach(function (it) {
+            if (deal || !b.sp.test(it[0])) return;
+            var pr = parsePrice(it[1]);
+            if (pr !== null && !/\/lb|pour/.test(it[1])) deal = { store: e.nom, nom: it[0], prix: pr, txt: it[1] };
+          });
+        });
+      });
+      return { b: b, deal: deal };
+    });
+  }
   function inCart(k) { return state.cart.indexOf(k) !== -1; }
   function toggleCart(k) {
     var i = state.cart.indexOf(k);
@@ -197,7 +235,23 @@
       html += '<section class="store-sec"><h2 class="sec-title">' + esc(e.nom) + ' <small>' + money(sub) + "</small></h2>" +
         '<div class="card"><ul class="list cart-list">' + rows + "</ul></div></section>";
     });
-    html = '<div class="price cart-total"><div><div class="big">' + (anyEst ? "≈ " : "") + money(grand) + '</div><div class="tax">Total à la caisse, taxes incluses · garde-manger de base exclu</div></div></div>' + html +
+    var need = baseNeeded(valid), miss = 0;
+    if (need.length) {
+      var rowsB = need.map(function (x) {
+        var on = !!state.missing[x.b.k];
+        var price = x.deal ? x.deal.prix : x.b.prix;
+        if (on) { miss += price; if (!x.deal) anyEst = true; }
+        var where = x.deal ? '<span class="d deal">En spécial chez ' + esc(x.deal.store) + " : " + esc(x.deal.nom) + " · " + esc(x.deal.txt) + "</span>"
+                           : '<span class="d">' + esc(x.b.fmt) + " · prix régulier ≈ " + money(x.b.prix) + "</span>";
+        return '<li class="' + (on ? "miss" : "") + '"><button type="button" class="chk" data-miss="' + x.b.k + '" aria-pressed="' + on + '">' +
+          '<span class="box" aria-hidden="true">' + (on ? "+" : "") + '</span><span class="n"><span>' + esc(x.b.nom) + "</span>" + where + "</span></button>" +
+          '<span class="mono">' + (on ? (x.deal ? "" : "≈ ") + money(price) : "—") + "</span></li>";
+      }).join("");
+      html += '<section class="store-sec"><h2 class="sec-title">Garde-manger <small>' + (miss ? money(miss) : "tu l’as déjà?") + "</small></h2>" +
+        '<div class="card"><p class="pantry">Tes recettes utilisent ces produits de base. Touche ce qui te manque pour l’ajouter aux achats.</p><ul class="list cart-list base-list">' + rowsB + "</ul></div></section>";
+      grand += miss;
+    }
+    html = '<div class="price cart-total"><div><div class="big">' + (anyEst ? "≈ " : "") + money(grand) + '</div><div class="tax">Total à la caisse, taxes incluses' + (miss ? " · garde-manger manquant inclus" : " · garde-manger de base exclu") + "</div></div></div>" + html +
       '<button type="button" class="back" id="cart-clear">Vider le panier</button>';
     $("cart-body").innerHTML = html;
   }
@@ -405,9 +459,12 @@
     var g = ev.target.closest("button[data-got]");
     if (g) { state.got[g.dataset.got] = !state.got[g.dataset.got]; saveCart(); renderCart();
       var again = $("cart-body").querySelector('[data-got="' + g.dataset.got + '"]'); if (again) again.focus(); return; }
+    var ms = ev.target.closest("button[data-miss]");
+    if (ms) { state.missing[ms.dataset.miss] = !state.missing[ms.dataset.miss]; saveCart(); renderCart();
+      var again2 = $("cart-body").querySelector('[data-miss="' + ms.dataset.miss + '"]'); if (again2) again2.focus(); return; }
     var rm = ev.target.closest("button[data-rm]");
     if (rm) { toggleCart(rm.dataset.rm); renderCart(); return; }
-    if (ev.target.closest("#cart-clear")) { state.cart = []; state.got = {}; saveCart(); updateCartCount(); renderCart(); }
+    if (ev.target.closest("#cart-clear")) { state.cart = []; state.got = {}; state.missing = {}; saveCart(); updateCartCount(); renderCart(); }
   });
   window.addEventListener("hashchange", route);
   window.addEventListener("popstate", route);

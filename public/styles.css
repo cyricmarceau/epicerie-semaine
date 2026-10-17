@@ -140,3 +140,6 @@ h3{margin:0;font-size:13px;font-weight:600;text-transform:uppercase;letter-spaci
 .cart-list li.got .n > span:first-child{text-decoration:line-through;color:var(--muted)}
 .cart-list li.hors .d{color:var(--amber)}
 .cart-total{background:var(--lime-bg)}
+
+.base-list li.miss .box{background:var(--amber);border-color:var(--amber);color:#1a1200;font-weight:700}
+.base-list .deal{color:var(--lime)}
