@@ -3,6 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#F2F3F0">
 <title>Épicerie de la semaine</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,800&family=IBM+Plex+Mono:wght@500;600&family=IBM+Plex+Sans:wght@400;500;600&display=swap" rel="stylesheet">
@@ -10,23 +11,21 @@
 </head>
 <body>
 <main class="wrap">
-  <header class="top">
-    <div>
-      <p class="kicker" id="semaine">Chargement…</p>
-      <h1>Épicerie de la semaine</h1>
-      <p class="lead">Recettes pour 1 ou 2 personnes, bâties sur les aubaines de la circulaire.</p>
-    </div>
-    <div class="portions">
-      <span id="portions-label">Portions</span>
-      <div role="group" aria-labelledby="portions-label" id="portions"></div>
-    </div>
+  <header>
+    <p class="kicker" id="semaine">Chargement…</p>
+    <h1>Quoi manger cette semaine?</h1>
   </header>
 
-  <nav class="tabs" role="tablist" aria-label="Épiceries" id="tabs"></nav>
+  <div class="stores" role="tablist" aria-label="Épiceries" id="stores"></div>
 
-  <section id="panel" role="tabpanel"></section>
+  <article class="card" id="recipe" role="tabpanel" aria-live="polite"></article>
 
-  <footer class="foot">Prix tirés des circulaires du Québec; ils peuvent varier selon la succursale. Le coût de la recette compte seulement la quantité utilisée des produits en spécial, garde-manger exclu.</footer>
+  <details class="card specials" id="specials">
+    <summary id="specials-title">Tous les spéciaux</summary>
+    <div id="specials-body"></div>
+  </details>
+
+  <p class="foot">Prix des circulaires du Québec; ils peuvent varier selon la succursale. Coût = quantité utilisée des produits en spécial, garde-manger exclu.</p>
 </main>
 <script src="app.js"></script>
 </body>
