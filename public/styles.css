@@ -287,7 +287,7 @@ h3{margin:0;font-size:13px;font-weight:600;text-transform:uppercase;letter-spaci
 /* Écran d'entrée : apparaît puis s'efface en 1 seconde */
 @keyframes splash-out{0%,45%{opacity:1}100%{opacity:0;visibility:hidden}}
 @keyframes splash-in{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:none}}
-.splash{position:fixed;inset:0;z-index:100;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:14px;background:var(--bg);color:var(--lime);pointer-events:none;animation:splash-out 2s ease forwards}
+.splash{position:fixed;inset:0;z-index:100;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:14px;background:var(--bg);color:var(--lime);pointer-events:none;animation:splash-out 2.5s ease forwards}
 .splash-pot,.splash-t{animation:splash-in .4s ease both}
 .splash-t{font:800 28px/1.1 'Bricolage Grotesque',sans-serif;color:var(--ink);letter-spacing:-.01em}
 @media (prefers-reduced-motion:reduce){.splash{animation-duration:.01s}}
@@ -300,7 +300,7 @@ h3{margin:0;font-size:13px;font-weight:600;text-transform:uppercase;letter-spaci
 @keyframes hh-leg{0%,100%{transform:rotate(-22deg)}50%{transform:rotate(22deg)}}
 @keyframes hh-flick{0%,100%{transform:scale(1)}50%{transform:scale(1.15,.9)}}
 @keyframes hh-bob{0%,100%{transform:translateY(0)}50%{transform:translateY(-3px)}}
-.hh-run{display:flex;align-items:flex-end;gap:6px;animation:hh-run 2s linear both}
+.hh-run{display:flex;align-items:flex-end;gap:6px;animation:hh-run 2.5s linear both}
 .hh{animation:hh-bob .2s ease-in-out infinite;overflow:visible;filter:drop-shadow(0 0 6px rgba(255,106,26,.45))}
 .hh-l{transform-box:fill-box;transform-origin:top center;animation:hh-leg .2s linear infinite}
 .hh-l.b{animation-delay:-.1s}
