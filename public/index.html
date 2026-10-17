@@ -13,17 +13,23 @@
 <main class="wrap">
   <header>
     <p class="kicker" id="semaine">Chargement…</p>
-    <h1>Quoi manger cette semaine?</h1>
+    <h1 id="title" tabindex="-1">Quoi manger cette semaine?</h1>
   </header>
 
-  <div class="stores" role="tablist" aria-label="Épiceries" id="stores"></div>
+  <section id="home" aria-labelledby="title">
+    <p class="lead">Touche une recette pour la voir. Prix par portion pour 2 personnes.</p>
+    <div class="tiles" id="tiles"></div>
+  </section>
 
-  <article class="card" id="recipe" role="tabpanel" aria-live="polite"></article>
-
-  <details class="card specials" id="specials">
-    <summary id="specials-title">Tous les spéciaux</summary>
-    <div id="specials-body"></div>
-  </details>
+  <section id="detail" hidden>
+    <button type="button" class="back" id="back">← Toutes les recettes</button>
+    <div class="stores" role="tablist" aria-label="Épiceries" id="stores"></div>
+    <article class="card" id="recipe" role="tabpanel" aria-live="polite"></article>
+    <details class="card specials" id="specials">
+      <summary id="specials-title">Tous les spéciaux</summary>
+      <div id="specials-body"></div>
+    </details>
+  </section>
 
   <p class="foot">Prix des circulaires du Québec; ils peuvent varier selon la succursale. Coût = quantité utilisée des produits en spécial, garde-manger exclu.</p>
 </main>

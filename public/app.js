@@ -8,13 +8,60 @@
   function esc(s) { return String(s).replace(/[&<>"]/g, function (c) { return { "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" }[c]; }); }
   function $(id) { return document.getElementById(id); }
 
-  // Étapes cochées : gardées sur l'appareil, par semaine (facultatif, ignoré si indisponible)
+  // Icônes (traits simples). Le champ "icone" d'une recette choisit l'icône; sinon on devine d'après le nom.
+  var ICONS = {
+    poulet: '<path d="M30 8c6 0 10 4 10 10s-5 11-11 11c-2 0-3 1-4 2l-7 7"/><circle cx="14" cy="39" r="3"/><circle cx="9" cy="34" r="3"/><path d="M30 8c-6 0-11 5-11 11 0 2 0 3 1 4"/>',
+    porc: '<ellipse cx="24" cy="27" rx="16" ry="13"/><ellipse cx="24" cy="31" rx="6" ry="4"/><circle cx="22" cy="31" r=".8" fill="currentColor"/><circle cx="26" cy="31" r=".8" fill="currentColor"/><circle cx="18" cy="23" r="1.2" fill="currentColor"/><circle cx="30" cy="23" r="1.2" fill="currentColor"/><path d="M11 18l-2-7 7 4M37 18l2-7-7 4"/>',
+    boeuf: '<path d="M10 22c0-8 8-13 17-12 9 1 13 8 12 15-1 9-10 14-19 13S10 30 10 22z"/><path d="M20 22c0-3 3-5 6-4s4 4 2 6-8 2-8-2z"/>',
+    poisson: '<path d="M6 24c6-8 16-11 26-6l8-6v24l-8-6C22 35 12 32 6 24z"/><circle cx="14" cy="22" r="1.4" fill="currentColor"/>',
+    crevette: '<path d="M36 12c-12-2-24 6-24 18 0 6 4 10 10 10"/><path d="M36 12c2 6-2 14-10 18"/><path d="M22 40l-4 4M22 40l4 4"/><path d="M30 16l6-6M33 20l7-4"/>',
+    pates: '<path d="M8 24h32c0 9-7 16-16 16S8 33 8 24z"/><path d="M14 24c0-6 2-12 6-14M20 24c0-6 2-11 6-13M26 24c0-5 2-9 6-11M32 24c0-4 1-7 4-9"/>',
+    vege: '<path d="M38 10C20 10 10 20 10 38c18 0 28-10 28-28z"/><path d="M10 38L30 18"/>'
+  };
+  function iconFor(r) {
+    if (r.icone && ICONS[r.icone]) return r.icone;
+    var t = (r.nom + " " + r.ingredients.map(function (i) { return i.nom; }).join(" ")).toLowerCase();
+    if (/crevette/.test(t)) return "crevette";
+    if (/saumon|poisson|morue|tilapia|truite|thon/.test(t)) return "poisson";
+    if (/poulet|pilon|dinde/.test(t)) return "poulet";
+    if (/porc|côte levée|côtes levées|jambon|bacon/.test(t)) return "porc";
+    if (/b(œ|oe)uf|veau|bifteck|rôti|palette|picanha|surlonge|steak/.test(t)) return "boeuf";
+    if (/pâtes|spaghetti|macaroni|lasagne/.test(t)) return "pates";
+    return "vege";
+  }
+  function svg(name) {
+    return '<svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">' + ICONS[name] + "</svg>";
+  }
+
+  function cost(r, portions) {
+    var f = portions / (data.portionsBase || 4);
+    return r.ingredients.reduce(function (s, i) { return s + snap(i.qte * f, i.pas) * i.prixUnite; }, 0);
+  }
+
+  // Étapes cochées : gardées sur l'appareil, par semaine (facultatif)
   function storeKey() { return "etapes:" + (data ? data.semaine : ""); }
   function loadDone() { try { state.done = JSON.parse(localStorage.getItem(storeKey())) || {}; } catch (e) { state.done = {}; } }
   function saveDone() { try { localStorage.setItem(storeKey(), JSON.stringify(state.done)); } catch (e) {} }
 
   function current() { return data.epiceries.find(function (e) { return e.id === state.store; }); }
 
+  /* ---------- Accueil : tuiles des recettes ---------- */
+  function renderHome() {
+    var html = "";
+    data.epiceries.forEach(function (e) {
+      e.recettes.forEach(function (r, idx) {
+        html += '<button type="button" class="tile" data-store="' + e.id + '" data-idx="' + idx + '">' +
+          '<span class="ico">' + svg(iconFor(r)) + "</span>" +
+          '<span class="tag">' + esc(e.nom) + "</span>" +
+          '<span class="nm">' + esc(r.nom) + "</span>" +
+          '<span class="pr"><b>' + money(cost(r, 2) / 2) + "</b><span>" + esc(r.temps) + "</span></span>" +
+          "</button>";
+      });
+    });
+    $("tiles").innerHTML = html;
+  }
+
+  /* ---------- Détail : volet des épiceries ---------- */
   function renderStores() {
     $("stores").innerHTML = data.epiceries.map(function (e) {
       var on = e.id === state.store;
@@ -31,15 +78,17 @@
 
     var ings = r.ingredients.map(function (i) {
       var q = snap(i.qte * f, i.pas);
-      var cost = q * i.prixUnite;
-      total += cost;
+      var c = q * i.prixUnite;
+      total += c;
       var count = i.compte ? " (≈ " + Math.max(1, Math.round(q * i.compte.parUnite)) + " " + i.compte.label + ")" : "";
-      return '<li><span class="n"><span>' + esc(i.nom) + '</span><span class="d">' + num(q) + " " + esc(i.unite) + count + " · " + esc(i.aubaine) + '</span></span><span class="mono">' + money(cost) + "</span></li>";
+      return '<li><span class="n"><span>' + esc(i.nom) + '</span><span class="d">' + num(q) + " " + esc(i.unite) + count + " · " + esc(i.aubaine) + '</span></span><span class="mono">' + money(c) + "</span></li>";
     }).join("");
 
-    var pantry = r.gardeManger.map(function (x) { if (!x[0]) return x[1];
+    var pantry = r.gardeManger.map(function (x) {
+      if (!x[0]) return x[1];
       var v = x[0] * f;
-      return num(v >= 20 ? Math.round(v / 5) * 5 : snap(v, 0.5)) + " " + x[1]; }).join(" · ");
+      return num(v >= 20 ? Math.round(v / 5) * 5 : snap(v, 0.5)) + " " + x[1];
+    }).join(" · ");
 
     var key = e.id + "-" + idx;
     var steps = r.etapes.map(function (s, k) {
@@ -74,24 +123,49 @@
     }).join("");
   }
 
-  function selectStore(id, focus) {
-    state.store = id;
-    if (location.hash !== "#" + id) history.replaceState(null, "", "#" + id);
-    renderStores(); renderRecipe(); renderSpecials();
-    if (focus) $("tab-" + id).focus();
+  /* ---------- Navigation (#accueil ou #maxi/2) ---------- */
+  function show(view) {
+    $("home").hidden = view !== "home";
+    $("detail").hidden = view !== "detail";
   }
 
+  function route() {
+    var m = location.hash.slice(1).split("/");
+    var e = data.epiceries.find(function (x) { return x.id === m[0]; });
+    if (!e) { show("home"); return; }
+    var idx = Number(m[1]);
+    if (idx >= 0 && idx < e.recettes.length) state.pick[e.id] = idx;
+    state.store = e.id;
+    show("detail");
+    renderStores(); renderRecipe(); renderSpecials();
+  }
+
+  function go(store, idx) { location.hash = store + "/" + idx; }
+
+  $("tiles").addEventListener("click", function (ev) {
+    var t = ev.target.closest(".tile");
+    if (!t) return;
+    go(t.dataset.store, t.dataset.idx);
+    window.scrollTo(0, 0);
+  });
+  $("back").addEventListener("click", function () {
+    history.pushState(null, "", location.pathname);
+    show("home");
+    window.scrollTo(0, 0);
+    $("title").focus();
+  });
   $("stores").addEventListener("click", function (ev) {
     var b = ev.target.closest("button[data-id]");
-    if (b) selectStore(b.dataset.id);
+    if (b) go(b.dataset.id, state.pick[b.dataset.id]);
   });
   $("stores").addEventListener("keydown", function (ev) {
     if (ev.key !== "ArrowRight" && ev.key !== "ArrowLeft") return;
     var ids = data.epiceries.map(function (e) { return e.id; });
     var i = ids.indexOf(state.store) + (ev.key === "ArrowRight" ? 1 : -1);
-    selectStore(ids[(i + ids.length) % ids.length], true);
+    var id = ids[(i + ids.length) % ids.length];
+    go(id, state.pick[id]);
+    setTimeout(function () { $("tab-" + id).focus(); }, 0);
   });
-
   $("recipe").addEventListener("click", function (ev) {
     var e = current();
     var p = ev.target.closest("button[data-p]");
@@ -106,11 +180,12 @@
       return;
     }
     if (ev.target.closest("#next")) {
-      state.pick[e.id] = (state.pick[e.id] + 1) % e.recettes.length;
-      renderRecipe();
-      $("next").focus();
+      go(e.id, (state.pick[e.id] + 1) % e.recettes.length);
+      setTimeout(function () { $("next").focus(); }, 0);
     }
   });
+  window.addEventListener("hashchange", route);
+  window.addEventListener("popstate", route);
 
   fetch("data/semaine.json", { cache: "no-cache" })
     .then(function (r) { return r.json(); })
@@ -118,9 +193,9 @@
       data = d;
       $("semaine").textContent = d.semaine;
       loadDone();
-      d.epiceries.forEach(function (e) { state.pick[e.id] = Math.floor(Math.random() * e.recettes.length); });
-      var h = location.hash.slice(1);
-      selectStore(d.epiceries.some(function (e) { return e.id === h; }) ? h : d.epiceries[0].id);
+      d.epiceries.forEach(function (e) { state.pick[e.id] = 0; });
+      renderHome();
+      route();
     })
-    .catch(function () { $("recipe").textContent = "Impossible de charger les spéciaux."; });
+    .catch(function () { $("tiles").textContent = "Impossible de charger les recettes."; });
 })();
