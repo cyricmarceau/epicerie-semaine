@@ -262,36 +262,30 @@
 
   function current() { return data.epiceries.find(function (e) { return e.id === state.store; }); }
 
-  /* ---------- 1. Accueil : les 3 épiceries ---------- */
-  function renderHome() {
-    $("store-cards").innerHTML = data.epiceries.map(function (e) {
-      var min = Math.min.apply(null, e.recettes.map(function (r) { var c = cost(r, 2); return c.caisse + c.tps + c.tvq; }));
-      var nSp = e.speciaux.reduce(function (k, g) { return k + g.items.length; }, 0);
-      var inC = state.cart.filter(function (k) { return k.split("/")[0] === e.id; }).length;
-      return '<a class="store-card sc-' + e.id + '" href="#' + e.id + '"><span class="sc-name">' + esc(e.nom) + "</span>" +
-        '<span class="sc-meta">Dès ' + money(min) + "<br>" + nSp + " spéciaux cette semaine</span>" +
-        (inC ? '<span class="sc-cart">' + inC + " dans le panier</span>" : "") +
-        '<span class="sc-go" aria-hidden="true">→</span></a>';
-    }).join("");
-  }
-
-  /* ---------- 2. Recettes d'une épicerie ---------- */
-  function renderStore() {
-    var e = current();
-    $("store-title").textContent = e.nom;
-    $("recipes").innerHTML = e.recettes.map(function (r, idx) {
+  /* ---------- Accueil : toutes les recettes, divisées par épicerie ---------- */
+  function rowsHtml(e) {
+    return e.recettes.map(function (r, idx) {
       var ck = e.id + "/" + idx, on = inCart(ck), c = cost(r, 2);
       return '<div class="rec-row"><a class="rec-open" href="#' + e.id + "/" + idx + '">' +
         '<span class="ico-s ic-' + iconFor(r) + '">' + svg(iconFor(r)) + "</span>" +
         '<span class="rec-t"><span class="nm">' + esc(r.nom) + '</span><span class="rec-m"><b>' + (c.estime ? "≈ " : "") + money(c.caisse + c.tps + c.tvq) + "</b> · " + esc(r.temps) + "</span></span></a>" +
         '<button type="button" class="add" data-add="' + ck + '" aria-pressed="' + on + '" aria-label="' + (on ? "Retirer du panier : " : "Ajouter au panier : ") + esc(r.nom) + '">' + (on ? "✓" : "+") + "</button></div>";
     }).join("");
+  }
+  function specHtml(e) {
     var count = e.speciaux.reduce(function (n, g) { return n + g.items.length; }, 0);
-    $("specials-title").textContent = "Spéciaux de la semaine (" + count + ")";
-    $("specials-body").innerHTML = e.speciaux.map(function (g) {
-      return '<div class="block"><h3>' + esc(g.rayon) + '</h3><ul class="list">' + g.items.map(function (it) {
-        return "<li><span>" + esc(it[0]) + '</span><span class="mono">' + esc(it[1]) + "</span></li>";
-      }).join("") + "</ul></div>";
+    return '<details class="card specials"><summary>Spéciaux ' + esc(e.nom) + " (" + count + ")</summary><div class=\"sp-body\">" +
+      e.speciaux.map(function (g) {
+        return '<div class="block"><h3>' + esc(g.rayon) + '</h3><ul class="list">' + g.items.map(function (it) {
+          return "<li><span>" + esc(it[0]) + '</span><span class="mono">' + esc(it[1]) + "</span></li>";
+        }).join("") + "</ul></div>";
+      }).join("") + "</div></details>";
+  }
+  function renderHome() {
+    $("store-cards").innerHTML = data.epiceries.map(function (e) {
+      return '<section class="store-sec st-' + e.id + '" id="sec-' + e.id + '" aria-labelledby="h-' + e.id + '">' +
+        '<h2 class="sec-title" id="h-' + e.id + '">' + esc(e.nom) + "</h2>" +
+        '<div class="rec-list">' + rowsHtml(e) + "</div>" + specHtml(e) + "</section>";
     }).join("");
   }
 
@@ -341,7 +335,7 @@
 
   /* ---------- Navigation : #  |  #maxi  |  #maxi/2  |  #panier ---------- */
   function show(view) {
-    ["home", "store", "detail", "cart"].forEach(function (v) { $(v).hidden = v !== view; });
+    ["home", "detail", "cart"].forEach(function (v) { $(v).hidden = v !== view; });
     window.scrollTo(0, 0);
   }
   function route() {
@@ -350,22 +344,25 @@
     var e = data.epiceries.find(function (x) { return x.id === m[0]; });
     if (!e) { show("home"); renderHome(); return; }
     state.store = e.id;
-    if (m.length < 2 || m[1] === "") { show("store"); renderStore(); return; }
+    if (m.length < 2 || m[1] === "") {
+      show("home"); renderHome();
+      var sec = $("sec-" + e.id); if (sec) sec.scrollIntoView();
+      return;
+    }
     var idx = Number(m[1]);
     state.pick[e.id] = idx >= 0 && idx < e.recettes.length ? idx : 0;
     show("detail"); renderRecipe();
   }
   function go(h) { location.hash = h; }
 
-  $("store-back").addEventListener("click", function () { go(""); });
   $("back").addEventListener("click", function () { go(state.store); });
   $("cart-back").addEventListener("click", function () { go(""); });
 
-  $("recipes").addEventListener("click", function (ev) {
+  $("store-cards").addEventListener("click", function (ev) {
     var a = ev.target.closest("button[data-add]");
     if (!a) return;
-    toggleCart(a.dataset.add); renderStore();
-    var again = $("recipes").querySelector('[data-add="' + a.dataset.add + '"]'); if (again) again.focus();
+    toggleCart(a.dataset.add); renderHome();
+    var again = $("store-cards").querySelector('[data-add="' + a.dataset.add + '"]'); if (again) again.focus();
   });
   $("recipe").addEventListener("click", function (ev) {
     var e = current();

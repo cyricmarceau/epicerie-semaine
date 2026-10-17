@@ -195,3 +195,14 @@ h3{margin:0;font-size:13px;font-weight:600;text-transform:uppercase;letter-spaci
 .store-card.sc-metro .sc-meta{color:#E8D6C4}
 .store-card.sc-metro:hover{border-color:#B07A50}
 
+
+/* Accueil : sections par épicerie (couleurs) */
+.sections .store-sec{gap:10px}
+.st-maxi .sec-title{color:#8FBCFF}.st-maxi .sec-title::after{background:#2F6FD6}
+.st-iga .sec-title{color:#FF8A92}.st-iga .sec-title::after{background:#C8323C}
+.st-metro .sec-title{color:#E2B48A}.st-metro .sec-title::after{background:#8B5E3C}
+.st-maxi .rec-row{border-left:3px solid #2F6FD6}
+.st-iga .rec-row{border-left:3px solid #C8323C}
+.st-metro .rec-row{border-left:3px solid #8B5E3C}
+.store-sec .specials summary{font-size:17px;padding:14px 18px}
+.sp-body{padding:0 18px 18px;display:flex;flex-direction:column;gap:16px}

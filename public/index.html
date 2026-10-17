@@ -25,30 +25,19 @@
 
   <!-- 1. Choix de l'épicerie -->
   <section id="home" aria-labelledby="title">
-    <p class="lead">Choisis ton épicerie.</p>
-    <div class="store-cards" id="store-cards"></div>
+    <div class="sections" id="store-cards"></div>
   </section>
 
-  <!-- 2. Recettes d'une épicerie -->
-  <section id="store" hidden aria-labelledby="store-title">
-    <button type="button" class="back" id="store-back">← Épiceries</button>
-    <h2 id="store-title" class="store-h" tabindex="-1"></h2>
-    <div class="rec-list" id="recipes"></div>
-    <details class="card specials" id="specials">
-      <summary id="specials-title">Spéciaux de la semaine</summary>
-      <div id="specials-body"></div>
-    </details>
-  </section>
 
   <!-- 3. Une recette -->
   <section id="detail" hidden>
-    <button type="button" class="back" id="back">← Recettes</button>
+    <button type="button" class="back" id="back">← Toutes les recettes</button>
     <article class="card" id="recipe" aria-live="polite"></article>
   </section>
 
   <!-- Panier -->
   <section id="cart" hidden aria-labelledby="cart-title">
-    <button type="button" class="back" id="cart-back">← Épiceries</button>
+    <button type="button" class="back" id="cart-back">← Toutes les recettes</button>
     <h2 id="cart-title">Panier</h2>
     <div id="cart-body" class="sections"></div>
   </section>
