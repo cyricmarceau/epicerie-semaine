@@ -281,3 +281,5 @@ h3{margin:0;font-size:13px;font-weight:600;text-transform:uppercase;letter-spaci
 .sp-list li:last-child{border-bottom:0;padding-bottom:0}
 .sp-list .mono{color:var(--lime);font-weight:600}
 .top .kicker{margin-bottom:8px}
+#detail .meta{font-size:17px}
+#detail .meta .st{font-weight:700}
