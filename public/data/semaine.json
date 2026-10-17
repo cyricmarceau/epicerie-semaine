@@ -240,27 +240,23 @@
                 "label": "pot",
                 "estime": false
               }
-            },
-            {
-              "nom": "Huile de canola, 3 L",
-              "aubaine": "7,00 $ le bidon",
-              "qte": 0.03,
-              "unite": "L",
-              "pas": 0.015,
-              "prixUnite": 2.3333333333333335,
-              "achat": {
-                "qte": 3,
-                "label": "bidon",
-                "estime": false
-              }
             }
           ],
-          "gardeManger": [],
+          "gardeManger": [
+            [
+              1,
+              "c. à soupe d’huile"
+            ],
+            [
+              0,
+              "sel et poivre"
+            ]
+          ],
           "etapes": [
             "Chauffer l’huile dans une grande poêle à feu moyen-vif.",
             "Cuire le poulet haché en l’émiettant jusqu’à ce qu’il ne soit plus rosé (74 °C).",
             "Ajouter les poivrons en lanières et le brocoli en petits bouquets; cuire 5 min.",
-            "Verser la sauce Catelli, mijoter 10 min et servir. Le reste de l’huile se garde des mois au garde-manger."
+            "Verser la sauce Catelli, mijoter 10 min, goûter et ajuster le sel. Le reste du poulet haché se congèle cru."
           ],
           "proteines": 40
         },

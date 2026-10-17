@@ -116,8 +116,7 @@
   function badgeHtml(b, withPct) {
     return (b.prot ? '<span class="bdg prot">' + DUMBBELL + "Protéine</span>" : "") +
       (b.chef ? '<span class="bdg chef">Chef</span>' : "") +
-      (b.strict ? '<span class="bdg strict">Spéciaux</span>'
-        : b.cent ? '<span class="bdg cent">100 % spéciaux</span>'
+      (b.cent ? '<span class="bdg cent">100 % spéciaux</span>'
         : withPct ? '<span class="bdg pct">' + b.pct + " % spéciaux</span>" : "");
   }
 
