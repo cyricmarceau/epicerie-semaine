@@ -30,7 +30,7 @@
     return "vege";
   }
   function svg(name) {
-    return '<svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">' + ICONS[name] + "</svg>";
+    return '<svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">' + ICONS[name] + "</svg>";
   }
 
   // Quantité utilisée + ce qu'on achète vraiment (formats entiers : barquette, sac, pot…)
@@ -106,12 +106,16 @@
       chef: !!r.chef,
       cent: cent,
       strict: horsN === 0 && r.gardeManger.length === 0,
-      pct: cent ? 100 : Math.round(100 * spec / total)
+      pct: cent ? 100 : Math.round(100 * spec / total),
+      prot: (r.proteines || 0) >= 30,
+      protG: r.proteines || 0
     };
   }
   // withPct : ajoute le badge « X % spéciaux » (page recette); sur les tuiles, le % est sur l'icône
+  var DUMBBELL = '<svg viewBox="0 0 24 24" width="13" height="13" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" aria-hidden="true"><path d="M6 7v10M3 9.5v5M18 7v10M21 9.5v5M6 12h12"/></svg>';
   function badgeHtml(b, withPct) {
-    return (b.chef ? '<span class="bdg chef">Chef</span>' : "") +
+    return (b.prot ? '<span class="bdg prot">' + DUMBBELL + "Protéine</span>" : "") +
+      (b.chef ? '<span class="bdg chef">Chef</span>' : "") +
       (b.strict ? '<span class="bdg strict">Spéciaux</span>'
         : b.cent ? '<span class="bdg cent">100 % spéciaux</span>'
         : withPct ? '<span class="bdg pct">' + b.pct + " % spéciaux</span>" : "");
@@ -148,7 +152,7 @@
         if (f === "cent" && !b.cent) return;
         if (f === "strict" && !b.strict) return;
         tiles += '<button type="button" class="tile" data-store="' + e.id + '" data-idx="' + idx + '">' +
-          '<span class="ico">' + svg(iconFor(r)) + '<span class="ico-pct' + (b.pct === 100 ? " full" : "") + '" aria-label="' + b.pct + ' % des produits en spécial">' + b.pct + " %</span></span>" +
+          '<span class="ico ic-' + iconFor(r) + '">' + svg(iconFor(r)) + '<span class="ico-pct' + (b.pct === 100 ? " full" : "") + '" aria-label="' + b.pct + ' % des produits en spécial">' + b.pct + " %</span></span>" +
           '<span class="tags">' + badgeHtml(b, false) + "</span>" +
           '<span class="nm">' + esc(r.nom) + "</span>" +
           (function () { var n = notSpecialNames(r); return n.length ? '<span class="ns">Pas en spécial : ' + esc(n.join(", ")) + "</span>" : ""; })() +
@@ -218,7 +222,7 @@
       '<div class="price"><div><div class="big">' + (tot.estime ? "≈ " : "") + money(tot.caisse + tot.tps + tot.tvq) + '</div>' +
         '<div class="tax">TPS 5 % : ' + money(tot.tps) + " · TVQ 9,975 % : " + money(tot.tvq) +
         (tot.tps + tot.tvq === 0 ? "<br>Aliments de base détaxés au Québec" : "") + "</div></div>" +
-      '<div class="serv">2 portions</div></div>' +
+      '<div class="serv">2 portions' + (r.proteines ? '<span class="pg">≈ ' + r.proteines + " g protéines / portion</span>" : "") + "</div></div>" +
       '<div class="block"><h3>À acheter</h3><ul class="list">' + ings + "</ul>" +
         (tot.estime ? '<p class="pantry">≈ : poids de barquette estimé; le prix exact dépend de l’étiquette en magasin. Les restes se congèlent.</p>' : "") +
         "</div>" +

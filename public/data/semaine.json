@@ -82,7 +82,8 @@
             "Ajouter les poivrons en lanières et le brocoli en bouquets, napper du reste du mélange.",
             "Poursuivre 20 à 25 min, jusqu’à 74 °C (165 °F) au cœur des pilons. Les pilons qui restent se congèlent crus jusqu’à 3 mois."
           ],
-          "icone": "poulet"
+          "icone": "poulet",
+          "proteines": 30
         },
         {
           "nom": "Pâtes sauce à la viande et poivrons",
@@ -180,7 +181,8 @@
             "Ajouter les poivrons en dés, cuire 3 min, puis la sauce Catelli; mijoter 10 min.",
             "Servir sur les pâtes avec du parmesan."
           ],
-          "icone": "pates"
+          "icone": "pates",
+          "proteines": 35
         },
         {
           "nom": "Poulet haché à l’italienne, poivrons et brocoli",
@@ -259,7 +261,8 @@
             "Cuire le poulet haché en l’émiettant jusqu’à ce qu’il ne soit plus rosé (74 °C).",
             "Ajouter les poivrons en lanières et le brocoli en petits bouquets; cuire 5 min.",
             "Verser la sauce Catelli, mijoter 10 min et servir. Le reste de l’huile se garde des mois au garde-manger."
-          ]
+          ],
+          "proteines": 40
         },
         {
           "nom": "Bifteck d’aloyau poêlé, beurre à l’échalote, frites et poivrons confits",
@@ -358,7 +361,8 @@
             "Confire les poivrons en fines lanières dans l’huile à feu doux 15 min, avec une pincée de sel.",
             "Éponger et saler le bifteck; le saisir à feu vif 3 à 4 min par côté (57 °C mi-saignant, 71 °C bien cuit). Laisser reposer 5 min.",
             "Dans la même poêle, fondre le beurre avec l’échalote et l’ail hachés 1 min, ajouter le persil; napper le bifteck tranché."
-          ]
+          ],
+          "proteines": 40
         }
       ],
       "speciaux": [
@@ -573,7 +577,8 @@
             "Retirer du feu, ajouter le beurre et l’ail haché dans la poêle et arroser les côtelettes 1 min. Laisser reposer 3 min.",
             "Assaisonner la laitue avec le reste de l’huile, sel et poivre. Les côtelettes qui restent se congèlent crues."
           ],
-          "icone": "porc"
+          "icone": "porc",
+          "proteines": 38
         },
         {
           "nom": "Crevettes à l’ail, légumes et riz",
@@ -668,7 +673,8 @@
             "Fondre le reste du beurre, ajouter l’ail 30 s, puis les crevettes 2 à 3 min jusqu’à ce qu’elles soient roses.",
             "Remettre les légumes, arroser de jus de citron, servir sur le riz."
           ],
-          "icone": "crevette"
+          "icone": "crevette",
+          "proteines": 39
         },
         {
           "nom": "Courge farcie au fromage et aux légumes",
@@ -742,7 +748,8 @@
             "Faire revenir l’oignon et l’ail dans le beurre 3 min, ajouter les légumes surgelés et cuire 5 min.",
             "Creuser un peu la chair de la courge, la mélanger aux légumes avec la moitié du fromage, et remplir la courge.",
             "Couvrir du reste du fromage et gratiner 10 min. Le fromage qui reste se congèle."
-          ]
+          ],
+          "proteines": 24
         },
         {
           "nom": "Côtelettes de porc sauce crème-moutarde, purée de courge au beurre",
@@ -832,7 +839,8 @@
             "Saisir les côtelettes dans l’huile 4 à 5 min par côté, jusqu’à 71 °C au centre; réserver au chaud.",
             "Dans la même poêle, fondre le reste du beurre avec l’ail 30 s, ajouter la crème et la moutarde, réduire 3 min jusqu’à ce que la sauce nappe la cuillère.",
             "Napper les côtelettes et servir sur la purée. Les côtelettes qui restent se congèlent crues."
-          ]
+          ],
+          "proteines": 38
         }
       ],
       "speciaux": [
@@ -1034,7 +1042,8 @@
             "Saisir le poulet dans l’huile à feu vif 5 à 6 min; réserver.",
             "Sauter les carottes, l’oignon et l’ail 4 min, remettre le poulet, ajouter la sauce VH et mijoter 3 min. Servir sur le riz."
           ],
-          "icone": "poulet"
+          "icone": "poulet",
+          "proteines": 44
         },
         {
           "nom": "Boulettes de veau, tomates raisins rôties et carottes glacées",
@@ -1129,7 +1138,8 @@
             "Les déposer sur une plaque huilée avec les tomates raisins; cuire 15 à 18 min, jusqu’à 71 °C au centre.",
             "Pendant ce temps, cuire les carottes en rondelles à l’eau salée 8 min; égoutter.",
             "Remettre les carottes dans la casserole avec le beurre et le sucre, glacer 3 min et servir avec les boulettes."
-          ]
+          ],
+          "proteines": 22
         },
         {
           "nom": "Pizza bonifiée aux tomates raisins et cheddar",
@@ -1182,7 +1192,8 @@
             "Couper les tomates raisins en deux et les répartir sur la pizza.",
             "Ajouter une bonne poignée de fromage râpé.",
             "Cuire selon la boîte, plus 2 min pour bien gratiner. Le fromage qui reste se congèle."
-          ]
+          ],
+          "proteines": 40
         },
         {
           "nom": "Picanha saisie, beurre au thym et carottes rôties",
@@ -1271,7 +1282,8 @@
             "Quadriller le gras de la picanha, saler généreusement; la saisir côté gras 6 à 7 min, puis 3 à 4 min de chaque côté.",
             "Finir au four 8 à 12 min, jusqu’à 54–57 °C pour mi-saignant (71 °C bien cuit). Laisser reposer 8 min.",
             "Fondre le beurre avec l’ail écrasé et le thym, arroser la viande, trancher contre le grain. Le reste de picanha se tranche froid en sandwich."
-          ]
+          ],
+          "proteines": 36
         }
       ],
       "speciaux": [
