@@ -148,3 +148,29 @@ h3{margin:0;font-size:13px;font-weight:600;text-transform:uppercase;letter-spaci
 .base-home .bp{display:flex;align-items:center;gap:10px;flex:0 0 auto}
 .add-sm{width:40px;height:40px;border-radius:10px;border:1px solid var(--lime-line);background:var(--raise);color:var(--lime);font:600 20px/1 'IBM Plex Mono',monospace;cursor:pointer}
 .add-sm[aria-pressed="true"]{background:var(--lime);color:var(--lime-ink);border-color:var(--lime);font-size:17px}
+
+/* Navigation simple : épiceries → recettes → recette */
+#home,#store,#detail{display:flex;flex-direction:column;gap:16px}
+#store[hidden],#detail[hidden],#home[hidden]{display:none}
+.store-cards{display:flex;flex-direction:column;gap:12px}
+.store-card{position:relative;display:flex;flex-direction:column;gap:6px;padding:24px 64px 24px 24px;border-radius:20px;border:1px solid var(--line);background:var(--card);color:var(--ink);text-decoration:none;transition:border-color .15s,transform .15s}
+.store-card:hover{border-color:var(--lime-line);transform:translateY(-2px)}
+.store-card:focus-visible{outline:3px solid var(--lime);outline-offset:2px}
+.sc-name{font:800 36px/1 'Bricolage Grotesque',sans-serif}
+.sc-meta{font-size:14px;color:var(--muted)}
+.sc-cart{align-self:flex-start;margin-top:4px;font:600 12px 'IBM Plex Mono',monospace;padding:2px 8px;border-radius:999px;background:var(--lime);color:var(--lime-ink)}
+.sc-go{position:absolute;right:24px;top:50%;transform:translateY(-50%);font:600 28px 'IBM Plex Mono',monospace;color:var(--lime)}
+.store-h{font:800 40px/1 'Bricolage Grotesque',sans-serif}
+.rec-list{display:flex;flex-direction:column;gap:10px}
+.rec-row{display:flex;align-items:center;gap:10px;padding:10px 10px 10px 12px;border-radius:16px;border:1px solid var(--line);background:var(--card)}
+.rec-row:hover{border-color:var(--lime-line)}
+.rec-open{flex:1;min-width:0;display:flex;align-items:center;gap:12px;color:var(--ink);text-decoration:none;min-height:56px}
+.rec-open:focus-visible{outline:3px solid var(--lime);outline-offset:2px;border-radius:10px}
+.ico-s{--c:var(--c-vege);flex:0 0 48px;height:48px;border-radius:12px;display:flex;align-items:center;justify-content:center;color:var(--c);background:color-mix(in srgb,var(--c) 16%,transparent)}
+.ico-s svg{width:30px;height:30px}
+.rec-t{display:flex;flex-direction:column;min-width:0}
+.rec-t .nm{font-weight:600;line-height:1.25}
+.rec-m{font-size:13px;color:var(--muted)}
+.rec-m b{font:600 14px 'IBM Plex Mono',monospace;color:var(--lime)}
+.rec-row .add{position:static;flex:0 0 44px}
+#detail .price{display:block}

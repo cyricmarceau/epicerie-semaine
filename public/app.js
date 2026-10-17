@@ -202,12 +202,8 @@
   function renderCart() {
     var valid = state.cart.filter(recipeOf);
     var anyMiss = Object.keys(state.missing).some(function (k) { return state.missing[k]; });
-    if (!valid.length && !anyMiss) {
-      $("cart-body").innerHTML = '<p class="empty">Ton panier est vide. Touche le <b>+</b> sur une recette pour ajouter ses ingrédients.</p>';
-      return;
-    }
     // Recettes choisies
-    var html = !valid.length ? "" : '<div class="card"><h3>Recettes (' + valid.length + ')</h3><ul class="list">' + valid.map(function (k) {
+    var html = !valid.length ? '<p class="empty">Aucune recette dans le panier. Touche le <b>+</b> à côté d’une recette pour ajouter ses ingrédients.</p>' : '<div class="card"><h3>Recettes (' + valid.length + ')</h3><ul class="list">' + valid.map(function (k) {
       var x = recipeOf(k);
       return '<li><span class="n"><span>' + esc(x.r.nom) + '</span><span class="d">' + esc(x.e.nom) + " · 2 portions</span></span>" +
         '<button type="button" class="rm" data-rm="' + k + '" aria-label="Retirer ' + esc(x.r.nom) + ' du panier">Retirer</button></li>';
@@ -243,7 +239,7 @@
       html += '<section class="store-sec"><h2 class="sec-title">' + esc(e.nom) + ' <small>' + money(sub) + "</small></h2>" +
         '<div class="card"><ul class="list cart-list">' + rows + "</ul></div></section>";
     });
-    var need = baseNeeded(valid), miss = 0;
+    var need = baseNeeded(valid, true), miss = 0;
     if (need.length) {
       var rowsB = need.map(function (x) {
         var on = !!state.missing[x.b.k];
@@ -256,142 +252,42 @@
           '<span class="mono">' + (on ? (x.deal ? "" : "≈ ") + money(price) : "—") + "</span></li>";
       }).join("");
       html += '<section class="store-sec"><h2 class="sec-title">Garde-manger <small>' + (miss ? money(miss) : "tu l’as déjà?") + "</small></h2>" +
-        '<div class="card"><p class="pantry">Produits de base utilisés par tes recettes ou ajoutés à la main. Touche ce qui te manque pour l’ajouter aux achats (touche encore pour l’enlever).</p><ul class="list cart-list base-list">' + rowsB + "</ul></div></section>";
+        '<div class="card"><p class="pantry">Ce que tu as normalement à la maison. Touche ce qui te manque pour l’ajouter aux achats.</p><ul class="list cart-list base-list">' + rowsB + "</ul></div></section>";
       grand += miss;
     }
     html = '<div class="price cart-total"><div><div class="big">' + (anyEst ? "≈ " : "") + money(grand) + '</div><div class="tax">Total à la caisse, taxes incluses' + (miss ? " · garde-manger manquant inclus" : " · garde-manger de base exclu") + "</div></div></div>" + html +
-      '<button type="button" class="back" id="cart-clear">Vider le panier</button>';
+      ((valid.length || anyMiss) ? '<button type="button" class="back" id="cart-clear">Vider le panier</button>' : "");
     $("cart-body").innerHTML = html;
-  }
-
-  // Accueil : garde-manger de base avec prix et bouton + pour l'ajouter au panier
-  function renderBase() {
-    $("base-list").innerHTML = '<ul class="list base-home">' + baseNeeded([], true).map(function (x) {
-      var on = !!state.missing[x.b.k];
-      var price = x.deal ? money(x.deal.prix) : "≈ " + money(x.b.prix);
-      var where = x.deal ? '<span class="d deal">En spécial chez ' + esc(x.deal.store) + " : " + esc(x.deal.nom) + "</span>"
-                         : '<span class="d">' + esc(x.b.fmt) + " · prix régulier estimé</span>";
-      return '<li><span class="n"><span>' + esc(x.b.nom) + "</span>" + where + '</span><span class="bp"><span class="mono">' + price + "</span>" +
-        '<button type="button" class="add-sm" data-base="' + x.b.k + '" aria-pressed="' + on + '" aria-label="' + (on ? "Retirer du panier : " : "Ajouter au panier : ") + esc(x.b.nom) + '">' + (on ? "✓" : "+") + "</button></span></li>";
-    }).join("") + "</ul>";
   }
 
   function current() { return data.epiceries.find(function (e) { return e.id === state.store; }); }
 
-  /* ---------- Accueil : tuiles des recettes ---------- */
-  // Onglet « Tous les spéciaux » : la circulaire de chaque épicerie, par rayon
-  function specialsHtml() {
-    return data.epiceries.map(function (e) {
-      var n = e.speciaux.reduce(function (k, g) { return k + g.items.length; }, 0);
-      return '<section class="store-sec" aria-labelledby="sp-' + e.id + '"><h2 class="sec-title" id="sp-' + e.id + '">' + esc(e.nom) + ' <small>' + n + " spéciaux</small></h2>" +
-        '<div class="card sp-card">' + e.speciaux.map(function (g) {
-          return '<div class="block"><h3>' + esc(g.rayon) + '</h3><ul class="list">' + g.items.map(function (it) {
-            return "<li><span>" + esc(it[0]) + '</span><span class="mono">' + esc(it[1]) + "</span></li>";
-          }).join("") + "</ul></div>";
-        }).join("") + "</div></section>";
-    }).join("");
-  }
+  /* ---------- 1. Accueil : les 3 épiceries ---------- */
   function renderHome() {
-    var html = "";
-    var f = state.filter;
-    data.epiceries.forEach(function (e) {
-      var tiles = "";
-      e.recettes.forEach(function (r, idx) {
-        var b = badges(r);
-        if (f === "chef" && !b.chef) return;
-        if (f === "cent" && !b.cent) return;
-        if (f === "strict" && !b.strict) return;
-        var ck = e.id + "/" + idx, on = inCart(ck);
-        tiles += '<div class="tile-wrap"><button type="button" class="add" data-add="' + ck + '" aria-pressed="' + on + '" aria-label="' + (on ? "Retirer du panier : " : "Ajouter au panier : ") + esc(r.nom) + '">' + (on ? "✓" : "+") + "</button>" +
-          '<button type="button" class="tile" data-store="' + e.id + '" data-idx="' + idx + '">' +
-          '<span class="ico ic-' + iconFor(r) + '">' + svg(iconFor(r)) + '<span class="ico-pct' + (b.pct === 100 ? " full" : "") + '" aria-label="' + b.pct + ' % des produits en spécial">' + b.pct + " %</span></span>" +
-          '<span class="tags">' + badgeHtml(b, false) + "</span>" +
-          '<span class="nm">' + esc(r.nom) + "</span>" +
-          (function () { var n = notSpecialNames(r); return n.length ? '<span class="ns">Manque (pas en spécial) : ' + esc(n.join(", ")) + ' — <b>' + b.pct + " % du prix en spéciaux</b></span>" : ""; })() +
-          (function () { var c = cost(r, 2); return '<span class="pr"><span><b>' + (c.estime ? "≈ " : "") + money(c.caisse + c.tps + c.tvq) + '</b><span class="cx">à la caisse</span></span><span>' + esc(r.temps) + "</span></span>"; })() +
-          "</button></div>";
-      });
-      if (tiles) {
-        html += '<section class="store-sec" aria-labelledby="sec-' + e.id + '"><h2 class="sec-title" id="sec-' + e.id + '">' + esc(e.nom) + '</h2><div class="tiles">' + tiles + "</div></section>";
-      }
-    });
-    if (f === "spec") html = specialsHtml();
-    renderBase();
-    $("tiles").innerHTML = html || '<p class="empty">Aucune recette de ce type cette semaine.</p>';
-    var opts = [["tout", "Toutes les recettes"], ["spec", "Tous les spéciaux"]];
-    $("filters").innerHTML = opts.map(function (o) {
-      return '<button type="button" data-f="' + o[0] + '" aria-pressed="' + (f === o[0]) + '">' + o[1] + "</button>";
+    $("store-cards").innerHTML = data.epiceries.map(function (e) {
+      var min = Math.min.apply(null, e.recettes.map(function (r) { var c = cost(r, 2); return c.caisse + c.tps + c.tvq; }));
+      var nSp = e.speciaux.reduce(function (k, g) { return k + g.items.length; }, 0);
+      var inC = state.cart.filter(function (k) { return k.split("/")[0] === e.id; }).length;
+      return '<a class="store-card" href="#' + e.id + '"><span class="sc-name">' + esc(e.nom) + "</span>" +
+        '<span class="sc-meta">' + e.recettes.length + " recettes · dès " + money(min) + "<br>" + nSp + " spéciaux cette semaine</span>" +
+        (inC ? '<span class="sc-cart">' + inC + " dans le panier</span>" : "") +
+        '<span class="sc-go" aria-hidden="true">→</span></a>';
     }).join("");
   }
 
-  /* ---------- Détail : volet des épiceries ---------- */
-  function renderStores() {
-    $("stores").innerHTML = data.epiceries.map(function (e) {
-      var on = e.id === state.store;
-      return '<button type="button" role="tab" id="tab-' + e.id + '" data-id="' + e.id + '" aria-selected="' + on + '" aria-controls="recipe" tabindex="' + (on ? 0 : -1) + '">' + esc(e.nom) + "</button>";
-    }).join("");
-  }
-
-  function renderRecipe() {
+  /* ---------- 2. Recettes d'une épicerie ---------- */
+  function renderStore() {
     var e = current();
-    var idx = state.pick[e.id];
-    var r = e.recettes[idx];
-    var f = state.portions / (data.portionsBase || 4);
-    var tot = cost(r, state.portions);
-
-    var ings = r.ingredients.map(function (i) {
-      var l = line(i, state.portions);
-      var count = i.compte ? " (≈ " + Math.max(1, Math.round(l.q * i.compte.parUnite)) + " " + i.compte.label + ")" : "";
-      var est = l.a.estime ? "≈ " : "";
-      var fmt = i.unite === "lb"
-        ? (l.n > 1 ? l.n + " × " : "") + (l.a.label ? l.a.label + " " : "") + est + num(l.a.qte) + " lb"
-        : (l.a.label && l.a.label.charAt(0) !== "("
-          ? l.n + " " + l.a.label
-          : num(l.buy) + " " + i.unite + (l.buy > 1 && !/[sx)]$/.test(i.unite) ? "s" : "") + (l.a.label ? " " + l.a.label : ""));
-      var reste = l.reste > 0.001 ? " · reste " + est + num(l.reste) + " " + i.unite : "";
-      return '<li' + (i.horsSpecial ? ' class="hors"' : '') + '><span class="n"><span>' + esc(i.nom) + '</span>' +
-        '<span class="d">Acheter : ' + esc(fmt) + " · " + esc(i.aubaine) + "</span>" +
-        '<span class="d">Utilisé : ' + num(l.q) + " " + esc(i.unite) + esc(count) + esc(reste) + "</span></span>" +
-        '<span class="mono">' + est + money(l.caisse) + "</span></li>";
+    $("store-title").textContent = e.nom;
+    $("recipes").innerHTML = e.recettes.map(function (r, idx) {
+      var ck = e.id + "/" + idx, on = inCart(ck), c = cost(r, 2);
+      return '<div class="rec-row"><a class="rec-open" href="#' + e.id + "/" + idx + '">' +
+        '<span class="ico-s ic-' + iconFor(r) + '">' + svg(iconFor(r)) + "</span>" +
+        '<span class="rec-t"><span class="nm">' + esc(r.nom) + '</span><span class="rec-m"><b>' + (c.estime ? "≈ " : "") + money(c.caisse + c.tps + c.tvq) + "</b> · " + esc(r.temps) + "</span></span></a>" +
+        '<button type="button" class="add" data-add="' + ck + '" aria-pressed="' + on + '" aria-label="' + (on ? "Retirer du panier : " : "Ajouter au panier : ") + esc(r.nom) + '">' + (on ? "✓" : "+") + "</button></div>";
     }).join("");
-
-    var sp = splitPantry(r, f);
-    var hors = r.ingredients.filter(function (i) { return i.horsSpecial; }).map(function (i) { return i.nom; });
-    var notSpec = sp.extra.concat(hors);
-
-    var key = e.id + "-" + idx;
-    var steps = r.etapes.map(function (s, k) {
-      var on = !!state.done[key + "-" + k];
-      return '<button type="button" class="step" data-step="' + k + '" aria-pressed="' + on + '"><span class="num" aria-hidden="true">' + (on ? "✓" : k + 1) + '</span><span class="txt">' + esc(s) + "</span></button>";
-    }).join("");
-
-
-    var el = $("recipe");
-    el.setAttribute("aria-label", e.nom + " : " + r.nom);
-    el.innerHTML =
-      '<div class="meta"><span><b class="st">' + esc(e.nom) + "</b> · Recette " + (idx + 1) + " sur " + e.recettes.length + "</span><span>" + esc(r.temps) + "</span></div>" +
-      (function () { var h = badgeHtml(badges(r), true); return h ? '<div class="tags">' + h + "</div>" : ""; })() +
-      "<h2>" + esc(r.nom) + "</h2>" +
-      '<div class="price"><div><div class="big">' + (tot.estime ? "≈ " : "") + money(tot.caisse + tot.tps + tot.tvq) + '</div>' +
-        '<div class="tax">TPS 5 % : ' + money(tot.tps) + " · TVQ 9,975 % : " + money(tot.tvq) +
-        (tot.tps + tot.tvq === 0 ? "<br>Aliments de base détaxés au Québec" : "") + "</div></div>" +
-      '<div class="serv">2 portions' + (r.proteines ? '<span class="pg">≈ ' + r.proteines + " g protéines / portion</span>" : "") + "</div></div>" +
-      '<div class="block"><h3>À acheter</h3><ul class="list">' + ings + "</ul>" +
-        (tot.estime ? '<p class="pantry">≈ : poids de barquette estimé; le prix exact dépend de l’étiquette en magasin. Les restes se congèlent.</p>' : "") +
-        "</div>" +
-      (notSpec.length ? '<div class="warn" role="note"><h3>Manque — à acheter à prix régulier</h3><p class="pantry">' + badges(r).pct + " % du prix de la recette vient des spéciaux.</p><ul>" +
-        notSpec.map(function (t) { return "<li>" + esc(t) + "</li>"; }).join("") +
-        "</ul>" + (sp.extra.length ? '<p class="pantry">Prix non inclus dans le total ci-dessus.</p>' : "") + "</div>" : "") +
-      '<p class="pantry">Garde-manger de base (tu l’as déjà) : ' + esc(sp.base.length ? sp.base.join(" · ") : "rien — tout vient des spéciaux") + "</p>" +
-      '<div class="block"><h3>Étapes — touche pour cocher</h3>' + steps + "</div>" +
-      '<button type="button" class="add-big" id="add-recipe" aria-pressed="' + inCart(e.id + "/" + idx) + '">' + (inCart(e.id + "/" + idx) ? "✓ Dans le panier — retirer" : "+ Ajouter les ingrédients au panier") + "</button>" +
-      '<button type="button" class="next" id="next">Autre recette chez ' + esc(e.nom) + "</button>";
-  }
-
-  function renderSpecials() {
-    var e = current();
     var count = e.speciaux.reduce(function (n, g) { return n + g.items.length; }, 0);
-    $("specials-title").textContent = "Tous les spéciaux " + e.nom + " (" + count + ")";
+    $("specials-title").textContent = "Spéciaux de la semaine (" + count + ")";
     $("specials-body").innerHTML = e.speciaux.map(function (g) {
       return '<div class="block"><h3>' + esc(g.rayon) + '</h3><ul class="list">' + g.items.map(function (it) {
         return "<li><span>" + esc(it[0]) + '</span><span class="mono">' + esc(it[1]) + "</span></li>";
@@ -399,67 +295,77 @@
     }).join("");
   }
 
-  /* ---------- Navigation (#accueil ou #maxi/2) ---------- */
-  function show(view) {
-    $("home").hidden = view !== "home";
-    $("detail").hidden = view !== "detail";
-    $("cart").hidden = view !== "cart";
+  /* ---------- 3. Une recette ---------- */
+  function renderRecipe() {
+    var e = current();
+    var idx = state.pick[e.id];
+    var r = e.recettes[idx];
+    var f = state.portions / (data.portionsBase || 4);
+    var tot = cost(r, state.portions);
+    var b = badges(r);
+
+    var ings = r.ingredients.map(function (i) {
+      var l = line(i, state.portions);
+      var count = i.compte ? " (≈ " + Math.max(1, Math.round(l.q * i.compte.parUnite)) + " " + i.compte.label + ")" : "";
+      var est = l.a.estime ? "≈ " : "";
+      var reste = l.reste > 0.001 ? " · reste " + est + num(l.reste) + " " + i.unite : "";
+      return '<li' + (i.horsSpecial ? ' class="hors"' : "") + '><span class="n"><span>' + esc(i.nom) + "</span>" +
+        '<span class="d">Acheter : ' + esc(fmtBuy(i, l.n, l.a, l.buy)) + " · " + esc(i.aubaine) + "</span>" +
+        '<span class="d">Utilisé : ' + num(l.q) + " " + esc(i.unite) + esc(count) + esc(reste) + "</span></span>" +
+        '<span class="mono">' + est + money(l.caisse) + "</span></li>";
+    }).join("");
+
+    var sp = splitPantry(r, f);
+    var key = e.id + "-" + idx;
+    var steps = r.etapes.map(function (s, k) {
+      var on = !!state.done[key + "-" + k];
+      return '<button type="button" class="step" data-step="' + k + '" aria-pressed="' + on + '"><span class="num" aria-hidden="true">' + (on ? "✓" : k + 1) + '</span><span class="txt">' + esc(s) + "</span></button>";
+    }).join("");
+    var tags = badgeHtml(b, true);
+    var on = inCart(e.id + "/" + idx);
+
+    $("recipe").setAttribute("aria-label", e.nom + " : " + r.nom);
+    $("recipe").innerHTML =
+      '<div class="meta"><span><b class="st">' + esc(e.nom) + "</b> · " + esc(r.temps) + " · 2 portions</span></div>" +
+      "<h2>" + esc(r.nom) + "</h2>" +
+      (tags ? '<div class="tags">' + tags + "</div>" : "") +
+      '<div class="price"><div><div class="big">' + (tot.estime ? "≈ " : "") + money(tot.caisse + tot.tps + tot.tvq) + "</div>" +
+        '<div class="tax">à la caisse · TPS ' + money(tot.tps) + " · TVQ " + money(tot.tvq) +
+        (r.proteines ? "<br>≈ " + r.proteines + " g de protéines / portion" : "") + "</div></div></div>" +
+      '<button type="button" class="add-big" id="add-recipe" aria-pressed="' + on + '">' + (on ? "✓ Dans le panier — retirer" : "+ Ajouter au panier") + "</button>" +
+      '<div class="block"><h3>À acheter</h3><ul class="list">' + ings + "</ul></div>" +
+      '<p class="pantry">Garde-manger : ' + esc(sp.base.length ? sp.base.join(" · ") : "rien") + "</p>" +
+      '<div class="block"><h3>Étapes</h3>' + steps + "</div>" +
+      '<button type="button" class="next" id="next">Recette suivante chez ' + esc(e.nom) + "</button>";
   }
 
+  /* ---------- Navigation : #  |  #maxi  |  #maxi/2  |  #panier ---------- */
+  function show(view) {
+    ["home", "store", "detail", "cart"].forEach(function (v) { $(v).hidden = v !== view; });
+    window.scrollTo(0, 0);
+  }
   function route() {
     if (location.hash === "#panier") { show("cart"); renderCart(); return; }
     var m = location.hash.slice(1).split("/");
     var e = data.epiceries.find(function (x) { return x.id === m[0]; });
     if (!e) { show("home"); renderHome(); return; }
-    var idx = Number(m[1]);
-    if (idx >= 0 && idx < e.recettes.length) state.pick[e.id] = idx;
     state.store = e.id;
-    show("detail");
-    renderStores(); renderRecipe(); renderSpecials();
+    if (m.length < 2 || m[1] === "") { show("store"); renderStore(); return; }
+    var idx = Number(m[1]);
+    state.pick[e.id] = idx >= 0 && idx < e.recettes.length ? idx : 0;
+    show("detail"); renderRecipe();
   }
+  function go(h) { location.hash = h; }
 
-  function go(store, idx) { location.hash = store + "/" + idx; }
+  $("store-back").addEventListener("click", function () { go(""); });
+  $("back").addEventListener("click", function () { go(state.store); });
+  $("cart-back").addEventListener("click", function () { go(""); });
 
-  $("filters").addEventListener("click", function (ev) {
-    var b = ev.target.closest("button[data-f]");
-    if (b) { state.filter = b.dataset.f; renderHome(); }
-  });
-  $("base-list").addEventListener("click", function (ev) {
-    var b = ev.target.closest("button[data-base]");
-    if (!b) return;
-    state.missing[b.dataset.base] = !state.missing[b.dataset.base];
-    saveCart(); updateCartCount(); renderBase();
-    var again = $("base-list").querySelector('[data-base="' + b.dataset.base + '"]'); if (again) again.focus();
-  });
-  $("tiles").addEventListener("click", function (ev) {
+  $("recipes").addEventListener("click", function (ev) {
     var a = ev.target.closest("button[data-add]");
-    if (a) {
-      toggleCart(a.dataset.add); renderHome();
-      var again = $("tiles").querySelector('[data-add="' + a.dataset.add + '"]'); if (again) again.focus();
-      return;
-    }
-    var t = ev.target.closest(".tile");
-    if (!t) return;
-    go(t.dataset.store, t.dataset.idx);
-    window.scrollTo(0, 0);
-  });
-  $("back").addEventListener("click", function () {
-    history.pushState(null, "", location.pathname);
-    show("home");
-    window.scrollTo(0, 0);
-    $("title").focus();
-  });
-  $("stores").addEventListener("click", function (ev) {
-    var b = ev.target.closest("button[data-id]");
-    if (b) go(b.dataset.id, state.pick[b.dataset.id]);
-  });
-  $("stores").addEventListener("keydown", function (ev) {
-    if (ev.key !== "ArrowRight" && ev.key !== "ArrowLeft") return;
-    var ids = data.epiceries.map(function (e) { return e.id; });
-    var i = ids.indexOf(state.store) + (ev.key === "ArrowRight" ? 1 : -1);
-    var id = ids[(i + ids.length) % ids.length];
-    go(id, state.pick[id]);
-    setTimeout(function () { $("tab-" + id).focus(); }, 0);
+    if (!a) return;
+    toggleCart(a.dataset.add); renderStore();
+    var again = $("recipes").querySelector('[data-add="' + a.dataset.add + '"]'); if (again) again.focus();
   });
   $("recipe").addEventListener("click", function (ev) {
     var e = current();
@@ -468,20 +374,11 @@
       var k = e.id + "-" + state.pick[e.id] + "-" + s.dataset.step;
       state.done[k] = !state.done[k];
       saveDone(); renderRecipe();
-      var again = $("recipe").querySelector('[data-step="' + s.dataset.step + '"]');
-      if (again) again.focus();
+      var again = $("recipe").querySelector('[data-step="' + s.dataset.step + '"]'); if (again) again.focus();
       return;
     }
-    if (ev.target.closest("#add-recipe")) {
-      toggleCart(e.id + "/" + state.pick[e.id]); renderRecipe(); $("add-recipe").focus(); return;
-    }
-    if (ev.target.closest("#next")) {
-      go(e.id, (state.pick[e.id] + 1) % e.recettes.length);
-      setTimeout(function () { $("next").focus(); }, 0);
-    }
-  });
-  $("cart-back").addEventListener("click", function () {
-    history.pushState(null, "", location.pathname); show("home"); renderHome(); window.scrollTo(0, 0);
+    if (ev.target.closest("#add-recipe")) { toggleCart(e.id + "/" + state.pick[e.id]); renderRecipe(); $("add-recipe").focus(); return; }
+    if (ev.target.closest("#next")) go(e.id + "/" + ((state.pick[e.id] + 1) % e.recettes.length));
   });
   $("cart-body").addEventListener("click", function (ev) {
     var g = ev.target.closest("button[data-got]");
@@ -495,7 +392,6 @@
     if (ev.target.closest("#cart-clear")) { state.cart = []; state.got = {}; state.missing = {}; saveCart(); updateCartCount(); renderCart(); }
   });
   window.addEventListener("hashchange", route);
-  window.addEventListener("popstate", route);
 
   fetch("data/semaine.json", { cache: "no-cache" })
     .then(function (r) { return r.json(); })
@@ -504,9 +400,7 @@
       $("semaine").textContent = d.semaine;
       loadDone(); loadCart(); updateCartCount();
       d.epiceries.forEach(function (e) { state.pick[e.id] = 0; });
-
-      renderHome();
       route();
     })
-    .catch(function () { $("tiles").textContent = "Impossible de charger les recettes."; });
+    .catch(function () { $("store-cards").textContent = "Impossible de charger les recettes."; });
 })();
