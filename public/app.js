@@ -125,6 +125,18 @@
   function current() { return data.epiceries.find(function (e) { return e.id === state.store; }); }
 
   /* ---------- Accueil : tuiles des recettes ---------- */
+  // Onglet « Tous les spéciaux » : la circulaire de chaque épicerie, par rayon
+  function specialsHtml() {
+    return data.epiceries.map(function (e) {
+      var n = e.speciaux.reduce(function (k, g) { return k + g.items.length; }, 0);
+      return '<section class="store-sec" aria-labelledby="sp-' + e.id + '"><h2 class="sec-title" id="sp-' + e.id + '">' + esc(e.nom) + ' <small>' + n + " spéciaux</small></h2>" +
+        '<div class="card sp-card">' + e.speciaux.map(function (g) {
+          return '<div class="block"><h3>' + esc(g.rayon) + '</h3><ul class="list">' + g.items.map(function (it) {
+            return "<li><span>" + esc(it[0]) + '</span><span class="mono">' + esc(it[1]) + "</span></li>";
+          }).join("") + "</ul></div>";
+        }).join("") + "</div></section>";
+    }).join("");
+  }
   function renderHome() {
     var html = "";
     var f = state.filter;
@@ -147,8 +159,9 @@
         html += '<section class="store-sec" aria-labelledby="sec-' + e.id + '"><h2 class="sec-title" id="sec-' + e.id + '">' + esc(e.nom) + '</h2><div class="tiles">' + tiles + "</div></section>";
       }
     });
+    if (f === "spec") html = specialsHtml();
     $("tiles").innerHTML = html || '<p class="empty">Aucune recette de ce type cette semaine.</p>';
-    var opts = [["cent", "100 % spéciaux"], ["tout", "Toutes"]];
+    var opts = [["cent", "100 % spéciaux"], ["tout", "Toutes"], ["spec", "Tous les spéciaux"]];
     $("filters").innerHTML = opts.map(function (o) {
       return '<button type="button" data-f="' + o[0] + '" aria-pressed="' + (f === o[0]) + '">' + o[1] + "</button>";
     }).join("");
