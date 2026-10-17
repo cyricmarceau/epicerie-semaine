@@ -1,6 +1,6 @@
 (function () {
   var data = null;
-  var state = { store: null, portions: 4, pick: {} };
+  var state = { store: null, portions: 2, pick: {} };
 
   function money(n) { return n.toFixed(2).replace(".", ",") + " $"; }
   function num(n) { return String(Math.round(n * 100) / 100).replace(".", ","); }
@@ -9,7 +9,7 @@
 
   function renderPortions() {
     var el = document.getElementById("portions");
-    el.innerHTML = [2, 4, 6, 8].map(function (n) {
+    el.innerHTML = [1, 2].map(function (n) {
       return '<button type="button" data-p="' + n + '" aria-pressed="' + (n === state.portions) + '">' + n + "</button>";
     }).join("");
   }
