@@ -297,7 +297,7 @@
     });
     if (f === "spec") html = specialsHtml();
     $("tiles").innerHTML = html || '<p class="empty">Aucune recette de ce type cette semaine.</p>';
-    var opts = [["cent", "100 % spéciaux"], ["tout", "Toutes"], ["spec", "Tous les spéciaux"]];
+    var opts = [["tout", "Toutes les recettes"], ["spec", "Tous les spéciaux"]];
     $("filters").innerHTML = opts.map(function (o) {
       return '<button type="button" data-f="' + o[0] + '" aria-pressed="' + (f === o[0]) + '">' + o[1] + "</button>";
     }).join("");
