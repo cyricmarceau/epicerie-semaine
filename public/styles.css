@@ -174,3 +174,11 @@ h3{margin:0;font-size:13px;font-weight:600;text-transform:uppercase;letter-spaci
 .rec-m b{font:600 14px 'IBM Plex Mono',monospace;color:var(--lime)}
 .rec-row .add{position:static;flex:0 0 44px}
 #detail .price{display:block}
+
+/* Cartes d'épicerie côte à côte */
+.store-cards{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:10px}
+.store-card{padding:18px 10px;align-items:center;text-align:center;gap:8px}
+.sc-name{font-size:clamp(20px,6vw,32px)}
+.sc-meta{font-size:12px;line-height:1.35}
+.sc-cart{align-self:center}
+.sc-go{position:static;transform:none;font-size:22px}
