@@ -186,3 +186,11 @@ h3{margin:0;font-size:13px;font-weight:600;text-transform:uppercase;letter-spaci
 .store-card.sc-maxi .sc-name{color:#8FBCFF}
 .store-card.sc-maxi .sc-meta{color:#C7DAF7}
 .store-card.sc-maxi:hover{border-color:#5C93F0}
+.store-card.sc-iga{background:#3A1418;border-color:#C8323C}
+.store-card.sc-iga .sc-name{color:#FF8A92}
+.store-card.sc-iga .sc-meta{color:#F3CDD0}
+.store-card.sc-iga:hover{border-color:#E8555E}
+.store-card.sc-metro{background:#2E2116;border-color:#8B5E3C}
+.store-card.sc-metro .sc-name{color:#E2B48A}
+.store-card.sc-metro .sc-meta{color:#E8D6C4}
+.store-card.sc-metro:hover{border-color:#B07A50}
