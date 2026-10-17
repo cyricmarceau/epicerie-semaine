@@ -116,7 +116,7 @@
       }
     });
     $("tiles").innerHTML = html || '<p class="empty">Aucune recette de ce type cette semaine.</p>';
-    var opts = [["tout", "Toutes"], ["chef", "Chef"], ["cent", "100 % spéciaux"], ["strict", "Spéciaux"]];
+    var opts = [["tout", "Toutes"], ["chef", "Chef"], ["cent", "100 % spéciaux"]];
     $("filters").innerHTML = opts.map(function (o) {
       return '<button type="button" data-f="' + o[0] + '" aria-pressed="' + (f === o[0]) + '">' + o[1] + "</button>";
     }).join("");
