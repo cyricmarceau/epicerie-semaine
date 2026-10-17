@@ -214,9 +214,9 @@
 
 
     var el = $("recipe");
-    el.setAttribute("aria-labelledby", "tab-" + e.id);
+    el.setAttribute("aria-label", e.nom + " : " + r.nom);
     el.innerHTML =
-      '<div class="meta"><span>Recette ' + (idx + 1) + " sur " + e.recettes.length + "</span><span>" + esc(r.temps) + "</span></div>" +
+      '<div class="meta"><span><b class="st">' + esc(e.nom) + "</b> · Recette " + (idx + 1) + " sur " + e.recettes.length + "</span><span>" + esc(r.temps) + "</span></div>" +
       (function () { var h = badgeHtml(badges(r), true); return h ? '<div class="tags">' + h + "</div>" : ""; })() +
       "<h2>" + esc(r.nom) + "</h2>" +
       '<div class="price"><div><div class="big">' + (tot.estime ? "≈ " : "") + money(tot.caisse + tot.tps + tot.tvq) + '</div>' +

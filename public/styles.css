@@ -77,6 +77,8 @@ h3{margin:0;font-size:13px;font-weight:600;text-transform:uppercase;letter-spaci
 .stores{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:8px}
 .stores button{min-height:56px;border-radius:14px;border:1px solid var(--line);background:var(--card);font:800 22px 'Bricolage Grotesque',sans-serif;cursor:pointer}
 .stores button[aria-selected="true"]{background:var(--ink);border-color:var(--ink);color:var(--bg)}
+.stores[hidden]{display:none}
+.meta .st{color:var(--ink);font-weight:600}
 .meta{display:flex;justify-content:space-between;gap:12px;font-size:14px;color:var(--muted)}
 
 .price{display:flex;flex-wrap:wrap;justify-content:space-between;align-items:center;gap:16px;padding:16px;background:var(--lime-bg);border:1px solid var(--lime-line);border-radius:14px}
