@@ -182,3 +182,7 @@ h3{margin:0;font-size:13px;font-weight:600;text-transform:uppercase;letter-spaci
 .sc-meta{font-size:12px;line-height:1.35}
 .sc-cart{align-self:center}
 .sc-go{position:static;transform:none;font-size:22px}
+.store-card.sc-maxi{background:#13294B;border-color:#2F6FD6}
+.store-card.sc-maxi .sc-name{color:#8FBCFF}
+.store-card.sc-maxi .sc-meta{color:#C7DAF7}
+.store-card.sc-maxi:hover{border-color:#5C93F0}
