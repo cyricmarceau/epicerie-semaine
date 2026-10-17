@@ -283,3 +283,12 @@ h3{margin:0;font-size:13px;font-weight:600;text-transform:uppercase;letter-spaci
 .top .kicker{margin-bottom:8px}
 #detail .meta{font-size:17px}
 #detail .meta .st{font-weight:700}
+
+/* Écran d'entrée : apparaît puis s'efface en 1 seconde */
+@keyframes splash-out{0%,45%{opacity:1}100%{opacity:0;visibility:hidden}}
+@keyframes splash-in{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:none}}
+.splash{position:fixed;inset:0;z-index:100;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:14px;background:var(--bg);color:var(--lime);pointer-events:none;animation:splash-out 1s ease forwards}
+.splash-pot,.splash-t{animation:splash-in .4s ease both}
+.splash-t{font:800 28px/1.1 'Bricolage Grotesque',sans-serif;color:var(--ink);letter-spacing:-.01em}
+@media (prefers-reduced-motion:reduce){.splash{animation-duration:.01s}}
+.splash .splash-pot{flex:0 0 auto;width:72px;height:72px}

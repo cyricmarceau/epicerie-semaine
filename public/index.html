@@ -11,6 +11,11 @@
 <link rel="stylesheet" href="styles.css">
 </head>
 <body>
+<div id="splash" class="splash" aria-hidden="true">
+  <svg class="pot splash-pot" viewBox="0 0 24 24" width="72" height="72" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path class="v" d="M8 8c-1-1.5 1-2.5 0-4"/><path class="v v2" d="M12 8c-1-1.5 1-2.5 0-4"/><path class="v v3" d="M16 8c-1-1.5 1-2.5 0-4"/><g class="corps"><path d="M4 11h16v5a4 4 0 0 1-4 4H8a4 4 0 0 1-4-4z" fill="currentColor" fill-opacity=".18"/><path d="M2 12h2M20 12h2"/></g></svg>
+  <span class="splash-t">Épicerie de la semaine</span>
+</div>
+<script>setTimeout(function () { var s = document.getElementById("splash"); if (s) s.remove(); }, 1100);</script>
 <main class="wrap">
   <header class="top">
     <div class="top-row">
