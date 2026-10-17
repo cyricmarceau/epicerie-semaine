@@ -1,0 +1,883 @@
+{
+  "semaine": "Du jeudi 15 au mercredi 21 octobre 2026",
+  "portionsBase": 4,
+  "epiceries": [
+    {
+      "id": "maxi",
+      "nom": "Maxi",
+      "recettes": [
+        {
+          "nom": "Pilons de poulet érable-ail, poivrons et brocoli rôtis",
+          "temps": "50 min",
+          "ingredients": [
+            {
+              "nom": "Pilons de poulet",
+              "aubaine": "1,99 $/lb",
+              "qte": 2,
+              "unite": "lb",
+              "pas": 0.25,
+              "prixUnite": 1.99,
+              "compte": {
+                "parUnite": 4,
+                "label": "pilons"
+              }
+            },
+            {
+              "nom": "Poivrons assortis",
+              "aubaine": "3,77 $ le sac de 2,5 lb",
+              "qte": 1.25,
+              "unite": "lb",
+              "pas": 0.25,
+              "prixUnite": 1.508
+            },
+            {
+              "nom": "Couronne de brocoli",
+              "aubaine": "1,25 $ ch.",
+              "qte": 1,
+              "unite": "couronne",
+              "pas": 0.5,
+              "prixUnite": 1.25
+            }
+          ],
+          "gardeManger": [
+            [
+              3,
+              "c. à soupe de sirop d’érable"
+            ],
+            [
+              2,
+              "c. à soupe d’huile"
+            ],
+            [
+              3,
+              "gousses d’ail"
+            ],
+            [
+              1,
+              "c. à thé de paprika"
+            ],
+            [
+              0,
+              "sel et poivre"
+            ]
+          ],
+          "etapes": [
+            "Préchauffer le four à 425 °F (220 °C). Mélanger l’huile, le sirop d’érable, l’ail haché, le paprika, sel et poivre.",
+            "Enrober les pilons de la moitié du mélange et cuire 20 min sur une plaque tapissée.",
+            "Ajouter les poivrons en lanières et le brocoli en bouquets, napper du reste du mélange.",
+            "Poursuivre 20 à 25 min, jusqu’à 74 °C (165 °F) au cœur des pilons."
+          ]
+        },
+        {
+          "nom": "Pâtes sauce à la viande et poivrons",
+          "temps": "30 min",
+          "ingredients": [
+            {
+              "nom": "Porc haché maigre, 450 g",
+              "aubaine": "2,99 $ le paquet",
+              "qte": 1,
+              "unite": "paquet",
+              "pas": 0.5,
+              "prixUnite": 2.99
+            },
+            {
+              "nom": "Sauce pour pâtes Catelli, 600 ml",
+              "aubaine": "2,00 $ le pot",
+              "qte": 1,
+              "unite": "pot",
+              "pas": 0.5,
+              "prixUnite": 2.0
+            },
+            {
+              "nom": "Poivrons assortis",
+              "aubaine": "3,77 $ le sac de 2,5 lb",
+              "qte": 0.5,
+              "unite": "lb",
+              "pas": 0.25,
+              "prixUnite": 1.508
+            }
+          ],
+          "gardeManger": [
+            [
+              350,
+              "g de pâtes"
+            ],
+            [
+              1,
+              "oignon"
+            ],
+            [
+              2,
+              "gousses d’ail"
+            ],
+            [
+              1,
+              "c. à soupe d’huile"
+            ],
+            [
+              0,
+              "parmesan, sel et poivre"
+            ]
+          ],
+          "etapes": [
+            "Cuire les pâtes dans l’eau salée.",
+            "Faire revenir l’oignon et l’ail dans l’huile 3 min, ajouter le porc haché et cuire jusqu’à ce qu’il ne soit plus rosé (71 °C).",
+            "Ajouter les poivrons en dés, cuire 3 min, puis la sauce Catelli; mijoter 10 min.",
+            "Servir sur les pâtes avec du parmesan."
+          ]
+        },
+        {
+          "nom": "Côtes levées BBQ au four, frites et brocoli",
+          "temps": "2 h 15",
+          "ingredients": [
+            {
+              "nom": "Côtes de flanc de porc fraîches",
+              "aubaine": "2,99 $/lb",
+              "qte": 3,
+              "unite": "lb",
+              "pas": 0.5,
+              "prixUnite": 2.99
+            },
+            {
+              "nom": "Frites Superfries McCain",
+              "aubaine": "2,77 $ le sac",
+              "qte": 1,
+              "unite": "sac",
+              "pas": 0.5,
+              "prixUnite": 2.77
+            },
+            {
+              "nom": "Couronne de brocoli",
+              "aubaine": "1,25 $ ch.",
+              "qte": 1,
+              "unite": "couronne",
+              "pas": 0.5,
+              "prixUnite": 1.25
+            }
+          ],
+          "gardeManger": [
+            [
+              0.5,
+              "tasse de sauce BBQ"
+            ],
+            [
+              1,
+              "c. à soupe de cassonade"
+            ],
+            [
+              1,
+              "c. à thé de paprika"
+            ],
+            [
+              0,
+              "sel et poivre"
+            ]
+          ],
+          "etapes": [
+            "Préchauffer le four à 300 °F. Frotter les côtes de cassonade, paprika, sel et poivre; envelopper dans du papier d’aluminium.",
+            "Cuire 1 h 45.",
+            "Déballer, badigeonner de sauce BBQ, monter le four à 425 °F et cuire 15 min avec les frites sur une autre plaque.",
+            "Cuire le brocoli à la vapeur 5 min. Servir."
+          ]
+        }
+      ],
+      "speciaux": [
+        {
+          "rayon": "Fruits et légumes",
+          "items": [
+            [
+              "Couronne de brocoli",
+              "1,25 $"
+            ],
+            [
+              "Fraises, 1 lb",
+              "2,99 $"
+            ],
+            [
+              "Mangue rouge",
+              "1,00 $"
+            ],
+            [
+              "Poires Bartlett, 2 L",
+              "3,99 $"
+            ],
+            [
+              "Poivrons assortis, sac de 2,5 lb",
+              "3,77 $"
+            ]
+          ]
+        },
+        {
+          "rayon": "Boucherie",
+          "items": [
+            [
+              "Bifteck ou côte d’aloyau",
+              "8,88 $/lb"
+            ],
+            [
+              "Côtes de flanc de porc fraîches",
+              "2,99 $/lb"
+            ],
+            [
+              "Pilons de poulet",
+              "1,99 $/lb"
+            ],
+            [
+              "Porc haché maigre, 450 g",
+              "2,99 $"
+            ],
+            [
+              "Poulet haché, 454 g",
+              "3,44 $"
+            ]
+          ]
+        },
+        {
+          "rayon": "Produits laitiers et œufs",
+          "items": [
+            [
+              "Fromage, 400 g ou râpé 320 g",
+              "4,88 $"
+            ],
+            [
+              "Beurre Lactantia, 454 g",
+              "4,95 $"
+            ],
+            [
+              "Gros œufs blancs, 30",
+              "8,75 $"
+            ],
+            [
+              "Margarine Becel, 637–800 g",
+              "6,88 $"
+            ],
+            [
+              "Yogourt Iögo nanö ou Liberté",
+              "3,33 $"
+            ]
+          ]
+        },
+        {
+          "rayon": "Épicerie",
+          "items": [
+            [
+              "Farine, 10 kg",
+              "7,00 $"
+            ],
+            [
+              "Huile de canola ou végétale, 3 L",
+              "7,00 $"
+            ],
+            [
+              "Mayonnaise MAG, 890 ml (membre)",
+              "5,50 $"
+            ],
+            [
+              "Sauce pour pâtes Catelli, 600 ml",
+              "2,00 $"
+            ],
+            [
+              "Soupe Habitant, 796 ml",
+              "1,55 $"
+            ],
+            [
+              "Soupe Campbell’s prête à servir, 510 ml",
+              "1,55 $"
+            ],
+            [
+              "Nouilles Mr. Noodles, 85 g",
+              "0,38 $"
+            ]
+          ]
+        },
+        {
+          "rayon": "Surgelés et prêt-à-manger",
+          "items": [
+            [
+              "Frites Superfries McCain, 454–800 g",
+              "2,77 $"
+            ],
+            [
+              "Pizza pochettes McCain, 300 g",
+              "2,77 $"
+            ],
+            [
+              "Pâtés impériaux Pagoda/Wong Wing (membre)",
+              "5,00 $"
+            ],
+            [
+              "Plats Wong Wing / Asian Inspiration (membre)",
+              "5,00 $"
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "id": "iga",
+      "nom": "IGA",
+      "recettes": [
+        {
+          "nom": "Côtelettes de porc moutarde-miel, courge rôtie et salade Boston",
+          "temps": "45 min",
+          "ingredients": [
+            {
+              "nom": "Côtelettes de longe de porc avec os",
+              "aubaine": "2,49 $/lb",
+              "qte": 2,
+              "unite": "lb",
+              "pas": 0.25,
+              "prixUnite": 2.49,
+              "compte": {
+                "parUnite": 2,
+                "label": "côtelettes"
+              }
+            },
+            {
+              "nom": "Courge musquée",
+              "aubaine": "1,47 $/lb",
+              "qte": 2,
+              "unite": "lb",
+              "pas": 0.25,
+              "prixUnite": 1.47
+            },
+            {
+              "nom": "Laitue Boston de serre",
+              "aubaine": "1,97 $ les 2",
+              "qte": 1,
+              "unite": "unité",
+              "pas": 0.5,
+              "prixUnite": 0.985
+            }
+          ],
+          "gardeManger": [
+            [
+              2,
+              "c. à soupe de moutarde de Dijon"
+            ],
+            [
+              1,
+              "c. à soupe de miel"
+            ],
+            [
+              3,
+              "c. à soupe d’huile"
+            ],
+            [
+              1,
+              "c. à soupe de vinaigre"
+            ],
+            [
+              0,
+              "sel et poivre"
+            ]
+          ],
+          "etapes": [
+            "Préchauffer le four à 425 °F. Peler la courge, la couper en cubes, l’enrober de 2 c. à soupe d’huile, sel et poivre; rôtir 30 min.",
+            "Mélanger la moutarde et le miel; badigeonner les côtelettes.",
+            "Saisir les côtelettes à la poêle 4 à 5 min par côté, jusqu’à 71 °C (160 °F) au centre. Laisser reposer 3 min.",
+            "Assaisonner la laitue avec le reste de l’huile, le vinaigre et une pincée de sel. Servir."
+          ]
+        },
+        {
+          "nom": "Crevettes à l’ail, légumes et riz",
+          "temps": "25 min",
+          "ingredients": [
+            {
+              "nom": "Crevettes sauvages crues d’Argentine, 680 g",
+              "aubaine": "12,99 $ le sac",
+              "qte": 1,
+              "unite": "sac",
+              "pas": 0.5,
+              "prixUnite": 12.99
+            },
+            {
+              "nom": "Légumes surgelés Compliments, 500–750 g",
+              "aubaine": "2,99 $ le sac",
+              "qte": 1,
+              "unite": "sac",
+              "pas": 0.5,
+              "prixUnite": 2.99
+            }
+          ],
+          "gardeManger": [
+            [
+              1.5,
+              "tasse de riz"
+            ],
+            [
+              3,
+              "c. à soupe de beurre"
+            ],
+            [
+              4,
+              "gousses d’ail"
+            ],
+            [
+              1,
+              "citron"
+            ],
+            [
+              0,
+              "persil, sel et poivre"
+            ]
+          ],
+          "etapes": [
+            "Cuire le riz. Décongeler les crevettes sous l’eau froide et les éponger.",
+            "Sauter les légumes surgelés dans 1 c. à soupe de beurre 5 à 6 min; réserver.",
+            "Fondre le reste du beurre, ajouter l’ail 30 s, puis les crevettes 2 à 3 min jusqu’à ce qu’elles soient roses.",
+            "Remettre les légumes, arroser de jus de citron, servir sur le riz."
+          ]
+        },
+        {
+          "nom": "Rôti de palette braisé à la courge",
+          "temps": "3 h 30",
+          "ingredients": [
+            {
+              "nom": "Rôti de bas de palette désossé",
+              "aubaine": "6,77 $/lb",
+              "qte": 3,
+              "unite": "lb",
+              "pas": 0.5,
+              "prixUnite": 6.77
+            },
+            {
+              "nom": "Courge musquée",
+              "aubaine": "1,47 $/lb",
+              "qte": 1.5,
+              "unite": "lb",
+              "pas": 0.25,
+              "prixUnite": 1.47
+            },
+            {
+              "nom": "Bouillon Campbell’s, 250 ml",
+              "aubaine": "1,47 $",
+              "qte": 2,
+              "unite": "boîte(s)",
+              "pas": 1,
+              "prixUnite": 1.47
+            }
+          ],
+          "gardeManger": [
+            [
+              2,
+              "oignons"
+            ],
+            [
+              3,
+              "carottes"
+            ],
+            [
+              2,
+              "c. à soupe de pâte de tomate"
+            ],
+            [
+              2,
+              "c. à soupe d’huile"
+            ],
+            [
+              0,
+              "thym, sel et poivre"
+            ]
+          ],
+          "etapes": [
+            "Préchauffer le four à 300 °F. Saisir le rôti assaisonné dans l’huile, dans une cocotte, 3 min par côté.",
+            "Ajouter oignons et carottes, la pâte de tomate, puis le bouillon et le thym.",
+            "Couvrir et braiser 2 h 30 au four.",
+            "Ajouter la courge en cubes, cuire encore 45 min. Effilocher et servir avec le jus."
+          ]
+        }
+      ],
+      "speciaux": [
+        {
+          "rayon": "Fruits et légumes",
+          "items": [
+            [
+              "Courges",
+              "1,47 $/lb"
+            ],
+            [
+              "Laitue Boston ou croquante de serre Gen V, 2 unités",
+              "1,97 $"
+            ],
+            [
+              "Salade Taylor Farms, 248–377 g (Scène+)",
+              "3,97 $"
+            ],
+            [
+              "Mûres bio, 170 g (Scène+)",
+              "1,97 $"
+            ]
+          ]
+        },
+        {
+          "rayon": "Boucherie et poissonnerie",
+          "items": [
+            [
+              "Côtelettes de longe de porc avec os",
+              "2,49 $/lb"
+            ],
+            [
+              "Rôti de bas de palette désossé",
+              "6,77 $/lb"
+            ],
+            [
+              "Crevettes sauvages crues d’Argentine surgelées, 680 g",
+              "12,99 $"
+            ]
+          ]
+        },
+        {
+          "rayon": "Produits laitiers et fromages",
+          "items": [
+            [
+              "Fromage à la crème Philadelphia, 340 g",
+              "4,97 $"
+            ],
+            [
+              "Fromage P’tit Québec, 400 g ou râpé 300–320 g",
+              "4,97 $"
+            ],
+            [
+              "Margarine Becel, 637–800 g (Scène+)",
+              "5,88 $"
+            ],
+            [
+              "Yogourt Danone et Activia (sélection)",
+              "3,33 $"
+            ]
+          ]
+        },
+        {
+          "rayon": "Surgelés",
+          "items": [
+            [
+              "Légumes surgelés Compliments, 500–750 g",
+              "2,99 $"
+            ],
+            [
+              "Pâtés St-Hubert, 675–825 g",
+              "6,99 $"
+            ],
+            [
+              "Pizza Dr. Oetker, 269–410 g",
+              "3,47 $"
+            ],
+            [
+              "Saumon fumé Vasco & Co, 300 g",
+              "10,99 $"
+            ],
+            [
+              "Produits Flamingo (sélection)",
+              "8,99 $"
+            ]
+          ]
+        },
+        {
+          "rayon": "Épicerie et boissons",
+          "items": [
+            [
+              "Bouillon Campbell’s, 250 ml (Scène+)",
+              "1,47 $"
+            ],
+            [
+              "Croustilles Yum Yum, 170–200 g (Scène+)",
+              "1,97 $"
+            ],
+            [
+              "Pepsi ou Coca-Cola, 12 x 355 ml (Scène+)",
+              "6,97 $"
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "id": "metro",
+      "nom": "Metro",
+      "recettes": [
+        {
+          "nom": "Sauté de poulet à la chinoise, carottes et oignons sur riz",
+          "temps": "30 min",
+          "ingredients": [
+            {
+              "nom": "Poitrines de poulet désossées",
+              "aubaine": "5,44 $/lb",
+              "qte": 1.5,
+              "unite": "lb",
+              "pas": 0.25,
+              "prixUnite": 5.44
+            },
+            {
+              "nom": "Sauce chinoise VH 341–355 ml",
+              "aubaine": "2,22 $ le pot",
+              "qte": 1,
+              "unite": "pot",
+              "pas": 0.5,
+              "prixUnite": 2.22
+            },
+            {
+              "nom": "Carottes",
+              "aubaine": "0,99 $ le sac de 2 lb",
+              "qte": 1,
+              "unite": "lb",
+              "pas": 0.25,
+              "prixUnite": 0.495
+            },
+            {
+              "nom": "Oignons jaunes",
+              "aubaine": "0,99 $ le sac de 2 lb",
+              "qte": 0.5,
+              "unite": "lb",
+              "pas": 0.25,
+              "prixUnite": 0.495,
+              "compte": {
+                "parUnite": 2,
+                "label": "oignon(s)"
+              }
+            }
+          ],
+          "gardeManger": [
+            [
+              1.5,
+              "tasse de riz à grains longs"
+            ],
+            [
+              1,
+              "c. à soupe d’huile"
+            ],
+            [
+              2,
+              "gousses d’ail"
+            ]
+          ],
+          "etapes": [
+            "Cuire le riz selon les indications du sac.",
+            "Trancher le poulet en lanières, les carottes en biseaux minces et l’oignon en quartiers.",
+            "Saisir le poulet dans l’huile à feu vif 5 à 6 min; réserver.",
+            "Sauter les carottes, l’oignon et l’ail 4 min, remettre le poulet, ajouter la sauce VH et mijoter 3 min. Servir sur le riz."
+          ]
+        },
+        {
+          "nom": "Boulettes de veau sauce tomate et tomates raisins",
+          "temps": "40 min",
+          "ingredients": [
+            {
+              "nom": "Veau de grain haché maigre",
+              "aubaine": "5,44 $/lb",
+              "qte": 1,
+              "unite": "lb",
+              "pas": 0.25,
+              "prixUnite": 5.44
+            },
+            {
+              "nom": "Tomates raisins bio, 284 g",
+              "aubaine": "1,99 $ le casseau",
+              "qte": 1,
+              "unite": "casseau",
+              "pas": 0.5,
+              "prixUnite": 1.99
+            },
+            {
+              "nom": "Oignons jaunes",
+              "aubaine": "0,99 $ le sac de 2 lb",
+              "qte": 0.5,
+              "unite": "lb",
+              "pas": 0.25,
+              "prixUnite": 0.495
+            }
+          ],
+          "gardeManger": [
+            [
+              1,
+              "œuf"
+            ],
+            [
+              0.5,
+              "tasse de chapelure"
+            ],
+            [
+              1,
+              "boîte de tomates broyées (796 ml)"
+            ],
+            [
+              350,
+              "g de pâtes"
+            ],
+            [
+              0,
+              "basilic, sel et poivre"
+            ]
+          ],
+          "etapes": [
+            "Mélanger le veau, l’œuf, la chapelure, la moitié de l’oignon haché, sel et poivre; façonner 16 boulettes.",
+            "Dorer les boulettes à la poêle 6 min.",
+            "Ajouter le reste de l’oignon, les tomates broyées et les tomates raisins coupées en deux; mijoter 15 min (71 °C au centre).",
+            "Servir sur les pâtes avec du basilic."
+          ]
+        },
+        {
+          "nom": "Tacos de crevettes, salade de carottes",
+          "temps": "25 min",
+          "ingredients": [
+            {
+              "nom": "Crevettes sauvages Irrésistible, 300 g (15–17 oct.)",
+              "aubaine": "5,99 $ le sac",
+              "qte": 2,
+              "unite": "sacs",
+              "pas": 1,
+              "prixUnite": 5.99
+            },
+            {
+              "nom": "Carottes",
+              "aubaine": "0,99 $ le sac de 2 lb",
+              "qte": 0.5,
+              "unite": "lb",
+              "pas": 0.25,
+              "prixUnite": 0.495
+            }
+          ],
+          "gardeManger": [
+            [
+              8,
+              "tortillas"
+            ],
+            [
+              3,
+              "c. à soupe de mayonnaise"
+            ],
+            [
+              1,
+              "lime"
+            ],
+            [
+              1,
+              "c. à thé de chili en poudre"
+            ],
+            [
+              0,
+              "coriandre, sel"
+            ]
+          ],
+          "etapes": [
+            "Râper les carottes; mélanger avec la mayonnaise, le jus de la moitié de la lime et une pincée de sel.",
+            "Décongeler les crevettes, les assaisonner de chili et sel.",
+            "Saisir les crevettes 2 à 3 min à feu vif.",
+            "Garnir les tortillas chaudes de salade de carottes, crevettes, coriandre et lime."
+          ]
+        }
+      ],
+      "speciaux": [
+        {
+          "rayon": "Boucherie et poissonnerie",
+          "items": [
+            [
+              "Picanha",
+              "9,88 $/lb"
+            ],
+            [
+              "Poitrines de poulet frais désossées",
+              "5,44 $/lb"
+            ],
+            [
+              "Rôti de haut de surlonge désossé",
+              "7,99 $/lb"
+            ],
+            [
+              "Veau de grain haché maigre",
+              "5,44 $/lb"
+            ],
+            [
+              "Crevettes sauvages Irrésistible, 300 g (15–17 oct.)",
+              "5,99 $"
+            ]
+          ]
+        },
+        {
+          "rayon": "Fruits et légumes",
+          "items": [
+            [
+              "Carottes, 2 lb",
+              "0,99 $"
+            ],
+            [
+              "Oignons jaunes, 2 lb",
+              "0,99 $"
+            ],
+            [
+              "Kiwi",
+              "0,98 $ ch."
+            ],
+            [
+              "Raisins rouges sans pépins",
+              "1,99 $/lb"
+            ],
+            [
+              "Tomates raisins bio, 284 g",
+              "1,99 $"
+            ]
+          ]
+        },
+        {
+          "rayon": "Produits laitiers et fromages",
+          "items": [
+            [
+              "Fromage Cracker Barrel râpé, 250–320 g",
+              "5,97 $"
+            ],
+            [
+              "Hummus Fontaine Santé (sélection)",
+              "2 pour 6 $"
+            ],
+            [
+              "Yop Yoplait, 200 ml",
+              "0,97 $"
+            ]
+          ]
+        },
+        {
+          "rayon": "Épicerie",
+          "items": [
+            [
+              "Sauce chinoise VH, 341–355 ml",
+              "2,22 $"
+            ],
+            [
+              "Mayonnaise Hellmann’s, 710–890 ml",
+              "5,97 $"
+            ],
+            [
+              "Céréales General Mills, Kellogg’s ou Quaker",
+              "3,33 $"
+            ],
+            [
+              "Café Maxwell House, 631–925 g",
+              "15,97 $"
+            ],
+            [
+              "Huile d’olive Gallo, 1 L (mardi 20 oct., coupon)",
+              "6,99 $"
+            ],
+            [
+              "Huile Sélection, 3 L (mardi 20 oct., coupon)",
+              "6,99 $"
+            ],
+            [
+              "Biscuits Célébration Leclerc",
+              "2,49 $"
+            ]
+          ]
+        },
+        {
+          "rayon": "Surgelés",
+          "items": [
+            [
+              "Pizza Dr. Oetker, 320–410 g",
+              "3,47 $"
+            ]
+          ]
+        }
+      ]
+    }
+  ]
+}

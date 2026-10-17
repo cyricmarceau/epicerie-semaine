@@ -1,0 +1,10 @@
+services:
+  - type: web
+    name: epicerie-semaine
+    runtime: static
+    buildCommand: echo "Aucun build"
+    staticPublishPath: ./public
+    headers:
+      - path: /data/*
+        name: Cache-Control
+        value: no-cache
