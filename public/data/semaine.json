@@ -20,6 +20,11 @@
               "compte": {
                 "parUnite": 4,
                 "label": "pilons"
+              },
+              "achat": {
+                "qte": 3,
+                "label": "barquette familiale",
+                "estime": true
               }
             },
             {
@@ -28,7 +33,12 @@
               "qte": 1.25,
               "unite": "lb",
               "pas": 0.25,
-              "prixUnite": 1.508
+              "prixUnite": 1.508,
+              "achat": {
+                "qte": 2.5,
+                "label": "sac",
+                "estime": false
+              }
             },
             {
               "nom": "Couronne de brocoli",
@@ -36,7 +46,12 @@
               "qte": 1,
               "unite": "couronne",
               "pas": 0.5,
-              "prixUnite": 1.25
+              "prixUnite": 1.25,
+              "achat": {
+                "qte": 1,
+                "label": "couronne",
+                "estime": false
+              }
             }
           ],
           "gardeManger": [
@@ -78,7 +93,12 @@
               "qte": 1,
               "unite": "paquet",
               "pas": 0.5,
-              "prixUnite": 2.99
+              "prixUnite": 2.99,
+              "achat": {
+                "qte": 1,
+                "label": "paquet",
+                "estime": false
+              }
             },
             {
               "nom": "Sauce pour pâtes Catelli, 600 ml",
@@ -86,7 +106,12 @@
               "qte": 1,
               "unite": "pot",
               "pas": 0.5,
-              "prixUnite": 2.0
+              "prixUnite": 2.0,
+              "achat": {
+                "qte": 1,
+                "label": "pot",
+                "estime": false
+              }
             },
             {
               "nom": "Poivrons assortis",
@@ -94,7 +119,12 @@
               "qte": 0.5,
               "unite": "lb",
               "pas": 0.25,
-              "prixUnite": 1.508
+              "prixUnite": 1.508,
+              "achat": {
+                "qte": 2.5,
+                "label": "sac",
+                "estime": false
+              }
             }
           ],
           "gardeManger": [
@@ -136,7 +166,12 @@
               "qte": 3,
               "unite": "lb",
               "pas": 0.5,
-              "prixUnite": 2.99
+              "prixUnite": 2.99,
+              "achat": {
+                "qte": 3,
+                "label": "barquette",
+                "estime": true
+              }
             },
             {
               "nom": "Frites Superfries McCain",
@@ -144,7 +179,12 @@
               "qte": 1,
               "unite": "sac",
               "pas": 0.5,
-              "prixUnite": 2.77
+              "prixUnite": 2.77,
+              "achat": {
+                "qte": 1,
+                "label": "sac",
+                "estime": false
+              }
             },
             {
               "nom": "Couronne de brocoli",
@@ -152,7 +192,12 @@
               "qte": 1,
               "unite": "couronne",
               "pas": 0.5,
-              "prixUnite": 1.25
+              "prixUnite": 1.25,
+              "achat": {
+                "qte": 1,
+                "label": "couronne",
+                "estime": false
+              }
             }
           ],
           "gardeManger": [
@@ -331,6 +376,11 @@
               "compte": {
                 "parUnite": 2,
                 "label": "côtelettes"
+              },
+              "achat": {
+                "qte": 2,
+                "label": "barquette",
+                "estime": true
               }
             },
             {
@@ -339,7 +389,12 @@
               "qte": 2,
               "unite": "lb",
               "pas": 0.25,
-              "prixUnite": 1.47
+              "prixUnite": 1.47,
+              "achat": {
+                "qte": 2.5,
+                "label": "courge entière",
+                "estime": true
+              }
             },
             {
               "nom": "Laitue Boston de serre",
@@ -347,7 +402,12 @@
               "qte": 1,
               "unite": "unité",
               "pas": 0.5,
-              "prixUnite": 0.985
+              "prixUnite": 0.985,
+              "achat": {
+                "qte": 2,
+                "label": "(vendues 2 pour 1,97 $)",
+                "estime": false
+              }
             }
           ],
           "gardeManger": [
@@ -389,7 +449,12 @@
               "qte": 1,
               "unite": "sac",
               "pas": 0.5,
-              "prixUnite": 12.99
+              "prixUnite": 12.99,
+              "achat": {
+                "qte": 1,
+                "label": "sac",
+                "estime": false
+              }
             },
             {
               "nom": "Légumes surgelés Compliments, 500–750 g",
@@ -397,7 +462,12 @@
               "qte": 1,
               "unite": "sac",
               "pas": 0.5,
-              "prixUnite": 2.99
+              "prixUnite": 2.99,
+              "achat": {
+                "qte": 1,
+                "label": "sac",
+                "estime": false
+              }
             }
           ],
           "gardeManger": [
@@ -439,7 +509,12 @@
               "qte": 3,
               "unite": "lb",
               "pas": 0.5,
-              "prixUnite": 6.77
+              "prixUnite": 6.77,
+              "achat": {
+                "qte": 3,
+                "label": "rôti",
+                "estime": true
+              }
             },
             {
               "nom": "Courge musquée",
@@ -447,7 +522,12 @@
               "qte": 1.5,
               "unite": "lb",
               "pas": 0.25,
-              "prixUnite": 1.47
+              "prixUnite": 1.47,
+              "achat": {
+                "qte": 2.5,
+                "label": "courge entière",
+                "estime": true
+              }
             },
             {
               "nom": "Bouillon Campbell’s, 250 ml",
@@ -455,7 +535,12 @@
               "qte": 2,
               "unite": "boîte(s)",
               "pas": 1,
-              "prixUnite": 1.47
+              "prixUnite": 1.47,
+              "achat": {
+                "qte": 1,
+                "label": "boîte",
+                "estime": false
+              }
             }
           ],
           "gardeManger": [
@@ -606,7 +691,12 @@
               "qte": 1.5,
               "unite": "lb",
               "pas": 0.25,
-              "prixUnite": 5.44
+              "prixUnite": 5.44,
+              "achat": {
+                "qte": 2,
+                "label": "barquette",
+                "estime": true
+              }
             },
             {
               "nom": "Sauce chinoise VH 341–355 ml",
@@ -614,7 +704,12 @@
               "qte": 1,
               "unite": "pot",
               "pas": 0.5,
-              "prixUnite": 2.22
+              "prixUnite": 2.22,
+              "achat": {
+                "qte": 1,
+                "label": "pot",
+                "estime": false
+              }
             },
             {
               "nom": "Carottes",
@@ -622,7 +717,12 @@
               "qte": 1,
               "unite": "lb",
               "pas": 0.25,
-              "prixUnite": 0.495
+              "prixUnite": 0.495,
+              "achat": {
+                "qte": 2,
+                "label": "sac",
+                "estime": false
+              }
             },
             {
               "nom": "Oignons jaunes",
@@ -634,6 +734,11 @@
               "compte": {
                 "parUnite": 2,
                 "label": "oignon(s)"
+              },
+              "achat": {
+                "qte": 2,
+                "label": "sac",
+                "estime": false
               }
             }
           ],
@@ -668,7 +773,12 @@
               "qte": 1,
               "unite": "lb",
               "pas": 0.25,
-              "prixUnite": 5.44
+              "prixUnite": 5.44,
+              "achat": {
+                "qte": 1,
+                "label": "barquette",
+                "estime": true
+              }
             },
             {
               "nom": "Tomates raisins bio, 284 g",
@@ -676,7 +786,12 @@
               "qte": 1,
               "unite": "casseau",
               "pas": 0.5,
-              "prixUnite": 1.99
+              "prixUnite": 1.99,
+              "achat": {
+                "qte": 1,
+                "label": "casseau",
+                "estime": false
+              }
             },
             {
               "nom": "Oignons jaunes",
@@ -684,7 +799,12 @@
               "qte": 0.5,
               "unite": "lb",
               "pas": 0.25,
-              "prixUnite": 0.495
+              "prixUnite": 0.495,
+              "achat": {
+                "qte": 2,
+                "label": "sac",
+                "estime": false
+              }
             }
           ],
           "gardeManger": [
@@ -726,7 +846,12 @@
               "qte": 2,
               "unite": "sacs",
               "pas": 1,
-              "prixUnite": 5.99
+              "prixUnite": 5.99,
+              "achat": {
+                "qte": 1,
+                "label": "sac",
+                "estime": false
+              }
             },
             {
               "nom": "Carottes",
@@ -734,7 +859,12 @@
               "qte": 0.5,
               "unite": "lb",
               "pas": 0.25,
-              "prixUnite": 0.495
+              "prixUnite": 0.495,
+              "achat": {
+                "qte": 2,
+                "label": "sac",
+                "estime": false
+              }
             }
           ],
           "gardeManger": [

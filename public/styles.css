@@ -22,6 +22,7 @@ h1{margin:0;font:800 clamp(32px,7vw,40px)/1.05 'Bricolage Grotesque',sans-serif;
 .tile .tag{font:600 12px 'IBM Plex Mono',monospace;letter-spacing:.08em;text-transform:uppercase;background:var(--ink);color:#fff;padding:3px 8px;border-radius:6px}
 .tile .nm{font-weight:600;line-height:1.25;font-size:15px}
 .tile .pr{margin-top:auto;display:flex;justify-content:space-between;width:100%;gap:8px;font-size:13px;color:var(--muted)}
+.tile .pr .cx{display:block;font-size:12px}
 .tile .pr b{font:600 16px 'IBM Plex Mono',monospace;color:var(--green-dk)}
 .back{align-self:flex-start;min-height:44px;padding:0 14px;border-radius:10px;border:1px solid var(--line);background:var(--card);font-weight:600;cursor:pointer}
 .stores{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:8px}

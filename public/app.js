@@ -33,9 +33,20 @@
     return '<svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">' + ICONS[name] + "</svg>";
   }
 
+  // Quantité utilisée + ce qu'on achète vraiment (formats entiers : barquette, sac, pot…)
+  function line(i, portions) {
+    var q = snap(i.qte * portions / (data.portionsBase || 4), i.pas);
+    var a = i.achat || { qte: i.pas, label: "", estime: false };
+    var n = Math.max(1, Math.ceil(q / a.qte - 1e-9));
+    var buy = n * a.qte;
+    return { q: q, mange: q * i.prixUnite, buy: buy, n: n, caisse: buy * i.prixUnite, reste: buy - q, a: a };
+  }
   function cost(r, portions) {
-    var f = portions / (data.portionsBase || 4);
-    return r.ingredients.reduce(function (s, i) { return s + snap(i.qte * f, i.pas) * i.prixUnite; }, 0);
+    return r.ingredients.reduce(function (s, i) {
+      var l = line(i, portions);
+      s.mange += l.mange; s.caisse += l.caisse; s.estime = s.estime || !!l.a.estime;
+      return s;
+    }, { mange: 0, caisse: 0, estime: false });
   }
 
   // Étapes cochées : gardées sur l'appareil, par semaine (facultatif)
@@ -54,7 +65,7 @@
           '<span class="ico">' + svg(iconFor(r)) + "</span>" +
           '<span class="tag">' + esc(e.nom) + "</span>" +
           '<span class="nm">' + esc(r.nom) + "</span>" +
-          '<span class="pr"><b>' + money(cost(r, 2) / 2) + "</b><span>" + esc(r.temps) + "</span></span>" +
+          (function () { var c = cost(r, 2); return '<span class="pr"><span><b>' + (c.estime ? "≈ " : "") + money(c.caisse) + '</b><span class="cx">à la caisse</span></span><span>' + esc(r.temps) + "</span></span>"; })() +
           "</button>";
       });
     });
@@ -74,14 +85,20 @@
     var idx = state.pick[e.id];
     var r = e.recettes[idx];
     var f = state.portions / (data.portionsBase || 4);
-    var total = 0;
+    var tot = cost(r, state.portions);
 
     var ings = r.ingredients.map(function (i) {
-      var q = snap(i.qte * f, i.pas);
-      var c = q * i.prixUnite;
-      total += c;
-      var count = i.compte ? " (≈ " + Math.max(1, Math.round(q * i.compte.parUnite)) + " " + i.compte.label + ")" : "";
-      return '<li><span class="n"><span>' + esc(i.nom) + '</span><span class="d">' + num(q) + " " + esc(i.unite) + count + " · " + esc(i.aubaine) + '</span></span><span class="mono">' + money(c) + "</span></li>";
+      var l = line(i, state.portions);
+      var count = i.compte ? " (≈ " + Math.max(1, Math.round(l.q * i.compte.parUnite)) + " " + i.compte.label + ")" : "";
+      var est = l.a.estime ? "≈ " : "";
+      var fmt = i.unite === "lb"
+        ? (l.n > 1 ? l.n + " × " : "") + (l.a.label ? l.a.label + " " : "") + est + num(l.a.qte) + " lb"
+        : num(l.buy) + " " + i.unite + (l.buy > 1 && !/[sx)]$/.test(i.unite) ? "s" : "") + (l.a.label && l.a.label.charAt(0) === "(" ? " " + l.a.label : "");
+      var reste = l.reste > 0.001 ? " · reste " + est + num(l.reste) + " " + i.unite : "";
+      return '<li><span class="n"><span>' + esc(i.nom) + '</span>' +
+        '<span class="d">Acheter : ' + esc(fmt) + " · " + esc(i.aubaine) + "</span>" +
+        '<span class="d">Utilisé : ' + num(l.q) + " " + esc(i.unite) + esc(count) + esc(reste) + "</span></span>" +
+        '<span class="mono">' + est + money(l.caisse) + "</span></li>";
     }).join("");
 
     var pantry = r.gardeManger.map(function (x) {
@@ -105,9 +122,11 @@
     el.innerHTML =
       '<div class="meta"><span>Recette ' + (idx + 1) + " sur " + e.recettes.length + "</span><span>" + esc(r.temps) + "</span></div>" +
       "<h2>" + esc(r.nom) + "</h2>" +
-      '<div class="price"><div><div class="big">' + money(total / state.portions) + '</div><div class="sub">par portion · ' + money(total) + ' au total</div></div>' +
+      '<div class="price"><div><div class="big">' + (tot.estime ? "≈ " : "") + money(tot.caisse) + '</div><div class="sub">à la caisse · ' + money(tot.mange / state.portions) + " par portion mangée</div></div>" +
       '<div class="seg" role="group" aria-label="Nombre de personnes">' + seg + "</div></div>" +
-      '<div class="block"><h3>À acheter en spécial</h3><ul class="list">' + ings + '</ul><p class="pantry">Garde-manger : ' + esc(pantry) + "</p></div>" +
+      '<div class="block"><h3>À acheter en spécial</h3><ul class="list">' + ings + "</ul>" +
+        (tot.estime ? '<p class="pantry">≈ : poids de barquette estimé; le prix exact dépend de l’étiquette en magasin. Les restes se congèlent.</p>' : "") +
+        '<p class="pantry">Garde-manger : ' + esc(pantry) + "</p></div>" +
       '<div class="block"><h3>Étapes — touche pour cocher</h3>' + steps + "</div>" +
       '<button type="button" class="next" id="next">Autre recette chez ' + esc(e.nom) + "</button>";
   }
