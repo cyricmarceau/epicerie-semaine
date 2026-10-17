@@ -187,6 +187,7 @@
     var n = state.cart.length;
     var m = Object.keys(state.missing).filter(function (k) { return state.missing[k]; }).length;
     $("cart-n").textContent = n + m;
+    $("cart-n").hidden = n + m === 0;
     $("cart-btn").setAttribute("aria-label", "Panier : " + n + " recette" + (n > 1 ? "s" : "") + ", " + m + " produit" + (m > 1 ? "s" : "") + " de base");
   }
   function recipeOf(k) {
@@ -269,27 +270,38 @@
       var ck = e.id + "/" + idx, on = inCart(ck), c = cost(r, 2);
       return '<div class="rec-row"><a class="rec-open" href="#' + e.id + "/" + idx + '">' +
         '<span class="ico-s ic-' + iconFor(r) + '">' + svg(iconFor(r)) + "</span>" +
-        '<span class="rec-t"><span class="nm">' + esc(r.nom) + '</span><span class="rec-m"><b>' + (c.estime ? "≈ " : "") + money(c.caisse + c.tps + c.tvq) + "</b> · " + esc(r.temps) + "</span>" +
+        '<span class="rec-t"><span class="nm">' + esc(r.nom) + '</span><span class="rec-m">' + (c.estime ? '<i class="ap">≈</i>' : "") + "<b>" + money(c.caisse + c.tps + c.tvq) + '</b><span class="cx">à la caisse</span><span class="sep" aria-hidden="true">•</span><span class="tm">' + esc(r.temps) + "</span></span>" +
         (function () { var bb = badges(r); return '<span class="rec-tags"><span class="rec-pct' + (bb.cent ? " full" : "") + '">' + (bb.cent ? "100 % spéciaux" : bb.pct + " % spéciaux") + "</span>" +
           (bb.prot ? '<span class="bdg prot">' + DUMBBELL + "Protéine</span>" : "") + "</span>"; })() +
         "</span></a>" +
         '<button type="button" class="add" data-add="' + ck + '" aria-pressed="' + on + '" aria-label="' + (on ? "Retirer du panier : " : "Ajouter au panier : ") + esc(r.nom) + '">' + (on ? "✓" : "+") + "</button></div>";
     }).join("");
   }
-  function specHtml(e) {
-    var count = e.speciaux.reduce(function (n, g) { return n + g.items.length; }, 0);
-    return '<details class="card specials"><summary>Spéciaux ' + esc(e.nom) + " (" + count + ")</summary><div class=\"sp-body\">" +
-      e.speciaux.map(function (g) {
-        return '<div class="block"><h3>' + esc(g.rayon) + '</h3><ul class="list">' + g.items.map(function (it) {
-          return "<li><span>" + esc(it[0]) + '</span><span class="mono">' + esc(it[1]) + "</span></li>";
-        }).join("") + "</ul></div>";
-      }).join("") + "</div></details>";
+  function visible() { return data.epiceries.filter(function (e) { return state.filter === "tout" || e.id === state.filter; }); }
+  function renderStoreTabs() {
+    var list = [{ id: "tout", nom: "Toutes" }].concat(data.epiceries);
+    $("store-tabs").innerHTML = list.map(function (e) {
+      var on = state.filter === e.id;
+      return '<button type="button" role="tab" class="stab' + (e.id !== "tout" ? " st-" + e.id : "") + '" data-filter="' + e.id + '" aria-selected="' + on + '">' +
+        (e.id !== "tout" ? '<span class="dot" aria-hidden="true"></span>' : "") + esc(e.nom) + "</button>";
+    }).join("");
+  }
+  function renderSpecials() {
+    $("spec-body").innerHTML = visible().map(function (e) {
+      var count = e.speciaux.reduce(function (n, g) { return n + g.items.length; }, 0);
+      return '<section class="store-sec st-' + e.id + '"><h2 class="sec-title">' + esc(e.nom) + " <small>" + count + " spéciaux</small></h2>" +
+        e.speciaux.map(function (g) {
+          return '<div class="block sp-block"><h3>' + esc(g.rayon) + '</h3><ul class="sp-list">' + g.items.map(function (it) {
+            return "<li><span>" + esc(it[0]) + '</span><span class="mono">' + esc(it[1]) + "</span></li>";
+          }).join("") + "</ul></div>";
+        }).join("") + "</section>";
+    }).join("");
   }
   function renderHome() {
-    $("store-cards").innerHTML = data.epiceries.map(function (e) {
+    $("store-cards").innerHTML = visible().map(function (e) {
       return '<section class="store-sec st-' + e.id + '" id="sec-' + e.id + '" aria-labelledby="h-' + e.id + '">' +
         '<h2 class="sec-title" id="h-' + e.id + '">' + esc(e.nom) + "</h2>" +
-        '<div class="rec-list">' + rowsHtml(e) + "</div>" + specHtml(e) + "</section>";
+        '<div class="rec-list">' + rowsHtml(e) + "</div></section>";
     }).join("");
   }
 
@@ -308,9 +320,10 @@
       var est = l.a.estime ? "≈ " : "";
       var reste = l.reste > 0.001 ? " · reste " + est + num(l.reste) + " " + i.unite : "";
       return '<li' + (i.horsSpecial ? ' class="hors"' : "") + '><span class="n"><span>' + esc(i.nom) + "</span>" +
+        (i.horsSpecial ? '<span class="d hs">hors spécial · prix estimé</span>' : "") +
         '<span class="d">Acheter : ' + esc(fmtBuy(i, l.n, l.a, l.buy)) + " · " + esc(i.aubaine) + "</span>" +
         '<span class="d">Utilisé : ' + num(l.q) + " " + esc(i.unite) + esc(count) + esc(reste) + "</span></span>" +
-        '<span class="mono">' + est + money(l.caisse) + "</span></li>";
+        '<span class="mono pr' + (i.horsSpecial ? " pr-hors" : "") + '">' + (est ? '<i class="ap">≈</i>' : "") + money(l.caisse) + "</span></li>";
     }).join("");
 
     var sp = splitPantry(r, f);
@@ -324,33 +337,52 @@
 
     $("recipe").setAttribute("aria-label", e.nom + " : " + r.nom);
     $("recipe").innerHTML =
-      '<div class="meta"><span><b class="st">' + esc(e.nom) + "</b> · " + esc(r.temps) + " · 2 portions</span></div>" +
+      '<div class="meta st-' + e.id + '"><span><b class="st">' + esc(e.nom) + "</b> · " + esc(r.temps) + " · 2 portions</span></div>" +
       "<h2>" + esc(r.nom) + "</h2>" +
       (tags ? '<div class="tags">' + tags + "</div>" : "") +
       '<div class="price"><div><div class="big">' + (tot.estime ? "≈ " : "") + money(tot.caisse + tot.tps + tot.tvq) + "</div>" +
         '<div class="tax">à la caisse · TPS ' + money(tot.tps) + " · TVQ " + money(tot.tvq) +
         (r.proteines ? "<br>≈ " + r.proteines + " g de protéines / portion" : "") + "</div></div></div>" +
       '<button type="button" class="add-big" id="add-recipe" aria-pressed="' + on + '">' + (on ? "✓ Dans le panier — retirer" : "+ Ajouter au panier") + "</button>" +
-      '<div class="block"><h3>À acheter</h3><ul class="list">' + ings + "</ul></div>" +
+      '<div class="block"><h3>À acheter</h3><ul class="list">' + ings + "</ul>" +
+        '<div class="tot-row"><span>Total à la caisse <small>taxes incluses</small></span><span class="mono">' + (tot.estime ? '<i class="ap">≈</i>' : "") + money(tot.caisse + tot.tps + tot.tvq) + "</span></div></div>" +
       '<p class="pantry">Garde-manger : ' + esc(sp.base.length ? sp.base.join(" · ") : "rien") + "</p>" +
-      '<div class="block"><h3>Étapes</h3>' + steps + "</div>" +
+      '<div class="block"><h3>Préparation</h3>' + steps + "</div>" +
       '<button type="button" class="next" id="next">Recette suivante chez ' + esc(e.nom) + "</button>";
+  }
+
+  /* ---------- Avatar 8 bits (16 × 16) ---------- */
+  function drawAvatar() {
+    var PAL = { ".": "#23272E", H: "#1C1714", S: "#E2B394", D: "#C99577", B: "#2A1F1A", W: "#F2ECE6", E: "#6B5A3A", M: "#8A6E5C", L: "#D98B84", T: "#FFFFFF", C: "#E8E6DF" };
+    var MAP = ["....HHHHHHHH....", "..HHHHHHHHHHHH..", ".HHHHHHHHHHHHHH.", ".HHHSSSSSSSSHHH.", "HHHSSSSSSSSSSHHH", "HHSBBBSSSSBBBSHH",
+      "HHSSSSSSSSSSSSHH", "HHSWEWSSSSWEWSHH", "HHSSSSSSSSSSSSHH", "HHSSSSSDDSSSSSHH", "HHSSSSDSSDSSSSHH", "HHSSMMMMMMMMSSHH",
+      "HHSSSLLTTLLSSSHH", "HHHSSSSMMSSSSHHH", "HH.DSSSSSSSSD.HH", "CCCCDSSSSSSDCCCC"];
+    var c = $("avatar"); if (!c || !c.getContext) return;
+    var g = c.getContext("2d");
+    MAP.forEach(function (row, y) { row.split("").forEach(function (ch, x) { g.fillStyle = PAL[ch]; g.fillRect(x, y, 1, 1); }); });
   }
 
   /* ---------- Navigation : #  |  #maxi  |  #maxi/2  |  #panier ---------- */
   function show(view) {
-    ["home", "detail", "cart"].forEach(function (v) { $(v).hidden = v !== view; });
+    ["home", "detail", "speciaux", "cart"].forEach(function (v) { $(v).hidden = v !== view; });
+    var tab = view === "cart" ? "panier" : view === "speciaux" ? "speciaux" : "recettes";
+    document.querySelectorAll(".tabbar a").forEach(function (a) {
+      if (a.dataset.tab === tab) a.setAttribute("aria-current", "page"); else a.removeAttribute("aria-current");
+    });
+    $("store-tabs").hidden = view === "cart" || view === "detail";
     window.scrollTo(0, 0);
   }
   function route() {
+    renderStoreTabs();
     if (location.hash === "#panier") { show("cart"); renderCart(); return; }
+    if (location.hash === "#speciaux") { show("speciaux"); renderSpecials(); return; }
     var m = location.hash.slice(1).split("/");
     var e = data.epiceries.find(function (x) { return x.id === m[0]; });
     if (!e) { show("home"); renderHome(); return; }
     state.store = e.id;
     if (m.length < 2 || m[1] === "") {
+      state.filter = e.id; renderStoreTabs();
       show("home"); renderHome();
-      var sec = $("sec-" + e.id); if (sec) sec.scrollIntoView();
       return;
     }
     var idx = Number(m[1]);
@@ -359,8 +391,17 @@
   }
   function go(h) { location.hash = h; }
 
-  $("back").addEventListener("click", function () { go(state.store); });
-  $("cart-back").addEventListener("click", function () { go(""); });
+  $("back").addEventListener("click", function () { go(state.filter === "tout" ? "" : state.filter); });
+  $("store-tabs").addEventListener("click", function (ev) {
+    var b = ev.target.closest("button[data-filter]");
+    if (!b) return;
+    state.filter = b.dataset.filter;
+    renderStoreTabs();
+    if (location.hash === "#speciaux") renderSpecials();
+    else if (location.hash === "" || location.hash === "#") renderHome();
+    else go("");
+    var again = $("store-tabs").querySelector('[data-filter="' + state.filter + '"]'); if (again) again.focus();
+  });
 
   $("store-cards").addEventListener("click", function (ev) {
     var a = ev.target.closest("button[data-add]");
@@ -399,6 +440,7 @@
     .then(function (d) {
       data = d;
       $("semaine").textContent = d.semaine;
+      drawAvatar();
       loadDone(); loadCart(); updateCartCount();
       d.epiceries.forEach(function (e) { state.pick[e.id] = 0; });
       route();
