@@ -268,7 +268,7 @@
       var min = Math.min.apply(null, e.recettes.map(function (r) { var c = cost(r, 2); return c.caisse + c.tps + c.tvq; }));
       var nSp = e.speciaux.reduce(function (k, g) { return k + g.items.length; }, 0);
       var inC = state.cart.filter(function (k) { return k.split("/")[0] === e.id; }).length;
-      return '<a class="store-card" href="#' + e.id + '"><span class="sc-name">' + esc(e.nom) + "</span>" +
+      return '<a class="store-card sc-' + e.id + '" href="#' + e.id + '"><span class="sc-name">' + esc(e.nom) + "</span>" +
         '<span class="sc-meta">Dès ' + money(min) + "<br>" + nSp + " spéciaux cette semaine</span>" +
         (inC ? '<span class="sc-cart">' + inC + " dans le panier</span>" : "") +
         '<span class="sc-go" aria-hidden="true">→</span></a>';
