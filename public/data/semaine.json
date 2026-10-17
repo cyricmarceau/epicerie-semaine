@@ -126,13 +126,37 @@
                 "label": "sac",
                 "estime": false
               }
+            },
+            {
+              "nom": "Pâtes sèches (spaghetti ou penne)",
+              "aubaine": "Hors spécial · prix régulier ≈ 2,49 $ la boîte de 900 g",
+              "qte": 350,
+              "unite": "g",
+              "pas": 25,
+              "prixUnite": 0.002766666666666667,
+              "achat": {
+                "qte": 900,
+                "label": "boîte de 900 g",
+                "estime": true
+              },
+              "horsSpecial": true
+            },
+            {
+              "nom": "Parmesan râpé",
+              "aubaine": "Hors spécial · prix régulier ≈ 6,99 $ le contenant de 250 g",
+              "qte": 60,
+              "unite": "g",
+              "pas": 10,
+              "prixUnite": 0.027960000000000002,
+              "achat": {
+                "qte": 250,
+                "label": "contenant de 250 g",
+                "estime": true
+              },
+              "horsSpecial": true
             }
           ],
           "gardeManger": [
-            [
-              350,
-              "g de pâtes"
-            ],
             [
               1,
               "oignon"
@@ -147,7 +171,7 @@
             ],
             [
               0,
-              "parmesan, sel et poivre"
+              "sel et poivre"
             ]
           ],
           "etapes": [
@@ -580,13 +604,51 @@
                 "label": "sac",
                 "estime": false
               }
+            },
+            {
+              "nom": "Riz à grains longs",
+              "aubaine": "Hors spécial · prix régulier ≈ 5,99 $ le sac de 2 kg",
+              "qte": 1.5,
+              "unite": "tasse",
+              "pas": 0.25,
+              "prixUnite": 0.599,
+              "achat": {
+                "qte": 10,
+                "label": "sac de 2 kg (≈ 10 tasses)",
+                "estime": true
+              },
+              "horsSpecial": true
+            },
+            {
+              "nom": "Citron",
+              "aubaine": "Hors spécial · prix régulier ≈ 0,99 $ ch.",
+              "qte": 1,
+              "unite": "citron",
+              "pas": 0.5,
+              "prixUnite": 0.99,
+              "achat": {
+                "qte": 1,
+                "label": "",
+                "estime": true
+              },
+              "horsSpecial": true
+            },
+            {
+              "nom": "Persil frais",
+              "aubaine": "Hors spécial · prix régulier ≈ 1,99 $ le bouquet",
+              "qte": 1,
+              "unite": "bouquet",
+              "pas": 0.5,
+              "prixUnite": 1.99,
+              "achat": {
+                "qte": 1,
+                "label": "",
+                "estime": true
+              },
+              "horsSpecial": true
             }
           ],
           "gardeManger": [
-            [
-              1.5,
-              "tasse de riz"
-            ],
             [
               3,
               "c. à soupe de beurre"
@@ -596,12 +658,8 @@
               "gousses d’ail"
             ],
             [
-              1,
-              "citron"
-            ],
-            [
               0,
-              "persil, sel et poivre"
+              "sel et poivre"
             ]
           ],
           "etapes": [
@@ -944,13 +1002,23 @@
                 "label": "sac",
                 "estime": false
               }
+            },
+            {
+              "nom": "Riz à grains longs",
+              "aubaine": "Hors spécial · prix régulier ≈ 5,99 $ le sac de 2 kg",
+              "qte": 1.5,
+              "unite": "tasse",
+              "pas": 0.25,
+              "prixUnite": 0.599,
+              "achat": {
+                "qte": 10,
+                "label": "sac de 2 kg (≈ 10 tasses)",
+                "estime": true
+              },
+              "horsSpecial": true
             }
           ],
           "gardeManger": [
-            [
-              1.5,
-              "tasse de riz à grains longs"
-            ],
             [
               1,
               "c. à soupe d’huile"
