@@ -167,7 +167,7 @@ h3{margin:0;font-size:13px;font-weight:600;text-transform:uppercase;letter-spaci
 .rec-open{flex:1;min-width:0;display:flex;align-items:center;gap:12px;color:var(--ink);text-decoration:none;min-height:56px}
 .rec-open:focus-visible{outline:3px solid var(--lime);outline-offset:2px;border-radius:10px}
 .ico-s{--c:var(--c-vege);flex:0 0 48px;height:48px;border-radius:12px;display:flex;align-items:center;justify-content:center;color:var(--c);background:color-mix(in srgb,var(--c) 16%,transparent)}
-.ico-s svg{width:30px;height:30px}
+.ico-s svg,.ico-s img{width:32px;height:32px}
 .rec-t{display:flex;flex-direction:column;min-width:0}
 .rec-t .nm{font-weight:600;line-height:1.25}
 .rec-m{font-size:13px;color:var(--muted)}

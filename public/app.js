@@ -29,8 +29,9 @@
     if (/pâtes|spaghetti|macaroni|lasagne/.test(t)) return "pates";
     return "vege";
   }
+  // Icônes couleur : Fluent Emoji (Flat) de Microsoft, licence MIT — public/icons/
   function svg(name) {
-    return '<svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">' + ICONS[name] + "</svg>";
+    return '<img src="icons/' + name + '.svg" alt="" width="32" height="32" loading="lazy">';
   }
 
   // Quantité utilisée + ce qu'on achète vraiment (formats entiers : barquette, sac, pot…)
