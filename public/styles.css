@@ -208,3 +208,11 @@ h3{margin:0;font-size:13px;font-weight:600;text-transform:uppercase;letter-spaci
 .sp-body{padding:0 18px 18px;display:flex;flex-direction:column;gap:16px}
 .rec-pct{align-self:flex-start;margin-top:4px;font:600 12px 'IBM Plex Sans',sans-serif;padding:2px 8px;border-radius:6px;border:1px solid var(--line);color:var(--muted)}
 .rec-pct.full{background:var(--lime);border-color:var(--lime);color:var(--lime-ink)}
+
+/* Recettes : coins plus carrés, liste verticale */
+.rec-list{display:flex;flex-direction:column;gap:8px}
+.rec-row{border-radius:6px}
+.rec-row .ico-s{border-radius:6px}
+.rec-row .add{border-radius:6px}
+.rec-pct{border-radius:4px}
+.store-sec .specials{border-radius:6px}
