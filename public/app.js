@@ -45,8 +45,9 @@
     return r.ingredients.reduce(function (s, i) {
       var l = line(i, portions);
       s.mange += l.mange; s.caisse += l.caisse; s.estime = s.estime || !!l.a.estime;
+      if (i.taxable) { s.tps += l.caisse * 0.05; s.tvq += l.caisse * 0.09975; }
       return s;
-    }, { mange: 0, caisse: 0, estime: false });
+    }, { mange: 0, caisse: 0, estime: false, tps: 0, tvq: 0 });
   }
 
   // Étapes cochées : gardées sur l'appareil, par semaine (facultatif)
@@ -65,7 +66,7 @@
           '<span class="ico">' + svg(iconFor(r)) + "</span>" +
           '<span class="tag">' + esc(e.nom) + "</span>" +
           '<span class="nm">' + esc(r.nom) + "</span>" +
-          (function () { var c = cost(r, 2); return '<span class="pr"><span><b>' + (c.estime ? "≈ " : "") + money(c.caisse) + '</b><span class="cx">à la caisse</span></span><span>' + esc(r.temps) + "</span></span>"; })() +
+          (function () { var c = cost(r, 2); return '<span class="pr"><span><b>' + (c.estime ? "≈ " : "") + money(c.caisse + c.tps + c.tvq) + '</b><span class="cx">à la caisse</span></span><span>' + esc(r.temps) + "</span></span>"; })() +
           "</button>";
       });
     });
@@ -122,7 +123,9 @@
     el.innerHTML =
       '<div class="meta"><span>Recette ' + (idx + 1) + " sur " + e.recettes.length + "</span><span>" + esc(r.temps) + "</span></div>" +
       "<h2>" + esc(r.nom) + "</h2>" +
-      '<div class="price"><div><div class="big">' + (tot.estime ? "≈ " : "") + money(tot.caisse) + '</div><div class="sub">à la caisse · ' + money(tot.mange / state.portions) + " par portion mangée</div></div>" +
+      '<div class="price"><div><div class="big">' + (tot.estime ? "≈ " : "") + money(tot.caisse + tot.tps + tot.tvq) + '</div><div class="sub">à la caisse, taxes incluses · ' + money(tot.mange / state.portions) + " par portion mangée</div>" +
+        '<div class="tax">TPS 5 % : ' + money(tot.tps) + " · TVQ 9,975 % : " + money(tot.tvq) +
+        (tot.tps + tot.tvq === 0 ? "<br>Aliments de base détaxés au Québec" : "") + "</div></div>" +
       '<div class="seg" role="group" aria-label="Nombre de personnes">' + seg + "</div></div>" +
       '<div class="block"><h3>À acheter en spécial</h3><ul class="list">' + ings + "</ul>" +
         (tot.estime ? '<p class="pantry">≈ : poids de barquette estimé; le prix exact dépend de l’étiquette en magasin. Les restes se congèlent.</p>' : "") +
