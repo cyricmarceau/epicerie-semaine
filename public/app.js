@@ -153,7 +153,7 @@
       '<div class="meta"><span>Recette ' + (idx + 1) + " sur " + e.recettes.length + "</span><span>" + esc(r.temps) + "</span></div>" +
       (function () { var h = badgeHtml(badges(r)); return h ? '<div class="tags">' + h + "</div>" : ""; })() +
       "<h2>" + esc(r.nom) + "</h2>" +
-      '<div class="price"><div><div class="big">' + (tot.estime ? "≈ " : "") + money(tot.caisse + tot.tps + tot.tvq) + '</div><div class="sub">à la caisse, taxes incluses</div>" +
+      '<div class="price"><div><div class="big">' + (tot.estime ? "≈ " : "") + money(tot.caisse + tot.tps + tot.tvq) + '</div><div class="sub">à la caisse, taxes incluses</div>' +
         '<div class="tax">TPS 5 % : ' + money(tot.tps) + " · TVQ 9,975 % : " + money(tot.tvq) +
         (tot.tps + tot.tvq === 0 ? "<br>Aliments de base détaxés au Québec" : "") + "</div></div>" +
       '<div class="serv">2 portions</div></div>' +
