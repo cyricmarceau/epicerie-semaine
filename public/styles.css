@@ -143,3 +143,8 @@ h3{margin:0;font-size:13px;font-weight:600;text-transform:uppercase;letter-spaci
 
 .base-list li.miss .box{background:var(--amber);border-color:var(--amber);color:#1a1200;font-weight:700}
 .base-list .deal{color:var(--lime)}
+
+.base-home{padding:0 20px 16px}
+.base-home .bp{display:flex;align-items:center;gap:10px;flex:0 0 auto}
+.add-sm{width:40px;height:40px;border-radius:10px;border:1px solid var(--lime-line);background:var(--raise);color:var(--lime);font:600 20px/1 'IBM Plex Mono',monospace;cursor:pointer}
+.add-sm[aria-pressed="true"]{background:var(--lime);color:var(--lime-ink);border-color:var(--lime);font-size:17px}

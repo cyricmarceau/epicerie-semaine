@@ -153,7 +153,7 @@
   ];
   function parsePrice(t) { var m = /(\d+),(\d{2})\s*\$/.exec(t); return m ? Number(m[1] + "." + m[2]) : null; }
   // Ingrédients de base utilisés par les recettes du panier + spécial trouvé cette semaine, s'il y en a un
-  function baseNeeded(valid) {
+  function baseNeeded(valid, all) {
     var used = {};
     valid.forEach(function (k) {
       recipeOf(k).r.gardeManger.forEach(function (x) {
@@ -162,7 +162,7 @@
         });
       });
     });
-    return BASE_ITEMS.filter(function (b) { return used[b.k]; }).map(function (b) {
+    return BASE_ITEMS.filter(function (b) { return all || used[b.k] || state.missing[b.k]; }).map(function (b) {
       var deal = null;
       data.epiceries.forEach(function (e) {
         e.speciaux.forEach(function (g) {
@@ -184,8 +184,9 @@
   }
   function updateCartCount() {
     var n = state.cart.length;
-    $("cart-n").textContent = n;
-    $("cart-btn").setAttribute("aria-label", "Panier, " + n + " recette" + (n > 1 ? "s" : ""));
+    var m = Object.keys(state.missing).filter(function (k) { return state.missing[k]; }).length;
+    $("cart-n").textContent = n + m;
+    $("cart-btn").setAttribute("aria-label", "Panier : " + n + " recette" + (n > 1 ? "s" : "") + ", " + m + " produit" + (m > 1 ? "s" : "") + " de base");
   }
   function recipeOf(k) {
     var m = k.split("/"); var e = data.epiceries.find(function (x) { return x.id === m[0]; });
@@ -200,12 +201,13 @@
   }
   function renderCart() {
     var valid = state.cart.filter(recipeOf);
-    if (!valid.length) {
+    var anyMiss = Object.keys(state.missing).some(function (k) { return state.missing[k]; });
+    if (!valid.length && !anyMiss) {
       $("cart-body").innerHTML = '<p class="empty">Ton panier est vide. Touche le <b>+</b> sur une recette pour ajouter ses ingrédients.</p>';
       return;
     }
     // Recettes choisies
-    var html = '<div class="card"><h3>Recettes (' + valid.length + ')</h3><ul class="list">' + valid.map(function (k) {
+    var html = !valid.length ? "" : '<div class="card"><h3>Recettes (' + valid.length + ')</h3><ul class="list">' + valid.map(function (k) {
       var x = recipeOf(k);
       return '<li><span class="n"><span>' + esc(x.r.nom) + '</span><span class="d">' + esc(x.e.nom) + " · 2 portions</span></span>" +
         '<button type="button" class="rm" data-rm="' + k + '" aria-label="Retirer ' + esc(x.r.nom) + ' du panier">Retirer</button></li>';
@@ -254,12 +256,24 @@
           '<span class="mono">' + (on ? (x.deal ? "" : "≈ ") + money(price) : "—") + "</span></li>";
       }).join("");
       html += '<section class="store-sec"><h2 class="sec-title">Garde-manger <small>' + (miss ? money(miss) : "tu l’as déjà?") + "</small></h2>" +
-        '<div class="card"><p class="pantry">Tes recettes utilisent ces produits de base. Touche ce qui te manque pour l’ajouter aux achats.</p><ul class="list cart-list base-list">' + rowsB + "</ul></div></section>";
+        '<div class="card"><p class="pantry">Produits de base utilisés par tes recettes ou ajoutés à la main. Touche ce qui te manque pour l’ajouter aux achats (touche encore pour l’enlever).</p><ul class="list cart-list base-list">' + rowsB + "</ul></div></section>";
       grand += miss;
     }
     html = '<div class="price cart-total"><div><div class="big">' + (anyEst ? "≈ " : "") + money(grand) + '</div><div class="tax">Total à la caisse, taxes incluses' + (miss ? " · garde-manger manquant inclus" : " · garde-manger de base exclu") + "</div></div></div>" + html +
       '<button type="button" class="back" id="cart-clear">Vider le panier</button>';
     $("cart-body").innerHTML = html;
+  }
+
+  // Accueil : garde-manger de base avec prix et bouton + pour l'ajouter au panier
+  function renderBase() {
+    $("base-list").innerHTML = '<ul class="list base-home">' + baseNeeded([], true).map(function (x) {
+      var on = !!state.missing[x.b.k];
+      var price = x.deal ? money(x.deal.prix) : "≈ " + money(x.b.prix);
+      var where = x.deal ? '<span class="d deal">En spécial chez ' + esc(x.deal.store) + " : " + esc(x.deal.nom) + "</span>"
+                         : '<span class="d">' + esc(x.b.fmt) + " · prix régulier estimé</span>";
+      return '<li><span class="n"><span>' + esc(x.b.nom) + "</span>" + where + '</span><span class="bp"><span class="mono">' + price + "</span>" +
+        '<button type="button" class="add-sm" data-base="' + x.b.k + '" aria-pressed="' + on + '" aria-label="' + (on ? "Retirer du panier : " : "Ajouter au panier : ") + esc(x.b.nom) + '">' + (on ? "✓" : "+") + "</button></span></li>";
+    }).join("") + "</ul>";
   }
 
   function current() { return data.epiceries.find(function (e) { return e.id === state.store; }); }
@@ -302,6 +316,7 @@
       }
     });
     if (f === "spec") html = specialsHtml();
+    renderBase();
     $("tiles").innerHTML = html || '<p class="empty">Aucune recette de ce type cette semaine.</p>';
     var opts = [["tout", "Toutes les recettes"], ["spec", "Tous les spéciaux"]];
     $("filters").innerHTML = opts.map(function (o) {
@@ -409,6 +424,13 @@
     var b = ev.target.closest("button[data-f]");
     if (b) { state.filter = b.dataset.f; renderHome(); }
   });
+  $("base-list").addEventListener("click", function (ev) {
+    var b = ev.target.closest("button[data-base]");
+    if (!b) return;
+    state.missing[b.dataset.base] = !state.missing[b.dataset.base];
+    saveCart(); updateCartCount(); renderBase();
+    var again = $("base-list").querySelector('[data-base="' + b.dataset.base + '"]'); if (again) again.focus();
+  });
   $("tiles").addEventListener("click", function (ev) {
     var a = ev.target.closest("button[data-add]");
     if (a) {
@@ -466,7 +488,7 @@
     if (g) { state.got[g.dataset.got] = !state.got[g.dataset.got]; saveCart(); renderCart();
       var again = $("cart-body").querySelector('[data-got="' + g.dataset.got + '"]'); if (again) again.focus(); return; }
     var ms = ev.target.closest("button[data-miss]");
-    if (ms) { state.missing[ms.dataset.miss] = !state.missing[ms.dataset.miss]; saveCart(); renderCart();
+    if (ms) { state.missing[ms.dataset.miss] = !state.missing[ms.dataset.miss]; saveCart(); updateCartCount(); renderCart();
       var again2 = $("cart-body").querySelector('[data-miss="' + ms.dataset.miss + '"]'); if (again2) again2.focus(); return; }
     var rm = ev.target.closest("button[data-rm]");
     if (rm) { toggleCart(rm.dataset.rm); renderCart(); return; }
@@ -482,7 +504,7 @@
       $("semaine").textContent = d.semaine;
       loadDone(); loadCart(); updateCartCount();
       d.epiceries.forEach(function (e) { state.pick[e.id] = 0; });
-      $("base-txt").textContent = BASE_TXT.charAt(0).toUpperCase() + BASE_TXT.slice(1) + ".";
+
       renderHome();
       route();
     })
