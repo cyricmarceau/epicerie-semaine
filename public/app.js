@@ -1,6 +1,6 @@
 (function () {
   var data = null;
-  var state = { store: null, portions: 2, pick: {}, done: {}, filter: "tout" };
+  var state = { store: null, portions: 2, pick: {}, done: {}, filter: "tout", cart: [], got: {} };
 
   function money(n) { return n.toFixed(2).replace(".", ",") + " $"; }
   function num(n) { return String(Math.round(n * 100) / 100).replace(".", ","); }
@@ -126,6 +126,83 @@
   function loadDone() { try { state.done = JSON.parse(localStorage.getItem(storeKey())) || {}; } catch (e) { state.done = {}; } }
   function saveDone() { try { localStorage.setItem(storeKey(), JSON.stringify(state.done)); } catch (e) {} }
 
+  // Panier : recettes ajoutées + articles cochés, gardés sur l'appareil pour la semaine
+  function cartKey() { return "panier:" + (data ? data.semaine : ""); }
+  function loadCart() {
+    try { var c = JSON.parse(localStorage.getItem(cartKey())) || {}; state.cart = c.cart || []; state.got = c.got || {}; }
+    catch (e) { state.cart = []; state.got = {}; }
+  }
+  function saveCart() { try { localStorage.setItem(cartKey(), JSON.stringify({ cart: state.cart, got: state.got })); } catch (e) {} }
+  function inCart(k) { return state.cart.indexOf(k) !== -1; }
+  function toggleCart(k) {
+    var i = state.cart.indexOf(k);
+    if (i === -1) state.cart.push(k); else state.cart.splice(i, 1);
+    saveCart(); updateCartCount();
+  }
+  function updateCartCount() {
+    var n = state.cart.length;
+    $("cart-n").textContent = n;
+    $("cart-btn").setAttribute("aria-label", "Panier, " + n + " recette" + (n > 1 ? "s" : ""));
+  }
+  function recipeOf(k) {
+    var m = k.split("/"); var e = data.epiceries.find(function (x) { return x.id === m[0]; });
+    return e && e.recettes[Number(m[1])] ? { e: e, r: e.recettes[Number(m[1])], idx: Number(m[1]) } : null;
+  }
+  function fmtBuy(i, n, a, buy) {
+    var est = a.estime ? "≈ " : "";
+    return i.unite === "lb"
+      ? (n > 1 ? n + " × " : "") + (a.label ? a.label + " " : "") + est + num(a.qte) + " lb"
+      : (a.label && a.label.charAt(0) !== "(" ? n + " " + a.label
+        : num(buy) + " " + i.unite + (buy > 1 && !/[sx)]$/.test(i.unite) ? "s" : "") + (a.label ? " " + a.label : ""));
+  }
+  function renderCart() {
+    var valid = state.cart.filter(recipeOf);
+    if (!valid.length) {
+      $("cart-body").innerHTML = '<p class="empty">Ton panier est vide. Touche le <b>+</b> sur une recette pour ajouter ses ingrédients.</p>';
+      return;
+    }
+    // Recettes choisies
+    var html = '<div class="card"><h3>Recettes (' + valid.length + ')</h3><ul class="list">' + valid.map(function (k) {
+      var x = recipeOf(k);
+      return '<li><span class="n"><span>' + esc(x.r.nom) + '</span><span class="d">' + esc(x.e.nom) + " · 2 portions</span></span>" +
+        '<button type="button" class="rm" data-rm="' + k + '" aria-label="Retirer ' + esc(x.r.nom) + ' du panier">Retirer</button></li>';
+    }).join("") + "</ul></div>";
+    // Articles fusionnés par épicerie
+    var grand = 0, anyEst = false;
+    data.epiceries.forEach(function (e) {
+      var items = {}, order = [];
+      valid.forEach(function (k) {
+        var x = recipeOf(k); if (x.e.id !== e.id) return;
+        x.r.ingredients.forEach(function (i) {
+          var q = line(i, 2).q;
+          var key = i.nom.toLowerCase();
+          if (!items[key]) { items[key] = { i: i, q: 0 }; order.push(key); }
+          items[key].q += q;
+        });
+      });
+      if (!order.length) return;
+      var sub = 0;
+      var rows = order.map(function (key) {
+        var it = items[key], i = it.i;
+        var a = i.achat || { qte: i.pas, label: "", estime: false };
+        var n = Math.max(1, Math.ceil(it.q / a.qte - 1e-9));
+        var buy = n * a.qte, price = buy * i.prixUnite * (i.taxable ? 1.14975 : 1);
+        sub += price; anyEst = anyEst || !!a.estime;
+        var gk = e.id + ":" + key, got = !!state.got[gk];
+        return '<li class="' + (i.horsSpecial ? "hors " : "") + (got ? "got" : "") + '"><button type="button" class="chk" data-got="' + esc(gk) + '" aria-pressed="' + got + '">' +
+          '<span class="box" aria-hidden="true">' + (got ? "✓" : "") + '</span><span class="n"><span>' + esc(i.nom) + "</span>" +
+          '<span class="d">' + esc(fmtBuy(i, n, a, buy)) + " · " + esc(i.aubaine) + "</span></span></button>" +
+          '<span class="mono">' + (a.estime ? "≈ " : "") + money(price) + "</span></li>";
+      }).join("");
+      grand += sub;
+      html += '<section class="store-sec"><h2 class="sec-title">' + esc(e.nom) + ' <small>' + money(sub) + "</small></h2>" +
+        '<div class="card"><ul class="list cart-list">' + rows + "</ul></div></section>";
+    });
+    html = '<div class="price cart-total"><div><div class="big">' + (anyEst ? "≈ " : "") + money(grand) + '</div><div class="tax">Total à la caisse, taxes incluses · garde-manger de base exclu</div></div></div>' + html +
+      '<button type="button" class="back" id="cart-clear">Vider le panier</button>';
+    $("cart-body").innerHTML = html;
+  }
+
   function current() { return data.epiceries.find(function (e) { return e.id === state.store; }); }
 
   /* ---------- Accueil : tuiles des recettes ---------- */
@@ -151,13 +228,15 @@
         if (f === "chef" && !b.chef) return;
         if (f === "cent" && !b.cent) return;
         if (f === "strict" && !b.strict) return;
-        tiles += '<button type="button" class="tile" data-store="' + e.id + '" data-idx="' + idx + '">' +
+        var ck = e.id + "/" + idx, on = inCart(ck);
+        tiles += '<div class="tile-wrap"><button type="button" class="add" data-add="' + ck + '" aria-pressed="' + on + '" aria-label="' + (on ? "Retirer du panier : " : "Ajouter au panier : ") + esc(r.nom) + '">' + (on ? "✓" : "+") + "</button>" +
+          '<button type="button" class="tile" data-store="' + e.id + '" data-idx="' + idx + '">' +
           '<span class="ico ic-' + iconFor(r) + '">' + svg(iconFor(r)) + '<span class="ico-pct' + (b.pct === 100 ? " full" : "") + '" aria-label="' + b.pct + ' % des produits en spécial">' + b.pct + " %</span></span>" +
           '<span class="tags">' + badgeHtml(b, false) + "</span>" +
           '<span class="nm">' + esc(r.nom) + "</span>" +
           (function () { var n = notSpecialNames(r); return n.length ? '<span class="ns">Pas en spécial : ' + esc(n.join(", ")) + "</span>" : ""; })() +
           (function () { var c = cost(r, 2); return '<span class="pr"><span><b>' + (c.estime ? "≈ " : "") + money(c.caisse + c.tps + c.tvq) + '</b><span class="cx">à la caisse</span></span><span>' + esc(r.temps) + "</span></span>"; })() +
-          "</button>";
+          "</button></div>";
       });
       if (tiles) {
         html += '<section class="store-sec" aria-labelledby="sec-' + e.id + '"><h2 class="sec-title" id="sec-' + e.id + '">' + esc(e.nom) + '</h2><div class="tiles">' + tiles + "</div></section>";
@@ -231,6 +310,7 @@
         "</ul>" + (sp.extra.length ? '<p class="pantry">Prix non inclus dans le total ci-dessus.</p>' : "") + "</div>" : "") +
       '<p class="pantry">Garde-manger de base (tu l’as déjà) : ' + esc(sp.base.length ? sp.base.join(" · ") : "rien — tout vient des spéciaux") + "</p>" +
       '<div class="block"><h3>Étapes — touche pour cocher</h3>' + steps + "</div>" +
+      '<button type="button" class="add-big" id="add-recipe" aria-pressed="' + inCart(e.id + "/" + idx) + '">' + (inCart(e.id + "/" + idx) ? "✓ Dans le panier — retirer" : "+ Ajouter les ingrédients au panier") + "</button>" +
       '<button type="button" class="next" id="next">Autre recette chez ' + esc(e.nom) + "</button>";
   }
 
@@ -249,12 +329,14 @@
   function show(view) {
     $("home").hidden = view !== "home";
     $("detail").hidden = view !== "detail";
+    $("cart").hidden = view !== "cart";
   }
 
   function route() {
+    if (location.hash === "#panier") { show("cart"); renderCart(); return; }
     var m = location.hash.slice(1).split("/");
     var e = data.epiceries.find(function (x) { return x.id === m[0]; });
-    if (!e) { show("home"); return; }
+    if (!e) { show("home"); renderHome(); return; }
     var idx = Number(m[1]);
     if (idx >= 0 && idx < e.recettes.length) state.pick[e.id] = idx;
     state.store = e.id;
@@ -269,6 +351,12 @@
     if (b) { state.filter = b.dataset.f; renderHome(); }
   });
   $("tiles").addEventListener("click", function (ev) {
+    var a = ev.target.closest("button[data-add]");
+    if (a) {
+      toggleCart(a.dataset.add); renderHome();
+      var again = $("tiles").querySelector('[data-add="' + a.dataset.add + '"]'); if (again) again.focus();
+      return;
+    }
     var t = ev.target.closest(".tile");
     if (!t) return;
     go(t.dataset.store, t.dataset.idx);
@@ -303,10 +391,24 @@
       if (again) again.focus();
       return;
     }
+    if (ev.target.closest("#add-recipe")) {
+      toggleCart(e.id + "/" + state.pick[e.id]); renderRecipe(); $("add-recipe").focus(); return;
+    }
     if (ev.target.closest("#next")) {
       go(e.id, (state.pick[e.id] + 1) % e.recettes.length);
       setTimeout(function () { $("next").focus(); }, 0);
     }
+  });
+  $("cart-back").addEventListener("click", function () {
+    history.pushState(null, "", location.pathname); show("home"); renderHome(); window.scrollTo(0, 0);
+  });
+  $("cart-body").addEventListener("click", function (ev) {
+    var g = ev.target.closest("button[data-got]");
+    if (g) { state.got[g.dataset.got] = !state.got[g.dataset.got]; saveCart(); renderCart();
+      var again = $("cart-body").querySelector('[data-got="' + g.dataset.got + '"]'); if (again) again.focus(); return; }
+    var rm = ev.target.closest("button[data-rm]");
+    if (rm) { toggleCart(rm.dataset.rm); renderCart(); return; }
+    if (ev.target.closest("#cart-clear")) { state.cart = []; state.got = {}; saveCart(); updateCartCount(); renderCart(); }
   });
   window.addEventListener("hashchange", route);
   window.addEventListener("popstate", route);
@@ -316,7 +418,7 @@
     .then(function (d) {
       data = d;
       $("semaine").textContent = d.semaine;
-      loadDone();
+      loadDone(); loadCart(); updateCartCount();
       d.epiceries.forEach(function (e) { state.pick[e.id] = 0; });
       $("base-txt").textContent = BASE_TXT.charAt(0).toUpperCase() + BASE_TXT.slice(1) + ".";
       renderHome();
