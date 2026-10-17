@@ -280,3 +280,4 @@ h3{margin:0;font-size:13px;font-weight:600;text-transform:uppercase;letter-spaci
 .sp-list li{display:flex;justify-content:space-between;gap:12px;padding:8px 0;border-bottom:1px solid var(--soft);font-size:15px}
 .sp-list li:last-child{border-bottom:0;padding-bottom:0}
 .sp-list .mono{color:var(--lime);font-weight:600}
+.top .kicker{margin-bottom:8px}
