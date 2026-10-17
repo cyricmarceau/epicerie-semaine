@@ -58,17 +58,31 @@
       return x[1].split(/,| et /).every(function (p) { return !p.trim() || BASE_RE.test(p); });
     });
   }
+  // Produits du garde-manger qui ne sont PAS dans la base (riz, pâtes, parmesan…) = à acheter à prix régulier
+  function extraPantry(r) {
+    var n = 0;
+    r.gardeManger.forEach(function (x) {
+      x[1].split(/,| et /).forEach(function (p) { if (p.trim() && !BASE_RE.test(p)) n++; });
+    });
+    return n;
+  }
   function badges(r) {
-    var hors = r.ingredients.some(function (i) { return i.horsSpecial; });
+    var horsN = r.ingredients.filter(function (i) { return i.horsSpecial; }).length;
+    var spec = r.ingredients.length - horsN;
+    var total = r.ingredients.length + extraPantry(r);
+    var cent = horsN === 0 && pantryIsBase(r);
     return {
       chef: !!r.chef,
-      cent: !hors && pantryIsBase(r),
-      strict: !hors && r.gardeManger.length === 0
+      cent: cent,
+      strict: horsN === 0 && r.gardeManger.length === 0,
+      pct: cent ? 100 : Math.round(100 * spec / total)
     };
   }
   function badgeHtml(b) {
     return (b.chef ? '<span class="bdg chef">Chef</span>' : "") +
-      (b.strict ? '<span class="bdg strict">Spéciaux seulement</span>' : b.cent ? '<span class="bdg cent">100 % spéciaux</span>' : "");
+      (b.strict ? '<span class="bdg strict">Spéciaux seulement</span>'
+        : b.cent ? '<span class="bdg cent">100 % spéciaux</span>'
+        : '<span class="bdg pct">' + b.pct + " % spéciaux</span>");
   }
 
   // Étapes cochées : gardées sur l'appareil, par semaine (facultatif)
