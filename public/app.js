@@ -269,7 +269,8 @@
       return '<div class="rec-row"><a class="rec-open" href="#' + e.id + "/" + idx + '">' +
         '<span class="ico-s ic-' + iconFor(r) + '">' + svg(iconFor(r)) + "</span>" +
         '<span class="rec-t"><span class="nm">' + esc(r.nom) + '</span><span class="rec-m"><b>' + (c.estime ? "≈ " : "") + money(c.caisse + c.tps + c.tvq) + "</b> · " + esc(r.temps) + "</span>" +
-        (function () { var bb = badges(r); return '<span class="rec-pct' + (bb.cent ? " full" : "") + '">' + (bb.cent ? "100 % spéciaux" : bb.pct + " % spéciaux") + "</span>"; })() +
+        (function () { var bb = badges(r); return '<span class="rec-tags"><span class="rec-pct' + (bb.cent ? " full" : "") + '">' + (bb.cent ? "100 % spéciaux" : bb.pct + " % spéciaux") + "</span>" +
+          (bb.prot ? '<span class="bdg prot">' + DUMBBELL + "Protéine</span>" : "") + "</span>"; })() +
         "</span></a>" +
         '<button type="button" class="add" data-add="' + ck + '" aria-pressed="' + on + '" aria-label="' + (on ? "Retirer du panier : " : "Ajouter au panier : ") + esc(r.nom) + '">' + (on ? "✓" : "+") + "</button></div>";
     }).join("");

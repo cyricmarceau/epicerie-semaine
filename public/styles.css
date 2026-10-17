@@ -216,3 +216,6 @@ h3{margin:0;font-size:13px;font-weight:600;text-transform:uppercase;letter-spaci
 .rec-row .add{border-radius:6px}
 .rec-pct{border-radius:4px}
 .store-sec .specials{border-radius:6px}
+.rec-tags{display:flex;flex-wrap:wrap;gap:6px;margin-top:4px}
+.rec-tags .rec-pct{margin-top:0}
+.rec-tags .bdg{border-radius:4px;padding:2px 8px}
