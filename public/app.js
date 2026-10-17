@@ -80,7 +80,7 @@
   }
   function badgeHtml(b) {
     return (b.chef ? '<span class="bdg chef">Chef</span>' : "") +
-      (b.strict ? '<span class="bdg strict">Spéciaux seulement</span>'
+      (b.strict ? '<span class="bdg strict">Spéciaux</span>'
         : b.cent ? '<span class="bdg cent">100 % spéciaux</span>'
         : '<span class="bdg pct">' + b.pct + " % spéciaux</span>");
   }
@@ -111,7 +111,7 @@
       });
     });
     $("tiles").innerHTML = html || '<p class="empty">Aucune recette de ce type cette semaine.</p>';
-    var opts = [["tout", "Toutes"], ["chef", "Chef"], ["cent", "100 % spéciaux"], ["strict", "Spéciaux seulement"]];
+    var opts = [["tout", "Toutes"], ["chef", "Chef"], ["cent", "100 % spéciaux"], ["strict", "Spéciaux"]];
     $("filters").innerHTML = opts.map(function (o) {
       return '<button type="button" data-f="' + o[0] + '" aria-pressed="' + (f === o[0]) + '">' + o[1] + "</button>";
     }).join("");
