@@ -1,5 +1,5 @@
 {
-  "semaine": "Du jeudi 22 au mercredi 28 octobre 2026",
+  "semaine": "Du jeudi 29 octobre au mercredi 4 novembre 2026",
   "portionsBase": 2,
   "epiceries": [
     {
@@ -7,227 +7,35 @@
       "nom": "Maxi",
       "recettes": [
         {
-          "nom": "Salade-repas de pois chiches, avocat, concombres et cheddar",
-          "temps": "15 min",
+          "nom": "Poulet glacé BBQ, frites au four et concombre croquant",
+          "temps": "35 min",
+          "icone": "poulet",
+          "proteines": 39,
           "ingredients": [
             {
-              "nom": "Légumineuses Unico, 540 ml",
-              "aubaine": "1,48 $ la boîte",
-              "qte": 2,
-              "unite": "boîte",
-              "pas": 1,
-              "prixUnite": 1.48,
-              "achat": {
-                "qte": 1,
-                "label": "boîte",
-                "estime": false
-              }
-            },
-            {
-              "nom": "Avocats, sac de 5",
-              "aubaine": "2,98 $ le sac",
-              "qte": 1,
-              "unite": "avocat",
-              "pas": 0.5,
-              "prixUnite": 0.596,
-              "achat": {
-                "qte": 5,
-                "label": "sac de 5",
-                "estime": false
-              }
-            },
-            {
-              "nom": "Mini concombres, paquet de 6",
-              "aubaine": "1,88 $",
-              "qte": 3,
-              "unite": "concombre",
-              "pas": 1,
-              "prixUnite": 0.313333,
-              "achat": {
-                "qte": 6,
-                "label": "paquet de 6",
-                "estime": false
-              }
-            },
-            {
-              "nom": "Fromage râpé PC, 250-400 g",
-              "aubaine": "5,88 $ le paquet",
-              "qte": 80,
-              "unite": "g",
-              "pas": 10,
-              "prixUnite": 0.018375,
-              "achat": {
-                "qte": 320,
-                "label": "paquet (≈ 320 g)",
-                "estime": true
-              }
-            },
-            {
-              "nom": "Citron",
-              "aubaine": "Hors spécial · prix régulier ≈ 0,99 $ ch.",
-              "qte": 1,
-              "unite": "citron",
-              "pas": 0.5,
-              "prixUnite": 0.99,
-              "achat": {
-                "qte": 1,
-                "label": "",
-                "estime": true
-              },
-              "horsSpecial": true
-            }
-          ],
-          "gardeManger": [
-            [
-              3,
-              "c. à soupe d’huile"
-            ],
-            [
-              1,
-              "gousse d’ail"
-            ],
-            [
-              0.5,
-              "c. à thé de cumin"
-            ],
-            [
-              0,
-              "sel et poivre"
-            ]
-          ],
-          "etapes": [
-            "Rincer et égoutter 2 boîtes de pois chiches Unico. Couper les mini concombres en rondelles et l’avocat en dés.",
-            "Fouetter l’huile, le jus et le zeste du citron, l’ail râpé, le cumin, sel et poivre.",
-            "Mélanger pois chiches, concombres et vinaigrette; ajouter l’avocat et 80 g de fromage râpé juste avant de servir.",
-            "Les avocats restants mûrissent sur le comptoir pour des toasts dans la semaine; le fromage râpé se congèle tel quel dans son sac (il sert au chili)."
-          ],
-          "icone": "vege",
-          "proteines": 35
-        },
-        {
-          "nom": "Chili au bœuf, haricots rouges et tomates",
-          "temps": "40 min",
-          "ingredients": [
-            {
-              "nom": "Bœuf haché maigre",
-              "aubaine": "5,44 $/lb",
+              "nom": "Poitrines de poulet désossées sans peau",
+              "aubaine": "4,99 $/lb",
               "qte": 0.75,
               "unite": "lb",
               "pas": 0.25,
-              "prixUnite": 5.44,
+              "prixUnite": 4.99,
               "achat": {
-                "qte": 1,
-                "label": "paquet",
+                "qte": 2,
+                "label": "barquette",
                 "estime": true
+              },
+              "compte": {
+                "parUnite": 2.5,
+                "label": "poitrines"
               }
             },
             {
-              "nom": "Légumineuses Unico, 540 ml",
-              "aubaine": "1,48 $ la boîte",
-              "qte": 1,
-              "unite": "boîte",
-              "pas": 1,
-              "prixUnite": 1.48,
-              "achat": {
-                "qte": 1,
-                "label": "boîte",
-                "estime": false
-              }
-            },
-            {
-              "nom": "Tomates Unico, 796 ml",
-              "aubaine": "1,48 $ la boîte",
-              "qte": 1,
-              "unite": "boîte",
-              "pas": 1,
-              "prixUnite": 1.48,
-              "achat": {
-                "qte": 1,
-                "label": "boîte",
-                "estime": false
-              }
-            },
-            {
-              "nom": "Fromage râpé PC, 250-400 g",
-              "aubaine": "5,88 $ le paquet",
-              "qte": 60,
-              "unite": "g",
-              "pas": 10,
-              "prixUnite": 0.018375,
-              "achat": {
-                "qte": 320,
-                "label": "paquet (≈ 320 g)",
-                "estime": true
-              }
-            }
-          ],
-          "gardeManger": [
-            [
-              1,
-              "oignon"
-            ],
-            [
-              2,
-              "gousses d’ail"
-            ],
-            [
-              1,
-              "c. à soupe d’huile"
-            ],
-            [
-              2,
-              "c. à thé de chili en poudre"
-            ],
-            [
-              1,
-              "c. à thé de cumin"
-            ],
-            [
-              0.5,
-              "c. à thé d’origan séché"
-            ],
-            [
-              1,
-              "c. à thé de sucre"
-            ],
-            [
-              0,
-              "sel et poivre"
-            ]
-          ],
-          "etapes": [
-            "Dans une casserole, chauffer l’huile et faire revenir l’oignon haché 4 min. Ajouter le bœuf haché et le défaire jusqu’à ce qu’il ne soit plus rosé.",
-            "Ajouter l’ail, le chili en poudre, le cumin et l’origan; cuire 1 min en remuant.",
-            "Ajouter les tomates, les haricots rouges rincés et le sucre. Mijoter 20 min à feu doux, jusqu’à 71 °C (160 °F) pour la viande hachée; saler, poivrer.",
-            "Servir garni de 60 g de fromage râpé. Le reste du bœuf (¼ lb) se congèle à plat dans un sac; le chili en surplus se congèle 3 mois."
-          ],
-          "icone": "boeuf",
-          "proteines": 53
-        },
-        {
-          "nom": "Pâtes aux saucisses fumées, sauce Classico et mozzarella gratinée",
-          "temps": "25 min",
-          "ingredients": [
-            {
-              "nom": "Pâtes sans nom, 900 g",
-              "aubaine": "0,99 $ (jeu. 22 et ven. 23 oct., offre de l’appli)",
-              "qte": 200,
-              "unite": "g",
-              "pas": 25,
-              "prixUnite": 0.0011,
-              "achat": {
-                "qte": 900,
-                "label": "paquet de 900 g",
-                "estime": false
-              }
-            },
-            {
-              "nom": "Sauce pour pâtes Classico, 410-600 ml",
-              "aubaine": "2,98 $ le pot",
-              "qte": 1,
+              "nom": "Sauce BBQ Bâton Rouge, 398 ml",
+              "aubaine": "1,00 $",
+              "qte": 0.5,
               "unite": "pot",
               "pas": 0.5,
-              "prixUnite": 2.98,
+              "prixUnite": 1.0,
               "achat": {
                 "qte": 1,
                 "label": "pot",
@@ -235,32 +43,28 @@
               }
             },
             {
-              "nom": "Saucisses fumées Lafleur, 450 g",
-              "aubaine": "1,98 $ le paquet",
+              "nom": "Frites Les fermes Cavendish, 800 g",
+              "aubaine": "2,25 $",
               "qte": 0.5,
-              "unite": "paquet",
+              "unite": "sac",
               "pas": 0.5,
-              "prixUnite": 1.98,
+              "prixUnite": 2.25,
               "achat": {
                 "qte": 1,
-                "label": "paquet",
+                "label": "sac",
                 "estime": false
-              },
-              "compte": {
-                "parUnite": 10,
-                "label": "saucisses"
               }
             },
             {
-              "nom": "Fromage Mozzarellissima Saputo, 500 g",
-              "aubaine": "5,88 $",
-              "qte": 100,
-              "unite": "g",
-              "pas": 25,
-              "prixUnite": 0.01176,
+              "nom": "Concombre anglais",
+              "aubaine": "0,99 $",
+              "qte": 1,
+              "unite": "concombre",
+              "pas": 0.5,
+              "prixUnite": 0.99,
               "achat": {
-                "qte": 500,
-                "label": "bloc de 500 g",
+                "qte": 1,
+                "label": "",
                 "estime": false
               }
             }
@@ -269,132 +73,109 @@
             [
               1,
               "c. à soupe d’huile"
+            ],
+            [
+              1,
+              "c. à thé de paprika"
             ],
             [
               1,
               "gousse d’ail"
             ],
             [
-              0.5,
-              "c. à thé d’origan séché"
-            ],
-            [
               0,
               "sel et poivre"
             ]
           ],
           "etapes": [
-            "Cuire 200 g de pâtes dans une grande casserole d’eau bouillante salée; égoutter.",
-            "Pendant ce temps, trancher la moitié des saucisses en rondelles et les dorer 5 min dans l’huile; ajouter l’ail, l’origan et la sauce Classico, mijoter 5 min.",
-            "Mélanger pâtes et sauce, verser dans un plat allant au four et couvrir de 100 g de mozzarella râpée.",
-            "Gratiner 3 à 4 min sous le gril. Les saucisses restantes se congèlent 2 mois; le reste de mozzarella se râpe et se congèle."
-          ],
-          "icone": "porc",
-          "proteines": 39
+            "Chauffer le four à 220 °C. Étaler la moitié du sac de frites sur une plaque et cuire 20–25 min en les retournant à mi-cuisson.",
+            "Couper 2 poitrines (≈ 0,75 lb) en deux sur l’épaisseur, frotter d’huile, paprika, ail râpé, sel et poivre. Saisir 3 min par côté dans une poêle chaude.",
+            "Badigeonner de la moitié du pot de sauce BBQ et finir 8–10 min au four, jusqu’à 74 °C au centre. Servir avec le concombre en bâtonnets.",
+            "Le reste de la barquette (≈ 1,25 lb) se congèle à plat en sacs de 2 poitrines (3 mois); le reste de sauce BBQ et de frites sert pour un prochain souper."
+          ]
         },
         {
-          "nom": "Côtelettes de porc saisies, sauce crème à la sauge, pommes poêlées et haricots verts",
-          "temps": "45 min",
+          "nom": "Pâtes au thon, poireau et citron, gratinées au fromage",
+          "temps": "25 min",
+          "icone": "poisson",
+          "proteines": 48,
           "ingredients": [
             {
-              "nom": "Côtelettes de porc avec os",
-              "aubaine": "2,98 $/lb",
-              "qte": 1.25,
-              "unite": "lb",
-              "pas": 0.25,
-              "prixUnite": 2.98,
-              "achat": {
-                "qte": 2,
-                "label": "barquette",
-                "estime": true
-              },
-              "compte": {
-                "parUnite": 1.6,
-                "label": "côtelettes"
-              }
-            },
-            {
-              "nom": "Pommes Cortland ou McIntosh",
-              "aubaine": "0,88 $/lb",
-              "qte": 0.75,
-              "unite": "lb",
-              "pas": 0.25,
-              "prixUnite": 0.88,
-              "achat": {
-                "qte": 1,
-                "label": "lb (≈ 2 pommes)",
-                "estime": true
-              }
-            },
-            {
-              "nom": "Bouillon sans nom, 900 ml",
-              "aubaine": "0,88 $ (offre de l’appli, 7 jours)",
-              "qte": 250,
-              "unite": "ml",
-              "pas": 50,
-              "prixUnite": 0.000978,
-              "achat": {
-                "qte": 900,
-                "label": "boîte de 900 ml",
-                "estime": false
-              }
-            },
-            {
-              "nom": "Légumes PC surgelés, 350-750 g",
-              "aubaine": "3,88 $ le sac",
-              "qte": 0.5,
-              "unite": "sac",
-              "pas": 0.5,
-              "prixUnite": 3.88,
-              "achat": {
-                "qte": 1,
-                "label": "sac",
-                "estime": false
-              }
-            },
-            {
-              "nom": "Crème 35 % à cuisson, 473 ml",
-              "aubaine": "Hors spécial · prix régulier ≈ 4,49 $ le contenant de 473 ml",
-              "qte": 125,
-              "unite": "ml",
+              "nom": "Pâtes Barilla, 340/410 g",
+              "aubaine": "2,00 $ la boîte",
+              "qte": 200,
+              "unite": "g",
               "pas": 25,
-              "prixUnite": 0.009493,
+              "prixUnite": 0.005333,
               "achat": {
-                "qte": 473,
-                "label": "contenant de 473 ml",
+                "qte": 375,
+                "label": "boîte (340-410 g)",
                 "estime": true
-              },
-              "horsSpecial": true
+              }
             },
             {
-              "nom": "Sauge fraîche",
-              "aubaine": "Hors spécial · prix régulier ≈ 2,99 $ la barquette",
-              "qte": 0.5,
-              "unite": "barquette",
-              "pas": 0.5,
-              "prixUnite": 2.99,
+              "nom": "Thon, 170 g",
+              "aubaine": "1,00 $ la boîte",
+              "qte": 2,
+              "unite": "boîte",
+              "pas": 1,
+              "prixUnite": 1.0,
               "achat": {
                 "qte": 1,
-                "label": "barquette",
+                "label": "boîte",
+                "estime": false
+              }
+            },
+            {
+              "nom": "Poireaux, paquet de 5",
+              "aubaine": "3,99 $",
+              "qte": 1,
+              "unite": "poireau",
+              "pas": 0.5,
+              "prixUnite": 0.798,
+              "achat": {
+                "qte": 5,
+                "label": "paquet de 5",
+                "estime": false
+              }
+            },
+            {
+              "nom": "Citrons, sac de 2 lb",
+              "aubaine": "2,99 $",
+              "qte": 1,
+              "unite": "citron",
+              "pas": 0.5,
+              "prixUnite": 0.37375,
+              "achat": {
+                "qte": 8,
+                "label": "sac (≈ 8 citrons)",
                 "estime": true
-              },
-              "horsSpecial": true
+              }
+            },
+            {
+              "nom": "Fromage râpé, 320 g",
+              "aubaine": "2,99 $ (jeu. 29 et ven. 30 seulement, appli)",
+              "qte": 60,
+              "unite": "g",
+              "pas": 10,
+              "prixUnite": 0.009344,
+              "achat": {
+                "qte": 320,
+                "label": "sac de 320 g",
+                "estime": false
+              }
             }
           ],
           "gardeManger": [
             [
               2,
+              "c. à soupe d’huile"
+            ],
+            [
+              1,
               "c. à soupe de beurre"
             ],
             [
-              1,
-              "c. à soupe d’huile"
-            ],
-            [
-              1,
-              "c. à thé de cassonade"
-            ],
-            [
               2,
               "gousses d’ail"
             ],
@@ -404,327 +185,82 @@
             ]
           ],
           "etapes": [
-            "Sortir les côtelettes 15 min d’avance, les éponger, saler et poivrer. Couper les pommes en quartiers. Cuire les haricots verts surgelés 4 min à l’eau bouillante salée.",
-            "Dans une poêle en fonte bien chaude, saisir les côtelettes dans l’huile 3 à 4 min par côté, puis ajouter 1 c. à soupe de beurre, l’ail écrasé et 4 feuilles de sauge et arroser 1 min, jusqu’à 71 °C (160 °F) au centre. Réserver sous papier d’aluminium.",
-            "Dans la même poêle, dorer les pommes 4 min avec le reste du beurre et la cassonade; réserver. Déglacer avec 250 ml de bouillon en grattant les sucs, réduire de moitié, ajouter 125 ml de crème et 3 feuilles de sauge hachées, réduire jusqu’à ce que la sauce nappe la cuillère.",
-            "Servir les côtelettes nappées de sauce avec les pommes et les haricots verts. Les côtelettes restantes se congèlent crues 3 mois; le bouillon restant se congèle en glaçons."
-          ],
+            "Cuire 200 g de pâtes Barilla al dente dans l’eau bouillante salée; réserver ½ tasse d’eau de cuisson.",
+            "Pendant ce temps, émincer le poireau (blanc et vert pâle), le faire fondre 6 min dans l’huile et le beurre avec l’ail, sans colorer.",
+            "Ajouter les 2 boîtes de thon égoutté, le zeste et le jus du citron, les pâtes et un peu d’eau de cuisson; mélanger, poivrer et parsemer de 60 g de fromage râpé.",
+            "Le fromage râpé restant se congèle tel quel dans son sac; les autres citrons et poireaux servent au saumon (recette chef) et au porc."
+          ]
+        },
+        {
+          "nom": "Médaillons de porc, sauce crémeuse aux champignons et poireau sur pâtes",
+          "temps": "30 min",
           "icone": "porc",
           "proteines": 48,
-          "chef": true
-        }
-      ],
-      "speciaux": [
-        {
-          "rayon": "Fruits et légumes",
-          "items": [
-            [
-              "Avocats, sac de 5",
-              "2,98 $"
-            ],
-            [
-              "Mini concombres, 6 un.",
-              "1,88 $"
-            ],
-            [
-              "Oranges navel, sac de 3 lb",
-              "2,98 $"
-            ],
-            [
-              "Pommes Cortland ou McIntosh",
-              "0,88 $/lb"
-            ],
-            [
-              "Raisins verts ou rouges sans pépins",
-              "1,48 $/lb"
-            ],
-            [
-              "Tomates Mignonnettes PC, 567 g",
-              "3,88 $"
-            ]
-          ]
-        },
-        {
-          "rayon": "Boucherie et charcuterie",
-          "items": [
-            [
-              "Bœuf haché maigre",
-              "5,44 $/lb"
-            ],
-            [
-              "Côtelettes de porc avec os",
-              "2,98 $/lb"
-            ],
-            [
-              "Saucisses fumées Lafleur, 450 g",
-              "1,98 $"
-            ]
-          ]
-        },
-        {
-          "rayon": "Produits laitiers et fromages",
-          "items": [
-            [
-              "Fromage Mozzarellissima Saputo, 500 g",
-              "5,88 $"
-            ],
-            [
-              "Fromage râpé ou en barre PC, 250-400 g",
-              "5,88 $"
-            ],
-            [
-              "Lait au chocolat Québon ou Sealtest, 1 L",
-              "1,68 $"
-            ],
-            [
-              "Tartinade de fromage ou dippers La Vache qui rit, 125-140 g",
-              "2,88 $"
-            ]
-          ]
-        },
-        {
-          "rayon": "Épicerie",
-          "items": [
-            [
-              "Beurre d’arachide Kraft, 750 g-1 kg",
-              "4,97 $"
-            ],
-            [
-              "Biscuits Pattes d’ours Dare, 168-210 g",
-              "1,75 $"
-            ],
-            [
-              "Boisson gazeuse Pepsi ou Coca-Cola, 2 L",
-              "1,69 $"
-            ],
-            [
-              "Bouillon sans nom, 900 ml (7 jours, appli)",
-              "0,88 $"
-            ],
-            [
-              "Café moulu Maxwell House, 631-900 g",
-              "15,99 $"
-            ],
-            [
-              "Cassonade Lantic, 1 kg",
-              "2,88 $"
-            ],
-            [
-              "Farine sans nom, 10 kg",
-              "7,00 $"
-            ],
-            [
-              "Huile d’olive Gallo, 750 ml-1 L",
-              "9,88 $"
-            ],
-            [
-              "Huile de canola ou végétale sans nom, 3 L",
-              "7,00 $"
-            ],
-            [
-              "Légumineuses Unico, 540 ml",
-              "1,48 $"
-            ],
-            [
-              "Mini-barres et friandises Nestlé, 100 un.",
-              "12,98 $"
-            ],
-            [
-              "Pâtes sans nom, 900 g (jeu. 22 et ven. 23 oct., appli)",
-              "0,99 $"
-            ],
-            [
-              "Sauce pour pâtes ou pizza Classico, 410-600 ml",
-              "2,98 $"
-            ],
-            [
-              "Tomates Unico, 796 ml",
-              "1,48 $"
-            ]
-          ]
-        },
-        {
-          "rayon": "Surgelés et prêt-à-manger",
-          "items": [
-            [
-              "Légumes PC surgelés, 350-750 g",
-              "3,88 $"
-            ],
-            [
-              "Pâté ou tourtière St-Hubert, 550-800 g",
-              "5,88 $"
-            ],
-            [
-              "Pizza Resto Pizz ou Mikes, 520-871 g",
-              "5,88 $"
-            ]
-          ]
-        }
-      ]
-    },
-    {
-      "id": "iga",
-      "nom": "IGA",
-      "recettes": [
-        {
-          "nom": "Poulet rôti au paprika, pommes de terre et carottes sur une plaque",
-          "temps": "45 min",
           "ingredients": [
             {
-              "nom": "Poitrines de poulet désossées Exceldor",
-              "aubaine": "5,99 $/lb",
-              "qte": 0.75,
-              "unite": "lb",
-              "pas": 0.25,
-              "prixUnite": 5.99,
-              "achat": {
-                "qte": 2,
-                "label": "barquette",
-                "estime": true
-              },
-              "compte": {
-                "parUnite": 2.5,
-                "label": "poitrines"
-              }
-            },
-            {
-              "nom": "Pommes de terre, sac de 5 lb",
-              "aubaine": "1,88 $ le sac",
-              "qte": 1,
-              "unite": "lb",
-              "pas": 0.25,
-              "prixUnite": 0.376,
-              "achat": {
-                "qte": 5,
-                "label": "sac",
-                "estime": false
-              }
-            },
-            {
-              "nom": "Carottes, sac de 5 lb",
-              "aubaine": "1,88 $ le sac",
-              "qte": 0.75,
-              "unite": "lb",
-              "pas": 0.25,
-              "prixUnite": 0.376,
-              "achat": {
-                "qte": 5,
-                "label": "sac",
-                "estime": false
-              }
-            }
-          ],
-          "gardeManger": [
-            [
-              2,
-              "c. à soupe d’huile"
-            ],
-            [
-              2,
-              "c. à thé de paprika"
-            ],
-            [
-              1,
-              "c. à thé de thym séché"
-            ],
-            [
-              3,
-              "gousses d’ail"
-            ],
-            [
-              1,
-              "oignon"
-            ],
-            [
-              0,
-              "sel et poivre"
-            ]
-          ],
-          "etapes": [
-            "Préchauffer le four à 425 °F (220 °C). Couper les pommes de terre en quartiers, les carottes en bâtonnets et l’oignon en quartiers; enrober de la moitié de l’huile, sel et poivre et étaler sur une plaque.",
-            "Rôtir les légumes 15 min. Pendant ce temps, enrober les poitrines du reste de l’huile, du paprika, du thym et de l’ail haché.",
-            "Déposer le poulet sur les légumes et poursuivre 20 à 25 min, jusqu’à 74 °C (165 °F) au centre des poitrines.",
-            "Laisser reposer 5 min avant de trancher. Les poitrines restantes se congèlent crues, à plat, 3 mois (une sert pour la recette chef)."
-          ],
-          "icone": "poulet",
-          "proteines": 39
-        },
-        {
-          "nom": "Médaillons de filet de porc, pommes Ambrosia caramélisées et carottes glacées",
-          "temps": "35 min",
-          "ingredients": [
-            {
-              "nom": "Filet de porc frais",
-              "aubaine": "3,77 $/lb",
-              "qte": 0.75,
-              "unite": "lb",
-              "pas": 0.25,
-              "prixUnite": 3.77,
-              "achat": {
-                "qte": 1,
-                "label": "filet (≈ 1 lb)",
-                "estime": true
-              }
-            },
-            {
-              "nom": "Pommes Ambrosia",
-              "aubaine": "1,99 $/lb (Scène+)",
+              "nom": "Demi-longe de porc désossée",
+              "aubaine": "1,99 $/lb",
               "qte": 0.75,
               "unite": "lb",
               "pas": 0.25,
               "prixUnite": 1.99,
               "achat": {
-                "qte": 1,
-                "label": "lb (≈ 2 pommes)",
+                "qte": 3,
+                "label": "demi-longe",
                 "estime": true
               }
             },
             {
-              "nom": "Carottes, sac de 5 lb",
-              "aubaine": "1,88 $ le sac",
-              "qte": 0.75,
-              "unite": "lb",
-              "pas": 0.25,
-              "prixUnite": 0.376,
+              "nom": "Soupe crème de champignons Aylmer, 284 ml",
+              "aubaine": "0,67 $",
+              "qte": 1,
+              "unite": "boîte",
+              "pas": 1,
+              "prixUnite": 0.67,
               "achat": {
-                "qte": 5,
-                "label": "sac",
+                "qte": 1,
+                "label": "boîte",
                 "estime": false
               }
             },
             {
-              "nom": "Pommes de terre, sac de 5 lb",
-              "aubaine": "1,88 $ le sac",
-              "qte": 0.75,
-              "unite": "lb",
-              "pas": 0.25,
-              "prixUnite": 0.376,
+              "nom": "Poireaux, paquet de 5",
+              "aubaine": "3,99 $",
+              "qte": 1,
+              "unite": "poireau",
+              "pas": 0.5,
+              "prixUnite": 0.798,
               "achat": {
                 "qte": 5,
-                "label": "sac",
+                "label": "paquet de 5",
                 "estime": false
+              }
+            },
+            {
+              "nom": "Pâtes Barilla, 340/410 g",
+              "aubaine": "2,00 $ la boîte",
+              "qte": 160,
+              "unite": "g",
+              "pas": 25,
+              "prixUnite": 0.005333,
+              "achat": {
+                "qte": 375,
+                "label": "boîte (340-410 g)",
+                "estime": true
               }
             }
           ],
           "gardeManger": [
-            [
-              2,
-              "c. à soupe de beurre"
-            ],
             [
               1,
               "c. à soupe d’huile"
             ],
             [
               1,
-              "c. à soupe de cassonade"
+              "c. à soupe de beurre"
             ],
             [
-              0.25,
-              "c. à thé de cannelle"
-            ],
-            [
-              1,
+              0.5,
               "c. à thé de thym séché"
             ],
             [
@@ -733,638 +269,21 @@
             ]
           ],
           "etapes": [
-            "Couper les pommes de terre en petits cubes et les carottes en rondelles; cuire 12 min à l’eau salée, égoutter et glacer les carottes avec 1 c. à soupe de beurre et la moitié de la cassonade.",
-            "Trancher le filet de porc en médaillons de 2 cm, assaisonner de thym, sel et poivre, et saisir dans l’huile 3 min par côté, jusqu’à 71 °C (160 °F). Réserver.",
-            "Dans la même poêle, dorer les pommes en quartiers 5 min avec le reste du beurre, de la cassonade et la cannelle; ajouter les pommes de terre pour les dorer 3 min.",
-            "Servir les médaillons sur les pommes et les légumes. Le reste du filet se tranche et se congèle cru 3 mois, prêt pour un sauté."
-          ],
-          "icone": "porc",
-          "proteines": 37
-        },
-        {
-          "nom": "Pâtes rosées au bœuf minute et fromage à la crème",
-          "temps": "25 min",
-          "ingredients": [
-            {
-              "nom": "Viande pour fondue chinoise surgelée, 200-300 g",
-              "aubaine": "4,99 $ le paquet",
-              "qte": 1,
-              "unite": "paquet",
-              "pas": 1,
-              "prixUnite": 4.99,
-              "achat": {
-                "qte": 1,
-                "label": "paquet",
-                "estime": false
-              }
-            },
-            {
-              "nom": "Pâtes Catelli ou Barilla sélectionnées",
-              "aubaine": "1,65 $",
-              "qte": 180,
-              "unite": "g",
-              "pas": 25,
-              "prixUnite": 0.003667,
-              "achat": {
-                "qte": 450,
-                "label": "boîte (≈ 450 g)",
-                "estime": true
-              }
-            },
-            {
-              "nom": "Soupe aux tomates Aylmer, 284 ml",
-              "aubaine": "0,77 $ (Scène+)",
-              "qte": 2,
-              "unite": "boîte",
-              "pas": 1,
-              "prixUnite": 0.77,
-              "achat": {
-                "qte": 1,
-                "label": "boîte",
-                "estime": false
-              }
-            },
-            {
-              "nom": "Fromage à la crème Philadelphia, 227-250 g",
-              "aubaine": "3,97 $",
-              "qte": 80,
-              "unite": "g",
-              "pas": 10,
-              "prixUnite": 0.01588,
-              "achat": {
-                "qte": 250,
-                "label": "paquet (227-250 g)",
-                "estime": true
-              }
-            }
-          ],
-          "gardeManger": [
-            [
-              1,
-              "c. à soupe d’huile"
-            ],
-            [
-              2,
-              "gousses d’ail"
-            ],
-            [
-              1,
-              "oignon"
-            ],
-            [
-              1,
-              "c. à thé d’origan séché"
-            ],
-            [
-              0.25,
-              "c. à thé de flocons de chili"
-            ],
-            [
-              0,
-              "sel et poivre"
-            ]
-          ],
-          "etapes": [
-            "Décongeler la viande à fondue au réfrigérateur la veille (ou 10 min dans un sac sous l’eau froide). Cuire 180 g de pâtes à l’eau bouillante salée; réserver ½ tasse d’eau de cuisson.",
-            "Saisir la viande en une seule couche dans l’huile très chaude 1 min par côté; réserver. Faire revenir l’oignon et l’ail 3 min avec l’origan et le chili.",
-            "Ajouter 2 boîtes de soupe aux tomates et 80 g de fromage à la crème; fouetter jusqu’à consistance lisse, allonger avec l’eau de cuisson.",
-            "Remettre la viande, ajouter les pâtes et bien enrober. Le fromage à la crème restant sert à la recette chef ou se garde 10 jours au frigo."
-          ],
-          "icone": "boeuf",
-          "proteines": 40
-        },
-        {
-          "nom": "Poitrines de poulet farcies au fromage à la crème et à la ciboulette, purée au beurre et salade citronnée",
-          "temps": "50 min",
-          "ingredients": [
-            {
-              "nom": "Poitrines de poulet désossées Exceldor",
-              "aubaine": "5,99 $/lb",
-              "qte": 0.75,
-              "unite": "lb",
-              "pas": 0.25,
-              "prixUnite": 5.99,
-              "achat": {
-                "qte": 2,
-                "label": "barquette",
-                "estime": true
-              },
-              "compte": {
-                "parUnite": 2.5,
-                "label": "poitrines"
-              }
-            },
-            {
-              "nom": "Fromage à la crème Philadelphia, 227-250 g",
-              "aubaine": "3,97 $",
-              "qte": 80,
-              "unite": "g",
-              "pas": 10,
-              "prixUnite": 0.01588,
-              "achat": {
-                "qte": 250,
-                "label": "paquet (227-250 g)",
-                "estime": true
-              }
-            },
-            {
-              "nom": "Pommes de terre, sac de 5 lb",
-              "aubaine": "1,88 $ le sac",
-              "qte": 1,
-              "unite": "lb",
-              "pas": 0.25,
-              "prixUnite": 0.376,
-              "achat": {
-                "qte": 5,
-                "label": "sac",
-                "estime": false
-              }
-            },
-            {
-              "nom": "Mélange de laitues ou pousses Good Leaf, 50-113 g",
-              "aubaine": "2,99 $ (Scène+)",
-              "qte": 1,
-              "unite": "contenant",
-              "pas": 1,
-              "prixUnite": 2.99,
-              "achat": {
-                "qte": 1,
-                "label": "contenant",
-                "estime": false
-              }
-            },
-            {
-              "nom": "Ciboulette fraîche",
-              "aubaine": "Hors spécial · prix régulier ≈ 2,49 $ la botte",
-              "qte": 0.5,
-              "unite": "botte",
-              "pas": 0.5,
-              "prixUnite": 2.49,
-              "achat": {
-                "qte": 1,
-                "label": "botte",
-                "estime": true
-              },
-              "horsSpecial": true
-            },
-            {
-              "nom": "Citron",
-              "aubaine": "Hors spécial · prix régulier ≈ 0,99 $ ch.",
-              "qte": 1,
-              "unite": "citron",
-              "pas": 0.5,
-              "prixUnite": 0.99,
-              "achat": {
-                "qte": 1,
-                "label": "",
-                "estime": true
-              },
-              "horsSpecial": true
-            }
-          ],
-          "gardeManger": [
-            [
-              3,
-              "c. à soupe de beurre"
-            ],
-            [
-              2,
-              "c. à soupe d’huile"
-            ],
-            [
-              1,
-              "gousse d’ail"
-            ],
-            [
-              0.5,
-              "c. à thé de paprika"
-            ],
-            [
-              0,
-              "sel et poivre"
-            ]
-          ],
-          "etapes": [
-            "Préchauffer le four à 400 °F (200 °C). Mélanger 80 g de fromage à la crème, la moitié de la ciboulette ciselée, l’ail râpé et le zeste du citron. Entailler chaque poitrine en pochette et la farcir; fermer avec un cure-dent, saler, poivrer et saupoudrer de paprika.",
-            "Saisir les poitrines dans 1 c. à soupe d’huile dans une poêle allant au four 3 min par côté, puis finir au four 15 à 18 min, jusqu’à 74 °C (165 °F) au centre. Laisser reposer 5 min.",
-            "Pendant ce temps, cuire les pommes de terre 15 min à l’eau salée, égoutter et écraser avec le beurre, sel et le reste de la ciboulette. Déglacer la poêle du poulet avec 2 c. à soupe de jus de citron et un filet d’eau pour napper.",
-            "Servir avec la salade arrosée du reste du citron et de l’huile. Les pommes de terre et carottes restantes se gardent 3 semaines au frais et à l’obscurité."
-          ],
-          "icone": "poulet",
-          "proteines": 41,
-          "chef": true
-        }
-      ],
-      "speciaux": [
-        {
-          "rayon": "Fruits et légumes",
-          "items": [
-            [
-              "Carottes, sac de 5 lb",
-              "1,88 $"
-            ],
-            [
-              "Fraises, 454 g",
-              "2,87 $"
-            ],
-            [
-              "Mélange de laitues ou pousses Good Leaf, 50-113 g (Scène+)",
-              "2,99 $"
-            ],
-            [
-              "Oignons jaunes, sac de 5 lb",
-              "1,88 $"
-            ],
-            [
-              "Pommes Ambrosia (Scène+)",
-              "1,99 $/lb"
-            ],
-            [
-              "Pommes de terre blanches, jaunes ou rouges, sac de 5 lb",
-              "1,88 $"
-            ]
+            "Couper 0,75 lb de demi-longe en médaillons de 2 cm, saler, poivrer. Cuire 160 g de pâtes dans l’eau bouillante salée.",
+            "Saisir les médaillons 3 min par côté dans l’huile bien chaude; réserver dans une assiette.",
+            "Dans la même poêle, faire fondre le poireau émincé au beurre avec le thym, ajouter la soupe crème de champignons et ¼ tasse d’eau; remettre le porc et mijoter 5 min, jusqu’à 71 °C au centre.",
+            "Le reste de la demi-longe (≈ 2,25 lb) se coupe en médaillons ou en lanières et se congèle en portions de 0,75 lb (3 mois)."
           ]
         },
         {
-          "rayon": "Boucherie et poissonnerie",
-          "items": [
-            [
-              "Filet de porc frais",
-              "3,77 $/lb"
-            ],
-            [
-              "Jarrets de porc frais",
-              "3,77 $/lb"
-            ],
-            [
-              "Poitrines de poulet frais désossées Exceldor",
-              "5,99 $/lb"
-            ],
-            [
-              "Barquette de 15 sushis",
-              "14,99 $"
-            ]
-          ]
-        },
-        {
-          "rayon": "Produits laitiers et fromages",
-          "items": [
-            [
-              "Fromage à la crème Philadelphia, 227-250 g",
-              "3,97 $"
-            ],
-            [
-              "Tranches Singles Kraft, 410 g",
-              "3,97 $"
-            ]
-          ]
-        },
-        {
-          "rayon": "Épicerie",
-          "items": [
-            [
-              "Beurre d’arachide Kraft, 750 g-1 kg",
-              "4,97 $"
-            ],
-            [
-              "Biscuits Dare sélectionnés, 280-310 g (Scène+)",
-              "2,47 $"
-            ],
-            [
-              "Café moulu Folgers 816 g ou 30 K-Cup (Scène+)",
-              "15,97 $"
-            ],
-            [
-              "Chips tortilla Tostitos, 210-295 g",
-              "2,69 $"
-            ],
-            [
-              "Croustilles Ruffles, 180-200 g",
-              "2,69 $"
-            ],
-            [
-              "Pâtes alimentaires Catelli ou Barilla sélectionnées",
-              "1,65 $"
-            ],
-            [
-              "Soupe aux tomates Aylmer, 284 ml (Scène+)",
-              "0,77 $"
-            ],
-            [
-              "Tartinade aux noisettes Kraft, 375 g",
-              "4,97 $"
-            ],
-            [
-              "Nutella, 1 kg (Scène+)",
-              "8,99 $"
-            ]
-          ]
-        },
-        {
-          "rayon": "Surgelés",
-          "items": [
-            [
-              "Crème glacée 1,5 L ou friandises glacées Compliments (Scène+)",
-              "3,29 $"
-            ],
-            [
-              "Mochis à la crème glacée Natrel, 6 × 35 ml (Scène+)",
-              "3,29 $"
-            ],
-            [
-              "Produits surgelés La Cage sélectionnés, 500-550 g",
-              "8,99 $"
-            ],
-            [
-              "Viande pour fondue chinoise surgelée, 200-300 g",
-              "4,99 $"
-            ]
-          ]
-        }
-      ]
-    },
-    {
-      "id": "metro",
-      "nom": "Metro",
-      "recettes": [
-        {
-          "nom": "Boulettes de poulet en sauce tomate sur pâtes",
-          "temps": "35 min",
-          "ingredients": [
-            {
-              "nom": "Poulet haché extra-maigre Prime, 454 g",
-              "aubaine": "6,00 $ (membre)",
-              "qte": 1,
-              "unite": "paquet",
-              "pas": 0.5,
-              "prixUnite": 6.0,
-              "achat": {
-                "qte": 1,
-                "label": "paquet",
-                "estime": false
-              },
-              "compte": {
-                "parUnite": 12,
-                "label": "boulettes"
-              }
-            },
-            {
-              "nom": "Tomates Selection, 540-796 ml",
-              "aubaine": "1,44 $ la boîte",
-              "qte": 1,
-              "unite": "boîte",
-              "pas": 1,
-              "prixUnite": 1.44,
-              "achat": {
-                "qte": 1,
-                "label": "boîte",
-                "estime": false
-              }
-            },
-            {
-              "nom": "Pâtes alimentaires Selection, 900 g",
-              "aubaine": "1,44 $",
-              "qte": 200,
-              "unite": "g",
-              "pas": 25,
-              "prixUnite": 0.0016,
-              "achat": {
-                "qte": 900,
-                "label": "paquet de 900 g",
-                "estime": false
-              }
-            }
-          ],
-          "gardeManger": [
-            [
-              1,
-              "oignon"
-            ],
-            [
-              2,
-              "gousses d’ail"
-            ],
-            [
-              2,
-              "c. à soupe d’huile"
-            ],
-            [
-              1,
-              "c. à thé d’origan séché"
-            ],
-            [
-              0.5,
-              "c. à thé de paprika"
-            ],
-            [
-              1,
-              "c. à thé de sucre"
-            ],
-            [
-              0,
-              "sel et poivre"
-            ]
-          ],
-          "etapes": [
-            "Mélanger le poulet haché avec la moitié de l’oignon râpé, 1 gousse d’ail, l’origan, le paprika, sel et poivre; façonner environ 12 boulettes.",
-            "Dorer les boulettes dans l’huile 5 min en les tournant; réserver. Faire revenir le reste de l’oignon et de l’ail 2 min.",
-            "Ajouter les tomates écrasées et le sucre, remettre les boulettes et mijoter 12 min à couvert, jusqu’à 74 °C (165 °F) au centre des boulettes (volaille hachée).",
-            "Servir sur 200 g de pâtes cuites. Les boulettes en surplus se congèlent cuites dans la sauce 3 mois; le reste des pâtes se garde au sec."
-          ],
-          "icone": "poulet",
-          "proteines": 60
-        },
-        {
-          "nom": "Filet de porc glacé, pommes rôties et salade de tomates en grappe",
+          "nom": "Saumon saisi, poireaux fondants à la crème, citron et aneth sur linguine",
           "temps": "40 min",
+          "icone": "poisson",
+          "proteines": 42,
+          "chef": true,
           "ingredients": [
             {
-              "nom": "Filet de porc frais",
-              "aubaine": "3,94 $/lb",
-              "qte": 0.75,
-              "unite": "lb",
-              "pas": 0.25,
-              "prixUnite": 3.94,
-              "achat": {
-                "qte": 1,
-                "label": "filet (≈ 1 lb)",
-                "estime": true
-              }
-            },
-            {
-              "nom": "Pommes Lobo, Cortland ou McIntosh, sac de 4 lb",
-              "aubaine": "3,96 $ le sac",
-              "qte": 1,
-              "unite": "lb",
-              "pas": 0.25,
-              "prixUnite": 0.99,
-              "achat": {
-                "qte": 4,
-                "label": "sac",
-                "estime": false
-              }
-            },
-            {
-              "nom": "Tomates rouges en grappe",
-              "aubaine": "1,77 $/lb",
-              "qte": 0.75,
-              "unite": "lb",
-              "pas": 0.25,
-              "prixUnite": 1.77,
-              "achat": {
-                "qte": 1,
-                "label": "lb (≈ 3 tomates)",
-                "estime": true
-              }
-            }
-          ],
-          "gardeManger": [
-            [
-              1,
-              "c. à soupe de cassonade"
-            ],
-            [
-              3,
-              "c. à soupe d’huile"
-            ],
-            [
-              1,
-              "c. à thé de thym séché"
-            ],
-            [
-              0.25,
-              "c. à thé de cannelle"
-            ],
-            [
-              1,
-              "oignon"
-            ],
-            [
-              1,
-              "gousse d’ail"
-            ],
-            [
-              0,
-              "sel et poivre"
-            ]
-          ],
-          "etapes": [
-            "Préchauffer le four à 425 °F (220 °C). Couper les pommes et l’oignon en quartiers, les enrober d’huile, de cannelle et d’une pincée de sel sur une plaque.",
-            "Frotter le filet de porc avec la cassonade, le thym, l’ail râpé, sel et poivre; le saisir 4 min de tous côtés dans une poêle chaude huilée.",
-            "Déposer le filet sur la plaque avec les pommes et rôtir 15 à 18 min, jusqu’à 71 °C (160 °F) au centre; laisser reposer 5 min et trancher.",
-            "Servir avec les tomates en tranches arrosées d’huile, sel et poivre. Les pommes restantes font des collations ou une compote; le reste du filet se congèle cru 3 mois."
-          ],
-          "icone": "porc",
-          "proteines": 37
-        },
-        {
-          "nom": "Souvlaki de poulet, tzatziki au yogourt Krema et salade de pâtes à la grecque",
-          "temps": "40 min",
-          "ingredients": [
-            {
-              "nom": "Poitrines de poulet désossées Prime, 454 g",
-              "aubaine": "6,00 $ (membre)",
-              "qte": 1,
-              "unite": "paquet",
-              "pas": 0.5,
-              "prixUnite": 6.0,
-              "achat": {
-                "qte": 1,
-                "label": "paquet",
-                "estime": false
-              }
-            },
-            {
-              "nom": "Yogourt Olympic Krema, 650 g",
-              "aubaine": "3,97 $ (membre)",
-              "qte": 150,
-              "unite": "g",
-              "pas": 25,
-              "prixUnite": 0.006108,
-              "achat": {
-                "qte": 650,
-                "label": "pot de 650 g",
-                "estime": false
-              }
-            },
-            {
-              "nom": "Tomates rouges en grappe",
-              "aubaine": "1,77 $/lb",
-              "qte": 0.5,
-              "unite": "lb",
-              "pas": 0.25,
-              "prixUnite": 1.77,
-              "achat": {
-                "qte": 1,
-                "label": "lb (≈ 3 tomates)",
-                "estime": true
-              }
-            },
-            {
-              "nom": "Pâtes alimentaires Selection, 900 g",
-              "aubaine": "1,44 $",
-              "qte": 150,
-              "unite": "g",
-              "pas": 25,
-              "prixUnite": 0.0016,
-              "achat": {
-                "qte": 900,
-                "label": "paquet de 900 g",
-                "estime": false
-              }
-            },
-            {
-              "nom": "Citron",
-              "aubaine": "Hors spécial · prix régulier ≈ 0,99 $ ch.",
-              "qte": 1,
-              "unite": "citron",
-              "pas": 0.5,
-              "prixUnite": 0.99,
-              "achat": {
-                "qte": 1,
-                "label": "",
-                "estime": true
-              },
-              "horsSpecial": true
-            }
-          ],
-          "gardeManger": [
-            [
-              3,
-              "c. à soupe d’huile"
-            ],
-            [
-              3,
-              "gousses d’ail"
-            ],
-            [
-              2,
-              "c. à thé d’origan séché"
-            ],
-            [
-              0.5,
-              "oignon"
-            ],
-            [
-              0,
-              "sel et poivre"
-            ]
-          ],
-          "etapes": [
-            "Couper le poulet en cubes, mariner 15 min avec 2 c. à soupe d’huile, le jus d’un demi-citron, 2 gousses d’ail, l’origan, sel et poivre. Cuire 150 g de pâtes, rincer à l’eau froide.",
-            "Tzatziki : mélanger 150 g de yogourt, 1 gousse d’ail râpée, le zeste et un trait du jus de citron restant, sel.",
-            "Enfiler le poulet sur des brochettes et griller à la poêle-gril ou au four à 450 °F (230 °C) 12 à 15 min, jusqu’à 74 °C (165 °F) au centre.",
-            "Mélanger les pâtes avec les tomates en dés, l’oignon finement émincé, le reste de l’huile et du citron. Le yogourt restant sert aux déjeuners (fruits surgelés en spécial)."
-          ],
-          "icone": "poulet",
-          "proteines": 68
-        },
-        {
-          "nom": "Truite saisie, beurre noisette au citron et à l’aneth, tomates confites et linguine",
-          "temps": "35 min",
-          "ingredients": [
-            {
-              "nom": "Filet de truite frais",
+              "nom": "Filet de saumon Atlantique",
               "aubaine": "9,99 $/lb",
               "qte": 0.75,
               "unite": "lb",
@@ -1372,46 +291,59 @@
               "prixUnite": 9.99,
               "achat": {
                 "qte": 1,
-                "label": "filet (≈ 1 lb)",
+                "label": "filet",
                 "estime": true
               }
             },
             {
-              "nom": "Tomates rouges en grappe",
-              "aubaine": "1,77 $/lb",
-              "qte": 0.75,
-              "unite": "lb",
-              "pas": 0.25,
-              "prixUnite": 1.77,
+              "nom": "Poireaux, paquet de 5",
+              "aubaine": "3,99 $",
+              "qte": 1.5,
+              "unite": "poireau",
+              "pas": 0.5,
+              "prixUnite": 0.798,
               "achat": {
-                "qte": 1,
-                "label": "lb (≈ 3 tomates)",
-                "estime": true
-              }
-            },
-            {
-              "nom": "Pâtes alimentaires Selection, 900 g",
-              "aubaine": "1,44 $",
-              "qte": 160,
-              "unite": "g",
-              "pas": 25,
-              "prixUnite": 0.0016,
-              "achat": {
-                "qte": 900,
-                "label": "paquet de 900 g",
+                "qte": 5,
+                "label": "paquet de 5",
                 "estime": false
               }
             },
             {
-              "nom": "Citron",
-              "aubaine": "Hors spécial · prix régulier ≈ 0,99 $ ch.",
+              "nom": "Citrons, sac de 2 lb",
+              "aubaine": "2,99 $",
               "qte": 1,
               "unite": "citron",
               "pas": 0.5,
-              "prixUnite": 0.99,
+              "prixUnite": 0.37375,
               "achat": {
-                "qte": 1,
-                "label": "",
+                "qte": 8,
+                "label": "sac (≈ 8 citrons)",
+                "estime": true
+              }
+            },
+            {
+              "nom": "Pâtes Barilla, 340/410 g",
+              "aubaine": "2,00 $ la boîte",
+              "qte": 120,
+              "unite": "g",
+              "pas": 25,
+              "prixUnite": 0.005333,
+              "achat": {
+                "qte": 375,
+                "label": "boîte (340-410 g)",
+                "estime": true
+              }
+            },
+            {
+              "nom": "Crème 35 % à cuisson",
+              "aubaine": "Hors spécial · prix régulier ≈ 3,99 $ le carton de 473 ml",
+              "qte": 125,
+              "unite": "ml",
+              "pas": 25,
+              "prixUnite": 0.008436,
+              "achat": {
+                "qte": 473,
+                "label": "carton de 473 ml",
                 "estime": true
               },
               "horsSpecial": true
@@ -1433,16 +365,954 @@
           ],
           "gardeManger": [
             [
-              3,
+              2,
               "c. à soupe de beurre"
             ],
+            [
+              1,
+              "c. à soupe d’huile"
+            ],
+            [
+              1,
+              "gousse d’ail"
+            ],
+            [
+              0,
+              "sel et poivre"
+            ]
+          ],
+          "etapes": [
+            "Tailler le saumon en 2 pavés, assécher et saler 15 min d’avance. Émincer 1½ poireau et le faire fondre doucement 10 min au beurre avec l’ail.",
+            "Cuire 120 g de pâtes. Ajouter la crème et le zeste de citron aux poireaux; réduire 4 min jusqu’à nappe, puis monter avec 1 noix de beurre froid, un trait de jus de citron et l’aneth haché.",
+            "Saisir le saumon côté peau dans l’huile très chaude 4 min sans y toucher, retourner et finir 2–3 min (cœur rosé ≈ 52 °C, ou 63 °C bien cuit). Arroser de beurre en fin de cuisson.",
+            "Enrober les pâtes de la sauce, déposer le saumon peau croustillante dessus. Le reste de crème se garde 5 jours (parfait pour une soupe aux poireaux); l’aneth restant se congèle haché dans l’huile."
+          ]
+        }
+      ],
+      "speciaux": [
+        {
+          "rayon": "Fruits et légumes",
+          "items": [
+            [
+              "Citrons, sac de 2 lb",
+              "2,99 $"
+            ],
+            [
+              "Concombre anglais",
+              "0,99 $"
+            ],
+            [
+              "Framboises, 170 g",
+              "1,88 $"
+            ],
+            [
+              "Mandarines, sac de 1,5 lb",
+              "2,99 $"
+            ],
+            [
+              "Poireaux, paquet de 5",
+              "3,99 $"
+            ]
+          ]
+        },
+        {
+          "rayon": "Boucherie et poissonnerie",
+          "items": [
+            [
+              "Demi-longe de porc désossée",
+              "1,99 $/lb (4,39 $/kg)"
+            ],
+            [
+              "Poitrines de poulet désossées sans peau",
+              "4,99 $/lb (11,00 $/kg)"
+            ],
+            [
+              "Filet de saumon Atlantique",
+              "9,99 $/lb (22,02 $/kg)"
+            ],
+            [
+              "Bavette de bœuf assaisonnée Houston, 225 g",
+              "7,99 $"
+            ],
+            [
+              "Ailes de poulet Flamingo, 550 g",
+              "8,99 $"
+            ],
+            [
+              "Jambon style toupie Royal, 700 g",
+              "7,99 $"
+            ],
+            [
+              "Poulet de rôtisserie cuit PC, 800 g",
+              "11 $"
+            ]
+          ]
+        },
+        {
+          "rayon": "Produits laitiers et fromages",
+          "items": [
+            [
+              "Fromage, 400 g ou râpé 320 g (jeu. 29 et ven. 30 seulement, appli)",
+              "2,99 $"
+            ],
+            [
+              "Cheez Whiz Kraft, 450 g",
+              "3,97 $"
+            ],
+            [
+              "Tranches Singles Kraft, 390/410 g",
+              "3,97 $"
+            ]
+          ]
+        },
+        {
+          "rayon": "Épicerie",
+          "items": [
+            [
+              "Pâtes Barilla, 340/410 g",
+              "2 $"
+            ],
+            [
+              "Sauce BBQ ou au poivre Bâton Rouge, 398 ml",
+              "1 $"
+            ],
+            [
+              "Thon, 170 g",
+              "1 $"
+            ],
+            [
+              "Soupe Aylmer, 284 ml",
+              "0,67 $"
+            ],
+            [
+              "Jus de tomate Heinz, 540 ml",
+              "1,25 $"
+            ],
+            [
+              "Sucre granulé Lantic, 2 kg",
+              "1,99 $"
+            ],
+            [
+              "Biscuits Chips Ahoy! ou Oreo Christie, 240-303 g",
+              "2,79 $"
+            ]
+          ]
+        },
+        {
+          "rayon": "Surgelés",
+          "items": [
+            [
+              "Frites Les fermes Cavendish, 800 g",
+              "2,25 $"
+            ],
+            [
+              "Pizza Ristorante ou Casa Di Mama Dr. Oetker, 288-410 g",
+              "3,47 $"
+            ],
+            [
+              "Produits surgelés La Cage, 400-750 g",
+              "8,99 $"
+            ]
+          ]
+        },
+        {
+          "rayon": "Maison",
+          "items": [
+            [
+              "Mouchoirs Scotties, 12 un.",
+              "11,99 $"
+            ],
+            [
+              "Papier hygiénique Cashmere, 20 = 60 rouleaux",
+              "11,99 $"
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "id": "iga",
+      "nom": "IGA",
+      "recettes": [
+        {
+          "nom": "Côtes levées BBQ Bâton Rouge, poivrons et poireaux rôtis",
+          "temps": "35 min",
+          "icone": "porc",
+          "proteines": 35,
+          "ingredients": [
+            {
+              "nom": "Côtes de dos de porc Bâton Rouge, 585 g",
+              "aubaine": "8,99 $ (Scène+)",
+              "qte": 1,
+              "unite": "paquet",
+              "pas": 0.5,
+              "prixUnite": 8.99,
+              "achat": {
+                "qte": 1,
+                "label": "paquet",
+                "estime": false
+              },
+              "compte": {
+                "parUnite": 1,
+                "label": "demi-carré"
+              }
+            },
+            {
+              "nom": "Poivrons, sac de 2,5 lb",
+              "aubaine": "4 $ le sac",
+              "qte": 2,
+              "unite": "poivron",
+              "pas": 0.5,
+              "prixUnite": 0.666667,
+              "achat": {
+                "qte": 6,
+                "label": "sac (≈ 6 poivrons)",
+                "estime": true
+              }
+            },
+            {
+              "nom": "Poireaux, paquet de 4",
+              "aubaine": "2,88 $",
+              "qte": 2,
+              "unite": "poireau",
+              "pas": 0.5,
+              "prixUnite": 0.72,
+              "achat": {
+                "qte": 4,
+                "label": "paquet de 4",
+                "estime": false
+              }
+            }
+          ],
+          "gardeManger": [
             [
               2,
               "c. à soupe d’huile"
             ],
             [
+              1,
+              "c. à thé de paprika"
+            ],
+            [
+              0.5,
+              "c. à thé d’origan séché"
+            ],
+            [
+              0,
+              "sel et poivre"
+            ]
+          ],
+          "etapes": [
+            "Chauffer le four à 200 °C. Couper 2 poivrons en lanières et 2 poireaux en tronçons de 3 cm; mélanger avec l’huile, le paprika, l’origan, sel et poivre sur une plaque.",
+            "Rôtir les légumes 10 min, puis ajouter les côtes levées (déjà cuites) sur la plaque, côté chair vers le haut, badigeonnées de leur sauce.",
+            "Poursuivre 15–20 min jusqu’à ce que les côtes soient bien chaudes (74 °C au centre pour un produit réchauffé) et la sauce caramélisée; passer 2 min sous le gril.",
+            "Les poivrons restants servent aux crevettes et aux poivrons farcis; un reste de côtes se défait à la fourchette pour un sandwich ou se congèle 2 mois."
+          ]
+        },
+        {
+          "nom": "Crevettes sautées à l’ail et aux poivrons, riz au paprika",
+          "temps": "25 min",
+          "icone": "crevette",
+          "proteines": 39,
+          "ingredients": [
+            {
+              "nom": "Crevettes blanches crues surgelées Compliments, 680 g",
+              "aubaine": "11,99 $",
+              "qte": 340,
+              "unite": "g",
+              "pas": 20,
+              "prixUnite": 0.017632,
+              "achat": {
+                "qte": 680,
+                "label": "sac de 680 g",
+                "estime": false
+              }
+            },
+            {
+              "nom": "Poivrons, sac de 2,5 lb",
+              "aubaine": "4 $ le sac",
+              "qte": 2,
+              "unite": "poivron",
+              "pas": 0.5,
+              "prixUnite": 0.666667,
+              "achat": {
+                "qte": 6,
+                "label": "sac (≈ 6 poivrons)",
+                "estime": true
+              }
+            },
+            {
+              "nom": "Riz à grains longs",
+              "aubaine": "Hors spécial · prix régulier ≈ 2,99 $ le sac de 900 g",
+              "qte": 0.75,
+              "unite": "tasse",
+              "pas": 0.25,
+              "prixUnite": 0.664444,
+              "achat": {
+                "qte": 4.5,
+                "label": "sac de 900 g (≈ 4,5 tasses)",
+                "estime": true
+              },
+              "horsSpecial": true
+            }
+          ],
+          "gardeManger": [
+            [
               2,
+              "c. à soupe d’huile"
+            ],
+            [
+              3,
               "gousses d’ail"
+            ],
+            [
+              1,
+              "c. à thé de paprika"
+            ],
+            [
+              0.5,
+              "oignon"
+            ],
+            [
+              0,
+              "sel et poivre"
+            ]
+          ],
+          "etapes": [
+            "Décongeler 340 g de crevettes (la moitié du sac) sous l’eau froide 10 min, puis bien les assécher. Cuire ¾ tasse de riz avec 1½ tasse d’eau et une pincée de paprika.",
+            "Faire sauter l’oignon et 2 poivrons en lanières 5 min à feu vif dans l’huile.",
+            "Ajouter l’ail et les crevettes; cuire 2–3 min jusqu’à ce qu’elles soient roses et opaques (63 °C). Saler, poivrer, servir sur le riz.",
+            "L’autre moitié du sac de crevettes reste au congélateur pour le risotto (recette chef); le riz cuit en surplus se congèle à plat 1 mois."
+          ]
+        },
+        {
+          "nom": "Poivrons farcis à la viande fumée et au fromage gratiné",
+          "temps": "40 min",
+          "icone": "porc",
+          "proteines": 35,
+          "ingredients": [
+            {
+              "nom": "Viande fumée Fumoirs Gosselin, 500 g",
+              "aubaine": "10,99 $",
+              "qte": 250,
+              "unite": "g",
+              "pas": 25,
+              "prixUnite": 0.02198,
+              "achat": {
+                "qte": 500,
+                "label": "paquet de 500 g",
+                "estime": false
+              }
+            },
+            {
+              "nom": "Poivrons, sac de 2,5 lb",
+              "aubaine": "4 $ le sac",
+              "qte": 2,
+              "unite": "poivron",
+              "pas": 0.5,
+              "prixUnite": 0.666667,
+              "achat": {
+                "qte": 6,
+                "label": "sac (≈ 6 poivrons)",
+                "estime": true
+              }
+            },
+            {
+              "nom": "Fromage râpé Compliments, 320 g",
+              "aubaine": "4,44 $ (Scène+)",
+              "qte": 100,
+              "unite": "g",
+              "pas": 10,
+              "prixUnite": 0.013875,
+              "achat": {
+                "qte": 320,
+                "label": "sac de 320 g",
+                "estime": false
+              }
+            }
+          ],
+          "gardeManger": [
+            [
+              1,
+              "c. à soupe d’huile"
+            ],
+            [
+              0.5,
+              "oignon"
+            ],
+            [
+              0.5,
+              "c. à thé de paprika"
+            ],
+            [
+              0,
+              "sel et poivre"
+            ]
+          ],
+          "etapes": [
+            "Chauffer le four à 190 °C. Couper 2 poivrons en deux sur la longueur, épépiner et précuire 10 min au four, ouverture vers le bas.",
+            "Faire revenir l’oignon haché dans l’huile, ajouter 250 g de viande fumée effilochée et le paprika; réchauffer 3 min. Hors du feu, incorporer la moitié du fromage râpé (50 g).",
+            "Farcir les demi-poivrons, couvrir du reste du fromage (50 g) et cuire 15 min jusqu’à ce que la farce atteigne 74 °C et que le fromage soit doré.",
+            "Les 250 g restants de viande fumée se congèlent en sac plat (2 mois) pour des sandwichs; le fromage râpé restant sert au risotto."
+          ]
+        },
+        {
+          "nom": "Risotto crémeux aux poireaux et crevettes saisies au beurre noisette",
+          "temps": "45 min",
+          "icone": "crevette",
+          "proteines": 45,
+          "chef": true,
+          "ingredients": [
+            {
+              "nom": "Crevettes blanches crues surgelées Compliments, 680 g",
+              "aubaine": "11,99 $",
+              "qte": 340,
+              "unite": "g",
+              "pas": 20,
+              "prixUnite": 0.017632,
+              "achat": {
+                "qte": 680,
+                "label": "sac de 680 g",
+                "estime": false
+              }
+            },
+            {
+              "nom": "Poireaux, paquet de 4",
+              "aubaine": "2,88 $",
+              "qte": 2,
+              "unite": "poireau",
+              "pas": 0.5,
+              "prixUnite": 0.72,
+              "achat": {
+                "qte": 4,
+                "label": "paquet de 4",
+                "estime": false
+              }
+            },
+            {
+              "nom": "Riz arborio",
+              "aubaine": "Hors spécial · prix régulier ≈ 4,99 $ le sac de 900 g",
+              "qte": 150,
+              "unite": "g",
+              "pas": 25,
+              "prixUnite": 0.005544,
+              "achat": {
+                "qte": 900,
+                "label": "sac de 900 g",
+                "estime": true
+              },
+              "horsSpecial": true
+            },
+            {
+              "nom": "Bouillon de poulet",
+              "aubaine": "Hors spécial · prix régulier ≈ 2,79 $ le carton de 900 ml",
+              "qte": 750,
+              "unite": "ml",
+              "pas": 50,
+              "prixUnite": 0.0031,
+              "achat": {
+                "qte": 900,
+                "label": "carton de 900 ml",
+                "estime": true
+              },
+              "horsSpecial": true
+            },
+            {
+              "nom": "Fromage râpé Compliments, 320 g",
+              "aubaine": "4,44 $ (Scène+)",
+              "qte": 50,
+              "unite": "g",
+              "pas": 10,
+              "prixUnite": 0.013875,
+              "achat": {
+                "qte": 320,
+                "label": "sac de 320 g",
+                "estime": false
+              }
+            }
+          ],
+          "gardeManger": [
+            [
+              3,
+              "c. à soupe de beurre"
+            ],
+            [
+              1,
+              "c. à soupe d’huile"
+            ],
+            [
+              0.5,
+              "oignon"
+            ],
+            [
+              1,
+              "gousse d’ail"
+            ],
+            [
+              0,
+              "sel et poivre"
+            ]
+          ],
+          "etapes": [
+            "Chauffer le bouillon avec 1 tasse d’eau. Émincer finement 2 poireaux et l’oignon; les faire suer 6 min dans 1 c. à soupe de beurre, sans coloration.",
+            "Ajouter 150 g d’arborio, nacrer 2 min, puis mouiller louche par louche en remuant, 18–20 min, jusqu’à ce que le riz soit crémeux mais encore légèrement ferme.",
+            "Pendant ce temps, saisir 340 g de crevettes bien asséchées 1 min par côté dans l’huile très chaude; ajouter 1 c. à soupe de beurre et l’ail, cuire jusqu’à ce que le beurre soit noisette et les crevettes à 63 °C.",
+            "Hors du feu, monter le risotto avec le dernier beurre et 50 g de fromage râpé (mantecatura); servir garni des crevettes et de leur beurre. Le bouillon restant se congèle en cubes; l’arborio se garde au garde-manger."
+          ]
+        }
+      ],
+      "speciaux": [
+        {
+          "rayon": "Fruits et légumes",
+          "items": [
+            [
+              "Poivrons, sac de 2,5 lb",
+              "4 $"
+            ],
+            [
+              "Poireaux, paquet de 4",
+              "2,88 $"
+            ],
+            [
+              "Clémentines, 907 g",
+              "2,77 $ (Scène+)"
+            ],
+            [
+              "Framboises, 340 g",
+              "3,97 $ (Scène+)"
+            ]
+          ]
+        },
+        {
+          "rayon": "Boucherie et poissonnerie",
+          "items": [
+            [
+              "Côtes de dos de porc frais Bâton Rouge, 585 g",
+              "8,99 $ (Scène+)"
+            ],
+            [
+              "Cubes de bœuf bourguignon",
+              "5,88 $/lb (12,96 $/kg)"
+            ],
+            [
+              "Rôti d’épaule de porc frais",
+              "1,99 $/lb (4,39 $/kg)"
+            ],
+            [
+              "Rôti français",
+              "5,88 $/lb (12,96 $/kg)"
+            ],
+            [
+              "Viande fumée de porc ou Sloppy joe Fumoirs Gosselin, 500 g",
+              "10,99 $"
+            ],
+            [
+              "Crevettes blanches du Pacifique crues surgelées Compliments, 680 g",
+              "11,99 $"
+            ]
+          ]
+        },
+        {
+          "rayon": "Produits laitiers et fromages",
+          "items": [
+            [
+              "Beurre Compliments, 454 g",
+              "4,77 $"
+            ],
+            [
+              "Fromage 400 g ou râpé 226/320 g Compliments",
+              "4,44 $ (Scène+)"
+            ]
+          ]
+        },
+        {
+          "rayon": "Surgelés",
+          "items": [
+            [
+              "Pizza Rustica 645/866 g ou Stefano Faita 392/424 g",
+              "4,97 $ (Scène+)"
+            ],
+            [
+              "Crème glacée Häagen-Dazs, 414/450 ml",
+              "4,94 $"
+            ],
+            [
+              "Friandises glacées Iögo ou Häagen-Dazs",
+              "4,94 $"
+            ],
+            [
+              "Yogourt glacé ou sorbet Iögo ou Del Monte, 946 ml",
+              "4,94 $"
+            ]
+          ]
+        },
+        {
+          "rayon": "Épicerie",
+          "items": [
+            [
+              "Barres Val Nature, Fibre 1, General Mills, Chex Mix ou Pillsbury, sélection",
+              "2,47 $"
+            ],
+            [
+              "Collations Betty Crocker ou Mott’s Fruitsations, 128/226 g",
+              "2,47 $"
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "id": "metro",
+      "nom": "Metro",
+      "recettes": [
+        {
+          "nom": "Pâté chinois classique au bœuf haché",
+          "temps": "45 min",
+          "icone": "boeuf",
+          "proteines": 41,
+          "ingredients": [
+            {
+              "nom": "Bœuf haché maigre",
+              "aubaine": "5,44 $/lb",
+              "qte": 0.75,
+              "unite": "lb",
+              "pas": 0.25,
+              "prixUnite": 5.44,
+              "achat": {
+                "qte": 1,
+                "label": "barquette",
+                "estime": true
+              }
+            },
+            {
+              "nom": "Pommes de terre, sac de 5 lb",
+              "aubaine": "1,99 $",
+              "qte": 1.5,
+              "unite": "lb",
+              "pas": 0.25,
+              "prixUnite": 0.398,
+              "achat": {
+                "qte": 5,
+                "label": "sac de 5 lb",
+                "estime": false
+              }
+            },
+            {
+              "nom": "Maïs en crème",
+              "aubaine": "Hors spécial · prix régulier ≈ 1,79 $ la boîte de 398 ml",
+              "qte": 1,
+              "unite": "boîte",
+              "pas": 1,
+              "prixUnite": 1.79,
+              "achat": {
+                "qte": 1,
+                "label": "boîte de 398 ml",
+                "estime": true
+              },
+              "horsSpecial": true
+            }
+          ],
+          "gardeManger": [
+            [
+              2,
+              "c. à soupe de beurre"
+            ],
+            [
+              1,
+              "c. à soupe d’huile"
+            ],
+            [
+              0.5,
+              "oignon"
+            ],
+            [
+              0.5,
+              "c. à thé de paprika"
+            ],
+            [
+              0,
+              "sel et poivre"
+            ]
+          ],
+          "etapes": [
+            "Peler et couper 1,5 lb de pommes de terre; cuire 15 min à l’eau salée, puis piler avec le beurre, un peu d’eau de cuisson, sel et poivre.",
+            "Pendant ce temps, faire revenir l’oignon haché dans l’huile, ajouter 0,75 lb de bœuf haché et cuire en défaisant jusqu’à ce qu’il n’y ait plus de rose (71 °C). Assaisonner.",
+            "Dans un plat de 20 cm, étager le bœuf, la boîte de maïs en crème puis la purée; saupoudrer de paprika. Cuire 20 min à 200 °C, puis 2 min sous le gril.",
+            "Le ¼ lb de bœuf restant se congèle à plat (3 mois); les pommes de terre se gardent au frais et à l’obscurité pour les deux autres recettes."
+          ]
+        },
+        {
+          "nom": "Boulettes de porc en sauce Classico, purée et carottes",
+          "temps": "40 min",
+          "icone": "porc",
+          "proteines": 39,
+          "ingredients": [
+            {
+              "nom": "Porc haché extra-maigre",
+              "aubaine": "2,99 $/lb",
+              "qte": 0.75,
+              "unite": "lb",
+              "pas": 0.25,
+              "prixUnite": 2.99,
+              "achat": {
+                "qte": 1,
+                "label": "barquette",
+                "estime": true
+              },
+              "compte": {
+                "parUnite": 16,
+                "label": "boulettes"
+              }
+            },
+            {
+              "nom": "Sauce pour pâtes Classico, 410-650 ml",
+              "aubaine": "2,97 $",
+              "qte": 1,
+              "unite": "pot",
+              "pas": 0.5,
+              "prixUnite": 2.97,
+              "achat": {
+                "qte": 1,
+                "label": "pot",
+                "estime": false
+              }
+            },
+            {
+              "nom": "Pommes de terre, sac de 5 lb",
+              "aubaine": "1,99 $",
+              "qte": 1,
+              "unite": "lb",
+              "pas": 0.25,
+              "prixUnite": 0.398,
+              "achat": {
+                "qte": 5,
+                "label": "sac de 5 lb",
+                "estime": false
+              }
+            },
+            {
+              "nom": "Carottes, sac de 2 lb",
+              "aubaine": "0,99 $",
+              "qte": 0.75,
+              "unite": "lb",
+              "pas": 0.25,
+              "prixUnite": 0.495,
+              "achat": {
+                "qte": 2,
+                "label": "sac de 2 lb",
+                "estime": false
+              }
+            }
+          ],
+          "gardeManger": [
+            [
+              1,
+              "c. à soupe d’huile"
+            ],
+            [
+              1,
+              "c. à soupe de beurre"
+            ],
+            [
+              1,
+              "gousse d’ail"
+            ],
+            [
+              0.5,
+              "c. à thé d’origan séché"
+            ],
+            [
+              0,
+              "sel et poivre"
+            ]
+          ],
+          "etapes": [
+            "Mélanger 0,75 lb de porc haché avec l’ail râpé, l’origan, sel et poivre; façonner ≈ 12 boulettes et les dorer 5 min dans l’huile.",
+            "Verser le pot de sauce Classico, couvrir et mijoter 15 min jusqu’à 71 °C au centre des boulettes.",
+            "Pendant ce temps, cuire 1 lb de pommes de terre et 0,75 lb de carottes en rondelles à l’eau salée; piler les pommes de terre avec le beurre.",
+            "Le reste de porc haché (≈ 0,25 lb) se façonne en boulettes crues et se congèle sur une plaque avant d’être mis en sac (3 mois)."
+          ]
+        },
+        {
+          "nom": "Poulet pané gratiné à l’italienne, quartiers de pommes de terre",
+          "temps": "35 min",
+          "icone": "poulet",
+          "proteines": 36,
+          "ingredients": [
+            {
+              "nom": "Portions de poulet panées Flamingo, 600-680 g",
+              "aubaine": "5,99 $ (jeu. au dim. seulement)",
+              "qte": 0.5,
+              "unite": "boîte",
+              "pas": 0.5,
+              "prixUnite": 5.99,
+              "achat": {
+                "qte": 1,
+                "label": "boîte",
+                "estime": false
+              }
+            },
+            {
+              "nom": "Sauce pour pâtes Classico, 410-650 ml",
+              "aubaine": "2,97 $",
+              "qte": 0.5,
+              "unite": "pot",
+              "pas": 0.5,
+              "prixUnite": 2.97,
+              "achat": {
+                "qte": 1,
+                "label": "pot",
+                "estime": false
+              }
+            },
+            {
+              "nom": "Fromage Selection",
+              "aubaine": "4,44 $ (membre)",
+              "qte": 100,
+              "unite": "g",
+              "pas": 10,
+              "prixUnite": 0.0111,
+              "achat": {
+                "qte": 400,
+                "label": "bloc (≈ 400 g)",
+                "estime": true
+              }
+            },
+            {
+              "nom": "Pommes de terre, sac de 5 lb",
+              "aubaine": "1,99 $",
+              "qte": 1,
+              "unite": "lb",
+              "pas": 0.25,
+              "prixUnite": 0.398,
+              "achat": {
+                "qte": 5,
+                "label": "sac de 5 lb",
+                "estime": false
+              }
+            }
+          ],
+          "gardeManger": [
+            [
+              1,
+              "c. à soupe d’huile"
+            ],
+            [
+              1,
+              "c. à thé de paprika"
+            ],
+            [
+              0.5,
+              "c. à thé d’origan séché"
+            ],
+            [
+              0,
+              "sel et poivre"
+            ]
+          ],
+          "etapes": [
+            "Chauffer le four à 220 °C. Couper 1 lb de pommes de terre en quartiers, mélanger avec l’huile, le paprika, sel et poivre; cuire 15 min.",
+            "Ajouter sur la plaque la moitié de la boîte de poulet pané; cuire 10 min.",
+            "Napper chaque portion de sauce Classico, couvrir de 100 g de fromage Selection râpé et d’origan; cuire encore 8–10 min jusqu’à 74 °C au centre et fromage doré.",
+            "L’autre moitié de la boîte reste au congélateur; le fromage restant se râpe et se congèle en sac (3 mois)."
+          ]
+        },
+        {
+          "nom": "Saumon saisi, sauce Boursin citronnée, pommes de terre rissolées et carottes glacées",
+          "temps": "45 min",
+          "icone": "poisson",
+          "proteines": 40,
+          "chef": true,
+          "ingredients": [
+            {
+              "nom": "Filet de saumon frais (Atlantique ou Coho)",
+              "aubaine": "9,99 $/lb",
+              "qte": 0.75,
+              "unite": "lb",
+              "pas": 0.25,
+              "prixUnite": 9.99,
+              "achat": {
+                "qte": 1,
+                "label": "filet",
+                "estime": true
+              }
+            },
+            {
+              "nom": "Fromage Boursin, 150 g",
+              "aubaine": "6 $ (membre)",
+              "qte": 75,
+              "unite": "g",
+              "pas": 25,
+              "prixUnite": 0.04,
+              "achat": {
+                "qte": 150,
+                "label": "paquet de 150 g",
+                "estime": false
+              }
+            },
+            {
+              "nom": "Pommes de terre, sac de 5 lb",
+              "aubaine": "1,99 $",
+              "qte": 1,
+              "unite": "lb",
+              "pas": 0.25,
+              "prixUnite": 0.398,
+              "achat": {
+                "qte": 5,
+                "label": "sac de 5 lb",
+                "estime": false
+              }
+            },
+            {
+              "nom": "Carottes, sac de 2 lb",
+              "aubaine": "0,99 $",
+              "qte": 0.5,
+              "unite": "lb",
+              "pas": 0.25,
+              "prixUnite": 0.495,
+              "achat": {
+                "qte": 2,
+                "label": "sac de 2 lb",
+                "estime": false
+              }
+            },
+            {
+              "nom": "Citron",
+              "aubaine": "Hors spécial · prix régulier ≈ 0,99 $ ch.",
+              "qte": 1,
+              "unite": "citron",
+              "pas": 0.5,
+              "prixUnite": 0.99,
+              "achat": {
+                "qte": 1,
+                "label": "",
+                "estime": true
+              },
+              "horsSpecial": true
+            },
+            {
+              "nom": "Ciboulette fraîche",
+              "aubaine": "Hors spécial · prix régulier ≈ 2,49 $ la botte",
+              "qte": 0.5,
+              "unite": "botte",
+              "pas": 0.5,
+              "prixUnite": 2.49,
+              "achat": {
+                "qte": 1,
+                "label": "botte",
+                "estime": true
+              },
+              "horsSpecial": true
+            }
+          ],
+          "gardeManger": [
+            [
+              2,
+              "c. à soupe de beurre"
+            ],
+            [
+              2,
+              "c. à soupe d’huile"
             ],
             [
               1,
@@ -1454,14 +1324,11 @@
             ]
           ],
           "etapes": [
-            "Préchauffer le four à 400 °F (200 °C). Couper les tomates en quartiers, les mélanger avec 1 c. à soupe d’huile, l’ail tranché, le sucre, sel et poivre et les confire au four 20 min.",
-            "Cuire 160 g de pâtes à l’eau bouillante salée. Éponger la truite, entailler légèrement la peau, saler. La saisir côté peau dans l’huile très chaude 4 min en pressant, puis la retourner 1 min, jusqu’à ce que la chair se défasse à la fourchette (63 °C).",
-            "Retirer le poisson; dans la poêle, cuire le beurre jusqu’à couleur noisette, ajouter le jus du citron et l’aneth haché hors du feu.",
-            "Enrober les pâtes de la moitié du beurre noisette et des tomates confites, déposer la truite et napper du reste. La truite restante se congèle crue 2 mois ou s’émiette froide dans une salade le lendemain."
-          ],
-          "icone": "poisson",
-          "proteines": 44,
-          "chef": true
+            "Couper 1 lb de pommes de terre en dés, les blanchir 5 min, bien égoutter puis les rissoler 15 min dans 1 c. à soupe d’huile jusqu’à ce qu’elles soient croustillantes. Glacer 0,5 lb de carottes en biseaux avec 1 c. à soupe de beurre, le sucre et ¼ tasse d’eau jusqu’à évaporation.",
+            "Sauce : fondre 75 g de Boursin avec 3 c. à soupe d’eau chaude, le zeste et 1 c. à soupe de jus de citron; fouetter avec 1 noix de beurre froid, ajouter la moitié de la ciboulette ciselée.",
+            "Assécher le saumon coupé en 2 pavés, saler; saisir côté peau 4 min dans l’huile très chaude, retourner, arroser de beurre et finir 2–3 min (≈ 52 °C rosé, ou 63 °C bien cuit).",
+            "Dresser saumon, sauce, pommes de terre et carottes, finir de ciboulette. Le Boursin restant se tartine sur des craquelins ou enrichit une purée; la ciboulette se congèle ciselée."
+          ]
         }
       ],
       "speciaux": [
@@ -1469,20 +1336,24 @@
           "rayon": "Fruits et légumes",
           "items": [
             [
-              "Framboises, 170 g",
-              "1,92 $"
+              "Carottes, sac de 2 lb",
+              "0,99 $"
             ],
             [
-              "Mûres, 170 g",
-              "1,92 $"
+              "Oignons jaunes, sac de 2 lb",
+              "0,99 $"
             ],
             [
-              "Pommes Lobo, Cortland ou McIntosh, sac de 4 lb",
-              "3,96 $"
+              "Pommes de terre, sac de 5 lb",
+              "1,99 $"
             ],
             [
-              "Tomates rouges en grappe",
-              "1,77 $/lb"
+              "Bleuets, 170 g",
+              "2,44 $"
+            ],
+            [
+              "Canneberges, 340 g",
+              "2,44 $"
             ]
           ]
         },
@@ -1490,37 +1361,49 @@
           "rayon": "Boucherie et poissonnerie",
           "items": [
             [
-              "Côtes de dos de porc cuites La Cage 630 g ou Irrésistibles 680 g (jeu. 22 au sam. 24 oct.)",
-              "8,99 $"
+              "Bœuf haché maigre",
+              "5,44 $/lb (11,99 $/kg)"
             ],
             [
-              "Filet de porc frais",
-              "3,94 $/lb"
+              "Porc haché extra-maigre",
+              "2,99 $/lb (6,59 $/kg)"
             ],
             [
-              "Filet de truite frais",
-              "9,99 $/lb"
+              "Filet de saumon Atlantique canadien ou Coho frais",
+              "9,99 $/lb (22,02 $/kg)"
             ],
             [
-              "Poitrines de poulet désossées ou poulet haché extra-maigre Prime, 454 g (membre)",
-              "6,00 $"
+              "Bacon Selection, 375 g",
+              "4,49 $ (membre)"
             ],
             [
-              "Rôti de contre-filet désossé",
-              "10,96 $/lb"
+              "Portions de poulet panées Flamingo, 600-680 g (jeu. au dim. seulement)",
+              "5,99 $"
+            ],
+            [
+              "Pâté Plaisirs Gastronomiques, 540-585 g (jeu. au dim. seulement)",
+              "5,99 $"
             ]
           ]
         },
         {
-          "rayon": "Produits laitiers",
+          "rayon": "Produits laitiers et fromages",
           "items": [
             [
-              "Beurre Selection, 454 g",
-              "4,88 $"
+              "Fromage Selection, choix varié",
+              "4,44 $ (membre)"
             ],
             [
-              "Yogourt Olympic Krema, 650 g (membre)",
-              "3,97 $"
+              "Fromage Boursin, 150 g",
+              "6 $ (membre)"
+            ],
+            [
+              "Buratini Bella Casara, 125 g",
+              "6 $ (membre)"
+            ],
+            [
+              "Yogourt Activia Danone, choix varié",
+              "3,33 $"
             ]
           ]
         },
@@ -1528,45 +1411,32 @@
           "rayon": "Épicerie",
           "items": [
             [
-              "Collations aux pommes Mieux-être Selection, 6 × 113 g",
-              "1,96 $"
+              "Sauce pour pâtes Classico, 410-650 ml",
+              "2,97 $"
             ],
             [
-              "Craquelins Christie, choix varié (membre)",
-              "1,88 $"
+              "Ketchup aux tomates Heinz, 750 ml-1 L",
+              "4,97 $"
             ],
             [
-              "Croustilles Irrésistibles ou Selection, 150-200 g",
-              "1,77 $"
+              "Tartinade Miracle Whip, 650-890 ml",
+              "4,97 $"
             ],
             [
-              "Pâtes alimentaires Selection, 900 g",
-              "1,44 $"
+              "Céréales Kellogg’s, sélection",
+              "3,87 $"
             ],
             [
-              "Salade de fruits Selection, 4 un.",
-              "1,96 $"
+              "Biscuits Pattes d’ours Dare, 168-240 g",
+              "2,49 $"
             ],
             [
-              "Snack Pack, 4 un.",
-              "1,96 $"
+              "Croustilles Lay’s, 200/235 g",
+              "2,77 $"
             ],
             [
-              "Tomates Selection, 540-796 ml",
-              "1,44 $"
-            ]
-          ]
-        },
-        {
-          "rayon": "Surgelés",
-          "items": [
-            [
-              "Friandises glacées Häagen-Dazs, choix varié",
-              "4,94 $"
-            ],
-            [
-              "Fruits Irrésistibles surgelés, 400-600 g",
-              "3,98 $"
+              "Jus réfrigéré Irrésistible, 1,36-1,65 L",
+              "2,99 $ (membre)"
             ]
           ]
         }
