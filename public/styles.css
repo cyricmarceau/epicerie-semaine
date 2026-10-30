@@ -326,3 +326,14 @@ h3{margin:0;font-size:13px;font-weight:600;text-transform:uppercase;letter-spaci
 
 /* Dessin à la main de Cyric (« Reset au semaine » + bonhomme sourire) */
 .dessin{display:block;margin-top:8px;width:216px;max-width:100%;height:auto;color:#D8D2C8;overflow:visible}
+
+/* Super C (jaune) */
+.st-superc .sec-title{color:#FFD23F}.st-superc .sec-title::after{background:#D4A400}
+.st-superc .rec-row{border-left:3px solid #D4A400}
+.stab.st-superc .dot{background:#FFD23F}
+.meta.st-superc .st{color:#FFD23F}
+/* 5 onglets d'épicerie */
+.store-tabs{display:flex;gap:4px}
+.store-tabs[hidden]{display:none}
+.stab{flex:1 1 auto;gap:5px;font-size:13px;white-space:nowrap;padding:0 6px}
+@media (max-width:380px){.stab{font-size:12.5px;padding:0 4px}.stab .dot{display:none}}

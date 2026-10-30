@@ -1441,6 +1441,479 @@
           ]
         }
       ]
+    },
+    {
+      "id": "superc",
+      "nom": "Super C",
+      "recettes": [
+        {
+          "nom": "Pilons de poulet rôtis au paprika, petites patates et chou-fleur grillé",
+          "temps": "50 min",
+          "icone": "poulet",
+          "proteines": 40,
+          "ingredients": [
+            {
+              "nom": "Pilons de poulet frais",
+              "aubaine": "1,99 $/lb (4,39 $/kg)",
+              "qte": 1.25,
+              "unite": "lb",
+              "pas": 0.25,
+              "prixUnite": 1.99,
+              "achat": {
+                "qte": 3,
+                "label": "barquette",
+                "estime": true
+              },
+              "compte": {
+                "parUnite": 4,
+                "label": "pilons"
+              }
+            },
+            {
+              "nom": "Petites pommes de terre rouges ou à chair jaune, sac de 3 lb",
+              "aubaine": "0,99 $ le sac de 3 lb",
+              "qte": 1,
+              "unite": "lb",
+              "pas": 0.25,
+              "prixUnite": 0.33,
+              "achat": {
+                "qte": 3,
+                "label": "sac",
+                "estime": false
+              }
+            },
+            {
+              "nom": "Chou-fleur",
+              "aubaine": "1,99 $",
+              "qte": 0.5,
+              "unite": "chou-fleur",
+              "pas": 0.5,
+              "prixUnite": 1.99,
+              "achat": {
+                "qte": 1,
+                "label": "",
+                "estime": false
+              }
+            }
+          ],
+          "gardeManger": [
+            [
+              2,
+              "c. à soupe d’huile"
+            ],
+            [
+              2,
+              "c. à thé de paprika"
+            ],
+            [
+              2,
+              "gousses d’ail"
+            ],
+            [
+              0,
+              "sel et poivre"
+            ]
+          ],
+          "etapes": [
+            "Chauffer le four à 220 °C. Couper les petites patates en deux et le demi-chou-fleur en bouquets; enrober de la moitié de l’huile, sel et poivre, étaler sur une grande plaque.",
+            "Frotter les pilons (≈ 5) avec le reste de l’huile, le paprika, l’ail râpé, sel et poivre. Les déposer sur la plaque entre les légumes.",
+            "Rôtir 40–45 min en retournant à mi-cuisson, jusqu’à 74 °C près de l’os et une peau bien dorée.",
+            "Le reste de la barquette (≈ 1,75 lb) se congèle cru à plat en sac de 5 pilons (3 mois); le reste du sac de patates se garde au frais et à l’abri de la lumière."
+          ]
+        },
+        {
+          "nom": "Steaks hachés au fromage, patates écrasées et épinards à l’ail",
+          "temps": "35 min",
+          "icone": "boeuf",
+          "proteines": 37,
+          "ingredients": [
+            {
+              "nom": "Bœuf haché mi-maigre",
+              "aubaine": "4,94 $/lb (10,89 $/kg)",
+              "qte": 0.75,
+              "unite": "lb",
+              "pas": 0.25,
+              "prixUnite": 4.94,
+              "achat": {
+                "qte": 1,
+                "label": "barquette",
+                "estime": true
+              }
+            },
+            {
+              "nom": "Fromage râpé Cracker Barrel",
+              "aubaine": "5,97 $ (250–320 g)",
+              "qte": 60,
+              "unite": "g",
+              "pas": 10,
+              "prixUnite": 0.02388,
+              "achat": {
+                "qte": 250,
+                "label": "sac de fromage râpé (250–320 g)",
+                "estime": false
+              }
+            },
+            {
+              "nom": "Petites pommes de terre rouges ou à chair jaune, sac de 3 lb",
+              "aubaine": "0,99 $ le sac de 3 lb",
+              "qte": 1,
+              "unite": "lb",
+              "pas": 0.25,
+              "prixUnite": 0.33,
+              "achat": {
+                "qte": 3,
+                "label": "sac",
+                "estime": false
+              }
+            },
+            {
+              "nom": "Épinards frais",
+              "aubaine": "0,99 $ (prix membre)",
+              "qte": 0.5,
+              "unite": "sac",
+              "pas": 0.5,
+              "prixUnite": 0.99,
+              "achat": {
+                "qte": 1,
+                "label": "sac",
+                "estime": false
+              }
+            }
+          ],
+          "gardeManger": [
+            [
+              1,
+              "c. à soupe de beurre"
+            ],
+            [
+              1,
+              "c. à soupe d’huile"
+            ],
+            [
+              1,
+              "gousse d’ail"
+            ],
+            [
+              0.5,
+              "oignon"
+            ],
+            [
+              0,
+              "sel et poivre"
+            ]
+          ],
+          "etapes": [
+            "Cuire les petites patates entières 15–18 min dans l’eau salée bouillante, égoutter et écraser grossièrement avec le beurre, sel et poivre.",
+            "Mélanger le bœuf avec l’oignon râpé, sel et poivre; former 2 galettes épaisses. Les cuire 4–5 min par côté dans l’huile chaude, jusqu’à 71 °C au centre, puis couvrir de fromage râpé 1 min pour le faire fondre.",
+            "Dans la même poêle, faire tomber la moitié du sac d’épinards avec l’ail haché, 1–2 min.",
+            "Le reste du bœuf (≈ 0,25 lb) se congèle à plat (3 mois) ou s’ajoute à une sauce à spaghetti; le fromage râpé se congèle aussi en sac bien fermé."
+          ]
+        },
+        {
+          "nom": "Côtes de dos de porc glacées, rapini sauté et patates rissolées",
+          "temps": "30 min",
+          "icone": "porc",
+          "proteines": 40,
+          "ingredients": [
+            {
+              "nom": "Côtes de dos de porc cuites Benny, 595 g",
+              "aubaine": "9,99 $",
+              "qte": 1,
+              "unite": "paquet",
+              "pas": 0.5,
+              "prixUnite": 9.99,
+              "achat": {
+                "qte": 1,
+                "label": "paquet",
+                "estime": false
+              }
+            },
+            {
+              "nom": "Rapini",
+              "aubaine": "1,99 $",
+              "qte": 1,
+              "unite": "botte",
+              "pas": 0.5,
+              "prixUnite": 1.99,
+              "achat": {
+                "qte": 1,
+                "label": "",
+                "estime": false
+              }
+            },
+            {
+              "nom": "Petites pommes de terre rouges ou à chair jaune, sac de 3 lb",
+              "aubaine": "0,99 $ le sac de 3 lb",
+              "qte": 1,
+              "unite": "lb",
+              "pas": 0.25,
+              "prixUnite": 0.33,
+              "achat": {
+                "qte": 3,
+                "label": "sac",
+                "estime": false
+              }
+            }
+          ],
+          "gardeManger": [
+            [
+              2,
+              "c. à soupe d’huile"
+            ],
+            [
+              3,
+              "gousses d’ail"
+            ],
+            [
+              1,
+              "pincée de chili broyé"
+            ],
+            [
+              0,
+              "sel et poivre"
+            ]
+          ],
+          "etapes": [
+            "Chauffer le four à 200 °C. Déposer les côtes déjà cuites sur une plaque avec leur sauce et réchauffer 20 min, jusqu’à 74 °C au centre (mets réchauffé).",
+            "Couper les patates en quartiers, les cuire 8 min à l’eau bouillante, égoutter, puis les rissoler 8–10 min dans la moitié de l’huile; saler et poivrer.",
+            "Blanchir le rapini 2 min dans l’eau bouillante salée, égoutter, puis le sauter 2–3 min avec le reste de l’huile, l’ail tranché et le chili broyé.",
+            "Les côtes en trop se gardent 3 jours au frigo ou se congèlent en portions (2 mois); elles font de bons sandwichs effilochés."
+          ]
+        },
+        {
+          "nom": "Truite steelhead saisie, fenouil fondant au beurre, épinards et citron-aneth",
+          "temps": "40 min",
+          "icone": "poisson",
+          "proteines": 34,
+          "chef": true,
+          "ingredients": [
+            {
+              "nom": "Filet de truite steelhead frais",
+              "aubaine": "9,99 $/lb (22,02 $/kg)",
+              "qte": 0.75,
+              "unite": "lb",
+              "pas": 0.25,
+              "prixUnite": 9.99,
+              "achat": {
+                "qte": 1,
+                "label": "filet",
+                "estime": true
+              }
+            },
+            {
+              "nom": "Fenouil",
+              "aubaine": "1,99 $",
+              "qte": 1,
+              "unite": "bulbe",
+              "pas": 0.5,
+              "prixUnite": 1.99,
+              "achat": {
+                "qte": 1,
+                "label": "",
+                "estime": false
+              }
+            },
+            {
+              "nom": "Épinards frais",
+              "aubaine": "0,99 $ (prix membre)",
+              "qte": 0.5,
+              "unite": "sac",
+              "pas": 0.5,
+              "prixUnite": 0.99,
+              "achat": {
+                "qte": 1,
+                "label": "sac",
+                "estime": false
+              }
+            },
+            {
+              "nom": "Citron",
+              "aubaine": "Hors spécial · prix régulier ≈ 0,99 $ l’unité",
+              "qte": 0.5,
+              "unite": "citron",
+              "pas": 0.5,
+              "prixUnite": 0.99,
+              "achat": {
+                "qte": 1,
+                "label": "",
+                "estime": true
+              },
+              "horsSpecial": true
+            },
+            {
+              "nom": "Aneth frais",
+              "aubaine": "Hors spécial · prix régulier ≈ 2,49 $ la botte",
+              "qte": 0.5,
+              "unite": "botte",
+              "pas": 0.5,
+              "prixUnite": 2.49,
+              "achat": {
+                "qte": 1,
+                "label": "botte",
+                "estime": true
+              },
+              "horsSpecial": true
+            }
+          ],
+          "gardeManger": [
+            [
+              3,
+              "c. à soupe de beurre"
+            ],
+            [
+              1,
+              "c. à soupe d’huile"
+            ],
+            [
+              1,
+              "gousse d’ail"
+            ],
+            [
+              0,
+              "sel et poivre"
+            ]
+          ],
+          "etapes": [
+            "Trancher le fenouil en quartiers minces (garder les plumets). Le faire dorer 5 min dans 1 c. à soupe de beurre, ajouter ¼ tasse d’eau, couvrir et laisser fondre 15 min à feu doux; saler et poivrer.",
+            "Couper le filet en 2 portions (≈ 0,75 lb), éponger, saler la peau. Saisir côté peau 5–6 min dans l’huile très chaude sans bouger, retourner 1–2 min, jusqu’à ce que la chair se défasse (63 °C).",
+            "Dans la poêle du poisson, faire mousser 2 c. à soupe de beurre avec l’ail; ajouter le jus du demi-citron et l’aneth haché. Faire tomber la moitié des épinards dans ce beurre 1 min.",
+            "Servir la truite sur le fenouil et les épinards, napper du beurre citron-aneth. Le reste du filet se congèle cru, bien emballé (2 mois); le reste d’aneth se congèle haché dans l’huile."
+          ]
+        }
+      ],
+      "speciaux": [
+        {
+          "rayon": "Fruits et légumes",
+          "items": [
+            [
+              "Ananas Tropical Gold",
+              "2,44 $"
+            ],
+            [
+              "Chou-fleur",
+              "1,99 $"
+            ],
+            [
+              "Épinards frais (membre)",
+              "0,99 $"
+            ],
+            [
+              "Fenouil",
+              "1,99 $"
+            ],
+            [
+              "Petites pommes de terre rouges ou à chair jaune, sac de 3 lb",
+              "0,99 $"
+            ],
+            [
+              "Pommes McIntosh ou Cortland, sac de 4 lb",
+              "3,44 $"
+            ],
+            [
+              "Raisins rouges sans pépins",
+              "1,48 $/lb (3,26 $/kg)"
+            ],
+            [
+              "Rapini",
+              "1,99 $"
+            ]
+          ]
+        },
+        {
+          "rayon": "Boucherie et poissonnerie",
+          "items": [
+            [
+              "Bœuf haché mi-maigre",
+              "4,94 $/lb (10,89 $/kg)"
+            ],
+            [
+              "Côtes de dos de porc cuites Benny, 595 g",
+              "9,99 $"
+            ],
+            [
+              "Jeune dindon Flamingo (jeudi au dimanche)",
+              "1,58 $/lb (3,48 $/kg)"
+            ],
+            [
+              "Pilons de poulet frais",
+              "1,99 $/lb (4,39 $/kg)"
+            ],
+            [
+              "Filet de truite steelhead frais",
+              "9,99 $/lb (22,02 $/kg)"
+            ]
+          ]
+        },
+        {
+          "rayon": "Charcuterie et fromages",
+          "items": [
+            [
+              "Fromage Cracker Barrel, 400 g ou râpé 250–320 g",
+              "5,97 $"
+            ],
+            [
+              "Prosciutto San Daniele, 100 g",
+              "3,99 $"
+            ]
+          ]
+        },
+        {
+          "rayon": "Produits laitiers et œufs",
+          "items": [
+            [
+              "Beurre Sélection, 454 g",
+              "4,75 $"
+            ],
+            [
+              "Yogourt crémeux Irrésistible, 16 × 100 g (membre)",
+              "4,44 $"
+            ]
+          ]
+        },
+        {
+          "rayon": "Épicerie",
+          "items": [
+            [
+              "Arachides Planters, 454–475 g",
+              "2,97 $"
+            ],
+            [
+              "Beurre d’arachide Kraft, 750 g–1 kg",
+              "4,97 $"
+            ],
+            [
+              "Farine Five Roses ou Robin Hood, 10 kg",
+              "11,97 $"
+            ],
+            [
+              "Tartinade Double Fruit, 375–500 ml",
+              "4,97 $"
+            ]
+          ]
+        },
+        {
+          "rayon": "Boulangerie",
+          "items": [
+            [
+              "Pains farcis assortis (membre)",
+              "9,99 $"
+            ]
+          ]
+        },
+        {
+          "rayon": "Papier",
+          "items": [
+            [
+              "Essuie-tout Sponge Towels, 6 rouleaux doubles (jeudi au dimanche)",
+              "8,88 $"
+            ],
+            [
+              "Papier hygiénique Cashmere, 24 rouleaux doubles (jeudi au dimanche)",
+              "8,88 $"
+            ]
+          ]
+        }
+      ]
     }
   ]
 }
