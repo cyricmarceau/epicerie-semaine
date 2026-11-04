@@ -337,3 +337,13 @@ h3{margin:0;font-size:13px;font-weight:600;text-transform:uppercase;letter-spaci
 .store-tabs[hidden]{display:none}
 .stab{flex:1 1 auto;gap:5px;font-size:13px;white-space:nowrap;padding:0 6px}
 @media (max-width:380px){.stab{font-size:12.5px;padding:0 4px}.stab .dot{display:none}}
+
+/* Costco (turquoise) */
+.st-costco .sec-title{color:#5EE6E6}.st-costco .sec-title::after{background:#1BA8AE}
+.st-costco .rec-row{border-left:3px solid #1BA8AE}
+.stab.st-costco .dot{background:#5EE6E6}
+.meta.st-costco .st{color:#5EE6E6}
+/* 6 onglets : défilement horizontal dans la barre si ça ne tient pas */
+.store-tabs{overflow-x:auto;scrollbar-width:none;-webkit-overflow-scrolling:touch}
+.store-tabs::-webkit-scrollbar{display:none}
+.stab{flex:1 0 auto}

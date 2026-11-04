@@ -1914,6 +1914,380 @@
           ]
         }
       ]
+    },
+    {
+      "id": "costco",
+      "nom": "Costco",
+      "recettes": [
+        {
+          "nom": "Poitrines de poulet farcies brocoli-fromage, pommes Ambrosia rôties au thym",
+          "temps": "40 min",
+          "icone": "poulet",
+          "proteines": 35,
+          "ingredients": [
+            {
+              "nom": "Poitrines de poulet farcies brocoli et fromage Sunrise Farms, 8 × 142 g",
+              "aubaine": "3 $ de rabais · prix ≈ 16,99 $ (estimé)",
+              "qte": 3,
+              "unite": "poitrine",
+              "pas": 1,
+              "prixUnite": 2.12375,
+              "achat": {
+                "qte": 8,
+                "label": "boîte de 8",
+                "estime": true
+              }
+            },
+            {
+              "nom": "Pommes Ambrosia, sac de 2,72 kg",
+              "aubaine": "3 $ de rabais · prix ≈ 6,99 $ (estimé)",
+              "qte": 2,
+              "unite": "pomme",
+              "pas": 0.5,
+              "prixUnite": 0.4992857142857143,
+              "achat": {
+                "qte": 14,
+                "label": "sac de 2,72 kg (≈ 14 pommes)",
+                "estime": true
+              }
+            }
+          ],
+          "gardeManger": [
+            [
+              1,
+              "c. à soupe d’huile"
+            ],
+            [
+              1,
+              "c. à soupe de beurre"
+            ],
+            [
+              0.5,
+              "c. à thé de thym séché"
+            ],
+            [
+              1,
+              "c. à thé de cassonade"
+            ],
+            [
+              0,
+              "sel et poivre"
+            ]
+          ],
+          "etapes": [
+            "Chauffer le four à 200 °C. Déposer 3 poitrines farcies sur une plaque tapissée, badigeonner d’huile.",
+            "Couper 2 pommes en quartiers, enrober du beurre fondu, de la cassonade, du thym, sel et poivre; les étaler autour du poulet.",
+            "Cuire 30–35 min, jusqu’à 74 °C au centre du poulet et des pommes tendres et dorées.",
+            "Les 5 poitrines qui restent se gardent au congélateur dans leur emballage (3 mois) et se cuisent directement congelées en ajoutant 10–15 min. Les pommes se gardent 2 semaines au frigo."
+          ]
+        },
+        {
+          "nom": "Mini tacos au poulet croustillants, trempette houmous à l’ail",
+          "temps": "20 min",
+          "icone": "poulet",
+          "proteines": 24,
+          "ingredients": [
+            {
+              "nom": "Mini tacos au poulet Don Miguel, 1,43 kg",
+              "aubaine": "13,99 $ (5 $ de rabais)",
+              "qte": 0.3,
+              "unite": "boîte",
+              "pas": 0.1,
+              "prixUnite": 13.99,
+              "achat": {
+                "qte": 1,
+                "label": "boîte de 1,43 kg",
+                "estime": false
+              }
+            },
+            {
+              "nom": "Houmous traditionnel Fontaine Santé, 2 × 565 g",
+              "aubaine": "5,99 $ (2 $ de rabais)",
+              "qte": 0.5,
+              "unite": "pot",
+              "pas": 0.5,
+              "prixUnite": 2.995,
+              "achat": {
+                "qte": 2,
+                "label": "paquet de 2 pots",
+                "estime": false
+              }
+            }
+          ],
+          "gardeManger": [
+            [
+              1,
+              "c. à soupe d’huile"
+            ],
+            [
+              1,
+              "gousse d’ail"
+            ],
+            [
+              0.5,
+              "c. à thé de paprika"
+            ],
+            [
+              0,
+              "sel et poivre"
+            ]
+          ],
+          "etapes": [
+            "Chauffer le four à 220 °C. Étaler environ 12 mini tacos congelés sur une plaque sans les superposer.",
+            "Cuire 12–14 min en les retournant à mi-cuisson, jusqu’à ce qu’ils soient croustillants et chauds au centre (74 °C).",
+            "Pendant ce temps, mettre la moitié d’un pot de houmous dans un bol, ajouter l’ail râpé, un filet d’huile et le paprika.",
+            "Le reste de la boîte reste au congélateur (se cuit directement congelé). Le 2e pot de houmous fermé se garde jusqu’à la date indiquée; ouvert, 5–7 jours au frigo."
+          ]
+        },
+        {
+          "nom": "Soupe-repas aux lentilles gratinée au cheddar vieilli",
+          "temps": "15 min",
+          "icone": "vege",
+          "proteines": 20,
+          "ingredients": [
+            {
+              "nom": "Soupe aux lentilles biologiques Sprague, 8 × 398 ml",
+              "aubaine": "4 $ de rabais · prix ≈ 15,99 $ (estimé)",
+              "qte": 2,
+              "unite": "boîte",
+              "pas": 1,
+              "prixUnite": 1.99875,
+              "achat": {
+                "qte": 8,
+                "label": "caisse de 8 boîtes",
+                "estime": true
+              }
+            },
+            {
+              "nom": "Fromage cheddar Balderson 2022 Réserve, 500 g",
+              "aubaine": "3,50 $ de rabais · prix ≈ 9,49 $ (estimé)",
+              "qte": 60,
+              "unite": "g",
+              "pas": 10,
+              "prixUnite": 0.01898,
+              "achat": {
+                "qte": 500,
+                "label": "bloc de 500 g",
+                "estime": true
+              }
+            }
+          ],
+          "gardeManger": [
+            [
+              0.5,
+              "oignon"
+            ],
+            [
+              1,
+              "c. à soupe d’huile"
+            ],
+            [
+              0.5,
+              "c. à thé de cumin"
+            ],
+            [
+              0,
+              "sel et poivre"
+            ]
+          ],
+          "etapes": [
+            "Faire revenir l’oignon haché dans l’huile 4 min, ajouter le cumin 30 s.",
+            "Verser 2 boîtes de soupe, porter à frémissement 5 min; saler et poivrer.",
+            "Servir dans 2 bols allant au four, couvrir de 60 g de cheddar râpé et gratiner 2–3 min sous le gril.",
+            "Les 6 boîtes qui restent se gardent au garde-manger; le cheddar se garde 3–4 semaines bien emballé au frigo ou se congèle râpé."
+          ]
+        },
+        {
+          "nom": "Burrata crémeuse sur pâtes aux tomates cerises rôties et à l’ail",
+          "temps": "30 min",
+          "icone": "pates",
+          "proteines": 31,
+          "chef": true,
+          "ingredients": [
+            {
+              "nom": "Burrata Bella Casara, 2 × 250 g",
+              "aubaine": "13,99 $ (4 $ de rabais)",
+              "qte": 1,
+              "unite": "burrata",
+              "pas": 1,
+              "prixUnite": 6.995,
+              "achat": {
+                "qte": 2,
+                "label": "paquet de 2",
+                "estime": false
+              }
+            },
+            {
+              "nom": "Spaghetti",
+              "aubaine": "Hors spécial · prix régulier ≈ 2,49 $ la boîte de 900 g",
+              "qte": 175,
+              "unite": "g",
+              "pas": 25,
+              "prixUnite": 0.002766666666666667,
+              "achat": {
+                "qte": 900,
+                "label": "boîte de 900 g",
+                "estime": true
+              },
+              "horsSpecial": true
+            },
+            {
+              "nom": "Tomates cerises",
+              "aubaine": "Hors spécial · prix régulier ≈ 3,99 $ le contenant",
+              "qte": 1,
+              "unite": "contenant",
+              "pas": 0.5,
+              "prixUnite": 3.99,
+              "achat": {
+                "qte": 1,
+                "label": "contenant de 551 ml",
+                "estime": true
+              },
+              "horsSpecial": true
+            }
+          ],
+          "gardeManger": [
+            [
+              3,
+              "c. à soupe d’huile"
+            ],
+            [
+              3,
+              "gousses d’ail"
+            ],
+            [
+              0.5,
+              "c. à thé d’origan"
+            ],
+            [
+              1,
+              "pincée de chili broyé"
+            ],
+            [
+              0,
+              "sel et poivre"
+            ]
+          ],
+          "etapes": [
+            "Chauffer le four à 220 °C. Mettre les tomates cerises entières dans un plat avec 2 c. à soupe d’huile, l’ail tranché, l’origan, le chili, sel et poivre; rôtir 18–20 min jusqu’à ce qu’elles éclatent.",
+            "Cuire 175 g de spaghetti al dente; garder ½ tasse d’eau de cuisson.",
+            "Écraser légèrement les tomates dans le plat, y ajouter les pâtes et un peu d’eau de cuisson; mélanger pour lier la sauce.",
+            "Servir dans 2 assiettes, déposer une demi-burrata déchirée sur chaque portion, arroser du reste d’huile et poivrer. La 2e burrata fermée se garde jusqu’à sa date (ne se congèle pas) : parfaite sur une salade ou des tartines."
+          ]
+        }
+      ],
+      "speciaux": [
+        {
+          "rayon": "Viande et volaille",
+          "items": [
+            [
+              "Poitrines de poulet farcies brocoli et fromage Sunrise Farms, 8 × 142 g (jusqu’au 8 nov.)",
+              "3 $ de rabais"
+            ]
+          ]
+        },
+        {
+          "rayon": "Fruits",
+          "items": [
+            [
+              "Pommes Ambrosia, 2,72 kg (jusqu’au 8 nov.)",
+              "3 $ de rabais"
+            ]
+          ]
+        },
+        {
+          "rayon": "Produits laitiers et fromages",
+          "items": [
+            [
+              "Burrata Bella Casara, 2 × 250 g",
+              "13,99 $ (−4 $)"
+            ],
+            [
+              "Fromage cheddar Balderson 2022 Réserve, 500 g (jusqu’au 8 nov.)",
+              "3,50 $ de rabais"
+            ],
+            [
+              "Tranches de fromage Kraft, 1,25 kg (jusqu’au 8 nov.)",
+              "2 $ de rabais"
+            ],
+            [
+              "Yogourt à boire YOP, 15 × 200 ml (jusqu’au 8 nov.)",
+              "9,99 $ (−3 $)"
+            ]
+          ]
+        },
+        {
+          "rayon": "Mets préparés et surgelés",
+          "items": [
+            [
+              "Mini tacos au poulet Don Miguel, 1,43 kg",
+              "13,99 $ (−5 $)"
+            ],
+            [
+              "Pizzas individuelles Sabatasso’s, 12 × 103 g (jusqu’au 8 nov.)",
+              "4,50 $ de rabais"
+            ],
+            [
+              "Udon sauté teriyaki Pulmuone, 877 g (jusqu’au 8 nov.)",
+              "3,50 $ de rabais"
+            ],
+            [
+              "Yakisoba aux légumes Ajinomoto, 6 × 255 g",
+              "4 $ de rabais"
+            ]
+          ]
+        },
+        {
+          "rayon": "Épicerie",
+          "items": [
+            [
+              "Houmous traditionnel Fontaine Santé, 2 × 565 g",
+              "5,99 $ (−2 $)"
+            ],
+            [
+              "Soupe aux lentilles biologiques Sprague, 8 × 398 ml",
+              "4 $ de rabais"
+            ],
+            [
+              "Bols de nouilles kimchi NongShim, 12 × 86 g",
+              "9,99 $ (−3 $)"
+            ],
+            [
+              "Huile de pépins de raisin Ottavio, 3 L (jusqu’au 8 nov.)",
+              "4 $ de rabais"
+            ],
+            [
+              "Café en grains Lavazza Crema e Aroma, 1 kg (jusqu’au 8 nov.)",
+              "19,99 $ (−5 $)"
+            ]
+          ]
+        },
+        {
+          "rayon": "Collations et sucreries",
+          "items": [
+            [
+              "Croustilles Miss Vickie’s sel de mer et vinaigre, 572 g",
+              "6,49 $ (−2 $)"
+            ],
+            [
+              "Craquelins de riz CrunchMaster, 567 g",
+              "2,50 $ de rabais"
+            ],
+            [
+              "Pistaches enrobées de chocolat Lamontagne, 500 g (jusqu’au 8 nov.)",
+              "12,99 $ (−4 $)"
+            ],
+            [
+              "Ferrero Rocher, 48 unités (jusqu’au 8 nov.)",
+              "17,49 $ (−4,50 $)"
+            ],
+            [
+              "Chocolats Merci, 675 g",
+              "4 $ de rabais"
+            ]
+          ]
+        }
+      ]
     }
   ]
 }
